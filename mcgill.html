@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McGill Application Plan</title>
+<meta name="description" content="Timeline, programs, tuition and to-dos for a Fall 2027 McGill application from a U.S. high school.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5e58;
+    --line: #e3e1d9; --accent: #1e5bb8; --accent-soft: #e7eefa; --warn: #a3470f; --warn-soft: #fbefe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
+      --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
+    --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p.kicker { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
+  h2 { font-size: 22px; margin: 0 0 12px; }
+  .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
+  .lead strong { color: var(--ink); }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 20px; }
+  .callout { background: var(--accent-soft); border-color: transparent; display: flex; gap: 24px; flex-wrap: wrap; }
+  .callout div { flex: 1 1 160px; }
+  .callout .date { font-size: 26px; font-weight: 700; color: var(--accent); }
+  .callout .what { color: var(--muted); font-size: 14px; }
+  .tablewrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  tr.key td { background: var(--accent-soft); font-weight: 600; }
+  td.when { white-space: nowrap; font-weight: 600; }
+  .rank { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); font-weight: 700; font-size: 13px; }
+  .rank.opt { background: var(--line); color: var(--ink); }
+  ul.todo { list-style: none; padding: 0; margin: 0; }
+  ul.todo li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  ul.todo li:last-child { border-bottom: 0; }
+  ul.todo input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+  ul.todo label { cursor: pointer; }
+  ul.todo .done label { color: var(--muted); text-decoration: line-through; }
+  .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-top: 14px; }
+  footer { font-size: 13px; color: var(--muted); }
+  footer a, section a { color: var(--accent); }
+  footer ul { padding-left: 18px; }
+
+  nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
+  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
+  nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <nav class="site" aria-label="Schools"><a href="index.html">U of T</a><a href="mcgill.html" aria-current="page">McGill</a></nav>
+  <header>
+    <p class="kicker">McGill University · Fall 2027 entry</p>
+    <h1>McGill application plan</h1>
+    <p class="lead">Apply directly to McGill (not through OUAC) by <strong>Jan 15</strong>. Admission is based on grades and test scores; U.S.-school applicants self-report grades instead of sending transcripts.</p>
+  </header>
+
+  <section class="callout" aria-label="Key dates">
+    <div><div class="date">Nov 15</div><div class="what">Grade self-reporting opens</div></div>
+    <div><div class="date">Jan 15</div><div class="what">Application deadline</div></div>
+    <div><div class="date">Jan 21</div><div class="what">Major Entrance Scholarship</div></div>
+    <div><div class="date">Mar 1</div><div class="what">Documents and grades due</div></div>
+  </section>
+
+  <section>
+    <h2>Programs to apply to</h2>
+    <p>One fee ($140.16 CAD) covers two applications, considered independently.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Choice</th><th>Program</th><th>Typical admits*</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span></td><td>B.Sc., Physical, Earth, Math &amp; Computer Science group</td><td>B+ to A-; A- in math and science; SAT about 690–710 per section</td><td>One application covers McGill's two strengths below</td></tr>
+        <tr><td><span class="rank opt">2</span></td><td>B.Eng. Electrical Engineering (free second application)</td><td>A- to A; SAT about 700–720 per section</td><td>Keeps engineering open</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h2 style="margin-top:24px">Majors to aim for in the B.Sc. group</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Focus</th><th>Programs</th><th>Fit</th></tr></thead>
+      <tbody>
+        <tr><td>Math, physics, statistics</td><td>Honours Applied Mathematics; Physics; Statistics; Mathematics</td><td>Modeling and statistics; strong PhD path</td></tr>
+        <tr><td>AI and ML</td><td>Joint majors: Statistics &amp; CS, Mathematics &amp; CS, Physics &amp; CS; Honours Computer Science</td><td>Route into Mila, the Quebec AI institute, including climate-focused ML</td></tr>
+        <tr><td>Environment (optional)</td><td>Environment Major (Environmetrics; Water Environments – Physical); Atmospheric Science; Earth System Science</td><td>Same group, no transfer needed</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">*Unweighted Grade 11–12 averages; guidelines only. Major is declared at the start of first year. Switching to a different science group needs a transfer after one year.</p>
+  </section>
+
+  <section>
+    <h2>Requirements (U.S. high school)</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Item</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Science prerequisites</td><td>Pre-calculus plus two of biology, chemistry, physics</td></tr>
+        <tr><td>Engineering prerequisites</td><td>Pre-calculus, chemistry, physics</td></tr>
+        <tr><td>SAT / ACT</td><td>Optional for Fall 2027; sending can bring an earlier decision. SAT code 0935</td></tr>
+        <tr><td>Grades</td><td>Self-reported in the Applicant Portal; needs fall grades for at least five 11th-grade and four 12th-grade courses</td></tr>
+        <tr><td>AP</td><td>Declare completed and planned exams; may earn advanced-standing credit</td></tr>
+        <tr><td>Essays and letters</td><td>Not used for these programs (only for the scholarship)</td></tr>
+        <tr><td>English</td><td>Waived after four years of schooling in an English-speaking country</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tuition</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>2026-27, 30 credits</th><th>Per year (CAD)</th></tr></thead>
+      <tbody>
+        <tr><td>Quebec resident</td><td>$3,117.60</td></tr>
+        <tr><td>Canadian, non-Quebec</td><td>$12,985.50 or more (Engineering adds a supplement)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">Applicants born in Quebec qualify for Quebec-resident tuition as a permanent status. Proof is a Quebec birth certificate from the Directeur de l'état civil marked "Certifié conforme" and issued after January 1994 (not the "article 137" version). French is not an admission or graduation requirement for these programs.</p>
+  </section>
+
+  <section>
+    <h2>Internships and research</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Program</th><th>Route</th><th>Length</th></tr></thead>
+      <tbody>
+        <tr><td>B.Sc.</td><td>Science Internship Program: Industrial Practicum or Internship Year in Science</td><td>One term (12+ weeks), or 8, 12 or 16 months; industry placements, paid</td></tr>
+        <tr><td>B.Eng.</td><td>Engineering Internship Program</td><td>4, 8, 12 or 16 months, paid, full-time</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">Research: Mila (Quebec AI institute) and paid NSERC summer research awards for Canadian students.</p>
+  </section>
+
+  <section>
+    <h2>Checklist</h2>
+    <ul class="todo" id="todo">
+      <li><input type="checkbox" id="m1"><label for="m1">Confirm the right Quebec birth certificate is on hand</label></li>
+      <li><input type="checkbox" id="m2"><label for="m2">Send SAT scores (code 0935)</label></li>
+      <li><input type="checkbox" id="m3"><label for="m3">Submit the application with both choices by Jan 15</label></li>
+      <li><input type="checkbox" id="m4"><label for="m4">Self-report grades and planned AP exams</label></li>
+      <li><input type="checkbox" id="m5"><label for="m5">Major Entrance Scholarship: essay, activities, two referee letters, class-rank statement by Jan 21</label></li>
+      <li><input type="checkbox" id="m6"><label for="m6">Answer any checklist requests (mid-year grades, school profile) by Mar 1</label></li>
+      <li><input type="checkbox" id="m7"><label for="m7">If admitted: submit birth certificate for Quebec tuition, pay $500 deposit</label></li>
+    </ul>
+    <p class="note">Ticks are saved in this browser only.</p>
+  </section>
+
+  <footer>
+    <p>Sources, checked Nov 1, 2026:</p>
+    <ul>
+      <li><a href="https://www.mcgill.ca/undergraduate-admissions/apply/requirements/us">U.S. high school applicants</a></li>
+      <li><a href="https://www.mcgill.ca/undergraduate-admissions/apply/requirements/us/faq2025">U.S. applicant FAQ (Fall 2027)</a></li>
+      <li><a href="https://www.mcgill.ca/undergraduate-admissions/apply">How to apply</a></li>
+      <li><a href="https://coursecatalogue.mcgill.ca/en/undergraduate/science/overview-programs-offered/bachelor-science-program-groups/">B.Sc. program groups</a></li>
+      <li><a href="https://www.mcgill.ca/science/undergraduate/programs/type">Applying to the B.Sc.</a></li>
+      <li><a href="https://mcgill.ca/legaldocuments/quebec/situation1">Quebec residency: born in Quebec</a></li>
+      <li><a href="https://www.mcgill.ca/student-accounts/node/59">Tuition 2026-27</a></li>
+      <li><a href="https://www.mcgill.ca/undergraduate-admissions/important-updates">Important updates (French)</a></li>
+      <li><a href="https://www.mcgill.ca/careers4engineers/engineering-internship-program">Engineering Internship Program</a></li>
+      <li><a href="https://www.mcgill.ca/science/undergraduate/internships-field/internships">Science Internship Program</a></li>
+      <li><a href="https://www.mcgill.ca/studentaid/node/1061">Entrance scholarships</a></li>
+    </ul>
+  </footer>
+</main>
+<script>
+  (function () {
+    var KEY = 'mcgill-checklist';
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    document.querySelectorAll('#todo input').forEach(function (box) {
+      box.checked = !!saved[box.id];
+      box.parentElement.classList.toggle('done', box.checked);
+      box.addEventListener('change', function () {
+        saved[box.id] = box.checked;
+        box.parentElement.classList.toggle('done', box.checked);
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

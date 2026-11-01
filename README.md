@@ -39,3 +39,12 @@ U of T co-op is one long placement; Waterloo uses six rotating 4-month terms.
 ## Publishing
 
 Settings → Pages → Deploy from branch → `main` / root.
+
+## McGill
+
+See `mcgill.html`. Apply directly by Jan 15 (documents Mar 1; Major Entrance Scholarship Jan 21).
+
+1. B.Sc., Physical, Earth, Math & Computer Science group: target Applied Math, Physics, Statistics, or a joint major with Computer Science (AI/ML via Mila)
+2. B.Eng. Electrical Engineering (free second application)
+
+Quebec-resident tuition (about $3,100 CAD/year) applies to applicants born in Quebec.
