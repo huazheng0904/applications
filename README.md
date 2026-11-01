@@ -56,3 +56,7 @@ See `waterloo.html`. Same OUAC application as U of T; AIF due Feb 15 (Math/CS) o
 1. Mathematics (co-op): Applied Math, Mathematical Physics, Statistics, Data Science
 2. Computer Science (co-op), reach
 3. Electrical Engineering (co-op), or Physical Sciences / Environmental Engineering
+
+## Euclid contest prep
+
+See `euclid.html`. Euclid is Tuesday, April 6, 2027; a school must register the student. About 30 hours of prep, mostly Feb 16–Mar 31.
