@@ -48,3 +48,11 @@ See `mcgill.html`. Apply directly by Jan 15 (documents Mar 1; Major Entrance Sch
 2. B.Eng. Electrical Engineering (free second application)
 
 Quebec-resident tuition (about $3,100 CAD/year) applies to applicants born in Quebec.
+
+## Waterloo
+
+See `waterloo.html`. Same OUAC application as U of T; AIF due Feb 15 (Math/CS) or Feb 1 if engineering is listed.
+
+1. Mathematics (co-op): Applied Math, Mathematical Physics, Statistics, Data Science
+2. Computer Science (co-op), reach
+3. Electrical Engineering (co-op), or Physical Sciences / Environmental Engineering
