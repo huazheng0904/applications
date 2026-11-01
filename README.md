@@ -26,6 +26,16 @@ Timeline, to-dos and program choices for a University of Toronto application fro
 
 Ranges are % averages in prerequisite courses. TrackOne is paused for 2027 entry.
 
+## Co-op
+
+| Program | Route | Length and timing |
+| --- | --- | --- |
+| All Engineering | PEY Co-op | 12–16 months full-time after 3rd year; about 70% take it; average pay about $50,000 a year |
+| All Engineering | ESIP summer internship | About 4 months, summer after 2nd or 3rd year |
+| Arts & Science Mathematical & Physical Sciences | Arts & Science Co-op, by major | 4–16 month terms after 2nd and 3rd year |
+
+U of T co-op is one long placement; Waterloo uses six rotating 4-month terms.
+
 ## Publishing
 
 Settings → Pages → Deploy from branch → `main` / root.
