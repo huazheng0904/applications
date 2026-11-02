@@ -55,7 +55,7 @@ See `waterloo.html`. Same OUAC application as U of T; AIF due Feb 15 (Math/CS) o
 
 1. Mathematics (co-op): Applied Math, Mathematical Physics, Statistics, Data Science
 2. Computer Science (co-op), reach
-3. Electrical Engineering (co-op), or Physical Sciences / Environmental Engineering
+3. Electrical or Computer Engineering (co-op; equally competitive reach), or Physical Sciences / Environmental Engineering
 
 ## Euclid contest prep
 
