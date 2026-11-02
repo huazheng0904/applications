@@ -3,188 +3,87 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>U of T Application Plan</title>
-<meta name="description" content="Timeline, to-dos and program choices for a Fall 2027 University of Toronto application from a U.S. high school.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5e58;
-    --line: #e3e1d9; --accent: #1e5bb8; --accent-soft: #e7eefa; --warn: #a3470f; --warn-soft: #fbefe6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-      --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-    --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, sans-serif; }
-  main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; }
-  header p.kicker { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
-  h2 { font-size: 22px; margin: 0 0 12px; }
-  .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
-  .lead strong { color: var(--ink); }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 20px; }
-  .callout { background: var(--accent-soft); border-color: transparent; display: flex; gap: 24px; flex-wrap: wrap; }
-  .callout div { flex: 1 1 160px; }
-  .callout .date { font-size: 26px; font-weight: 700; color: var(--accent); }
-  .callout .what { color: var(--muted); font-size: 14px; }
-  .tablewrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-  tr.key td { background: var(--accent-soft); font-weight: 600; }
-  td.when { white-space: nowrap; font-weight: 600; }
-  .rank { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); font-weight: 700; font-size: 13px; }
-  .rank.opt { background: var(--line); color: var(--ink); }
-  ul.todo { list-style: none; padding: 0; margin: 0; }
-  ul.todo li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  ul.todo li:last-child { border-bottom: 0; }
-  ul.todo input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
-  ul.todo label { cursor: pointer; }
-  ul.todo .done label { color: var(--muted); text-decoration: line-through; }
-  .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
-  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-top: 14px; }
-  footer { font-size: 13px; color: var(--muted); }
-  footer a, section a { color: var(--accent); }
-  footer ul { padding-left: 18px; }
-
-  nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
-  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
-  nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
-  nav.site a.ca { border-left: 3px solid #A82C3C; }
-  nav.site a.us { border-left: 3px solid #2E5E8C; }
-</style>
+<title>University of Toronto plan</title>
+<meta name="description" content="Apply on OUAC by Nov 7, then finish the Engineering Supplemental Application (ESA) and documents by Dec 1. That early package guarantees an Engineering decision by April 30.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <nav class="site" aria-label="Pages"><a href="index.html">Overview</a><a class="ca" href="uoft.html" aria-current="page">U of T</a><a class="ca" href="waterloo.html">Waterloo</a><a class="ca" href="mcgill.html">McGill</a><a class="us" href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
-  <header>
-    <p class="kicker">University of Toronto · Fall 2027 entry</p>
-    <h1>U of T application plan</h1>
-    <p class="lead">Apply on OUAC by <strong>Nov 7</strong>, then finish the Engineering Supplemental Application (ESA) and documents by <strong>Dec 1</strong>. That early package guarantees an Engineering decision by April 30.</p>
-  </header>
-
-  <section class="callout" aria-label="Key dates">
-    <div><div class="date">Nov 7</div><div class="what">OUAC application in</div></div>
-    <div><div class="date">Dec 1</div><div class="what">ESA + all documents (early)</div></div>
-    <div><div class="date">Jan 15</div><div class="what">Final Engineering deadline</div></div>
-    <div><div class="date">Apr 30</div><div class="what">Engineering decision by</div></div>
-  </section>
-
-  <section>
-    <h2>Programs to apply to</h2>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>ESA rank</th><th>Program</th><th>Competitive range*</th><th>Why</th></tr></thead>
-      <tbody>
-        <tr><td><span class="rank">1</span></td><td>Engineering Science</td><td>Low to mid 90s</td><td>Two broad years, then a major: Engineering Physics; Math, Statistics &amp; Finance; Machine Intelligence; Energy Systems; and others</td></tr>
-        <tr><td><span class="rank">2</span></td><td>Electrical Engineering</td><td>Low to mid 90s</td><td>Physics-heavy: electronics, energy systems, photonics, signal processing and ML</td></tr>
-        <tr><td><span class="rank">3</span></td><td>Industrial Engineering</td><td>High 80s to low 90s</td><td>Statistics, operations research and data analytics; the realistic backup</td></tr>
-        <tr><td><span class="rank opt">4</span></td><td>Civil or Mechanical (optional)</td><td>High 80s to low 90s</td><td>Civil for water and environment; Mechanical for physics</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="note">These four are ranked inside one OUAC choice (U of T Engineering). The second OUAC choice is <strong>Arts &amp; Science Mathematical &amp; Physical Sciences (TPG)</strong>: applied math, physics, statistics or math, chosen after first year; mid to high 80s; no supplement.</p>
-    <p class="note">*% average in prerequisite courses. TrackOne (undeclared engineering) is paused for 2027 entry. All engineering programs offer PEY Co-op, a paid 12–16 month placement after third year.</p>
-  </section>
-
-  <section>
-    <h2>Co-op opportunities</h2>
-    <p>U of T co-op is one long paid placement, not Waterloo-style rotating terms. Engineering students apply through the program; it does not affect admission.</p>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>Program</th><th>Co-op route</th><th>Length and timing</th><th>Details</th></tr></thead>
-      <tbody>
-        <tr><td>All Engineering, incl. Engineering Science, Electrical, Industrial</td><td>PEY Co-op (Professional Experience Year)</td><td>12–16 months, full-time, after 3rd year</td><td>About 70% of 3rd-year engineers take it; average pay about $50,000 a year, top roles up to $90,000; 350+ employer partners; 12 months count toward the P.Eng. licence</td></tr>
-        <tr><td>All Engineering</td><td>Summer internship (ESIP)</td><td>About 4 months, summer after 2nd or 3rd year</td><td>Optional; can be added to PEY for up to about 20 months of paid work</td></tr>
-        <tr><td>Arts &amp; Science Mathematical &amp; Physical Sciences</td><td>Arts &amp; Science Co-op (by major)</td><td>4, 8, 12 or 16 months, after 2nd and 3rd year</td><td>Available in selected majors; check the major he picks after first year</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="note">Sample PEY employers: NVIDIA (U.S.), Intel, Amazon, IBM, Google and Environment and Climate Change Canada. Indicate PEY interest on OUAC and confirm it in the ESA.</p>
-    <div class="warn">Compared with Waterloo's six 4-month work terms starting in first year, U of T gives one deeper placement later, with fewer separate chances at U.S. internships.</div>
-  </section>
-
-  <section>
-    <h2>Timeline and to-dos</h2>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>When</th><th>To do</th><th>Who</th></tr></thead>
-      <tbody>
-        <tr><td class="when">Nov 2–7</td><td>Submit OUAC (Group B); rank U of T Engineering first</td><td>Student</td></tr>
-        <tr><td class="when">Nov 2–7</td><td>Send SAT (all sittings) and AP scores to code 0982</td><td>Student, via College Board</td></tr>
-        <tr><td class="when">Nov 2–7</td><td>Request transcript and school profile be sent to U of T</td><td>School counselor</td></tr>
-        <tr><td class="when">~Nov 9–13</td><td>Enable JOINid; open Engineering Applicant Portal; pay $69 ESA fee; request English test exemption if needed</td><td>Student</td></tr>
-        <tr><td class="when">Nov 14–20</td><td>ESA forms: program ranking, timeline, academics, activities with references</td><td>Student</td></tr>
-        <tr><td class="when">Nov 21–23</td><td>Practice the video questions; test webcam and browser</td><td>Student</td></tr>
-        <tr><td class="when">By Nov 24</td><td>Personal Profile: 3 timed video questions, one attempt</td><td>Student</td></tr>
-        <tr class="key"><td class="when">Dec 1</td><td>Early deadline: ESA and all documents</td><td>Student, counselor</td></tr>
-        <tr><td class="when">When issued</td><td>Upload first-term grades</td><td>Student, counselor</td></tr>
-        <tr><td class="when">Jan 15</td><td>Final Engineering deadline</td><td>—</td></tr>
-        <tr><td class="when">Feb 1</td><td>Arts &amp; Science documents due</td><td>—</td></tr>
-        <tr><td class="when">Mar 31</td><td>Residence application</td><td>Student</td></tr>
-        <tr><td class="when">Apr 30</td><td>Engineering decision guaranteed by</td><td>U of T</td></tr>
-        <tr><td class="when">May</td><td>AP exams; scores become offer conditions</td><td>Student</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <div class="warn">The Personal Profile allows one attempt only. Practice questions are unlimited, so finish them before the real sitting.</div>
-  </section>
-
-  <section>
-    <h2>Checklist</h2>
-    <ul class="todo" id="todo">
-      <li><input type="checkbox" id="t1"><label for="t1">Decide final ESA order</label></li>
-      <li><input type="checkbox" id="t2"><label for="t2">Submit OUAC</label></li>
-      <li><input type="checkbox" id="t3"><label for="t3">Send SAT and AP scores</label></li>
-      <li><input type="checkbox" id="t4"><label for="t4">Counselor sends transcript and school profile</label></li>
-      <li><input type="checkbox" id="t5"><label for="t5">Enable JOINid and pay ESA fee</label></li>
-      <li><input type="checkbox" id="t6"><label for="t6">Line up activity references</label></li>
-      <li><input type="checkbox" id="t7"><label for="t7">Complete ESA forms</label></li>
-      <li><input type="checkbox" id="t8"><label for="t8">Complete the Personal Profile</label></li>
-      <li><input type="checkbox" id="t9"><label for="t9">Upload documents and submit every page by Dec 1</label></li>
-    </ul>
-    <p class="note">Ticks are saved in this browser only.</p>
-  </section>
-
-  <footer>
-    <p>Sources, checked Nov 1, 2026:</p>
-    <ul>
-      <li><a href="https://discover.engineering.utoronto.ca/how-to-apply/important-deadlines/">U of T Engineering deadlines</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/how-to-apply/supplemental-application/">Engineering Supplemental Application</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/faqs/">Engineering FAQ and grade ranges</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/general-first-year/">TrackOne pause</a></li>
-      <li><a href="https://future.utoronto.ca/deadlines">U of T dates and deadlines</a></li>
-      <li><a href="https://ouinfo.ca/programs/tpg">Mathematical &amp; Physical Sciences (TPG)</a></li>
-      <li><a href="https://engineeringcareers.utoronto.ca/?p=9062">PEY Co-op</a></li>
-      <li><a href="https://undergrad.engineering.utoronto.ca/internships-jobs-careers/">Engineering internships (PEY and ESIP)</a></li>
-      <li><a href="https://hireuoftcoop.utoronto.ca/wp-content/uploads/U-of-T-Co-op-Brochure.pdf">U of T Co-op (Arts &amp; Science terms)</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/electrical-computer-engineering/">ECE sample PEY employers</a></li>
-    </ul>
-  </footer>
+<div class="wrap">
+<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a><nav class="topnav" aria-label="Site"><a href="index.html">Overview</a><a href="index.html#canada" aria-current="page">Canada</a><a href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav></header>
+<main class="ca-page">
+<p class="crumbs"><a href="index.html">Overview</a> / <a href="index.html#canada">Canada</a> / U of T</p>
+<div class="school-hero"><span class="country">Canada</span><h1>University of Toronto</h1><p class="summary">Apply on OUAC by Nov 7, then finish the Engineering Supplemental Application (ESA) and documents by Dec 1. That early package guarantees an Engineering decision by April 30.</p></div>
+<dl class="facts"><div><dt>OUAC application</dt><dd class="big">Nov 7</dd></div><div><dt>ESA + documents, early</dt><dd>Dec 1</dd></div><div><dt>Final Engineering deadline</dt><dd>Jan 15</dd></div><div><dt>Engineering decision by</dt><dd>Apr 30</dd></div></dl>
+<section class="block"><h2>Programs to apply to</h2>
+<p>These four are ranked inside one OUAC choice (U of T Engineering). The second OUAC choice is Arts &amp; Science Mathematical &amp; Physical Sciences (TPG): applied math, physics, statistics or math, chosen after first year; mid to high 80s; no supplement.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>ESA rank</th><th>Program</th><th>Competitive range*</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Engineering Science</td><td>Low to mid 90s</td><td>Two broad years, then a major: Engineering Physics; Math, Statistics &amp; Finance; Machine Intelligence; Energy Systems; and others</td></tr>
+<tr><td>2</td><td>Electrical Engineering</td><td>Low to mid 90s</td><td>Physics-heavy: electronics, energy systems, photonics, signal processing and ML</td></tr>
+<tr><td>3</td><td>Industrial Engineering</td><td>High 80s to low 90s</td><td>Statistics, operations research and data analytics; the realistic backup</td></tr>
+<tr><td>4</td><td>Civil or Mechanical (optional)</td><td>High 80s to low 90s</td><td>Civil for water and environment; Mechanical for physics</td></tr>
+</tbody></table></div>
+<p class="note">*% average in prerequisite courses. TrackOne (undeclared engineering) is paused for 2027 entry.</p>
+</section>
+<section class="block"><h2>Co-op</h2>
+<p>U of T co-op is one long paid placement, not Waterloo-style rotating terms. Engineering students apply through the program; it does not affect admission.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Program</th><th>Route</th><th>Length and timing</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>All Engineering</td><td>PEY Co-op (Professional Experience Year)</td><td>12–16 months, full-time, after 3rd year</td><td>About 70% of 3rd-year engineers take it; average pay about $50,000 a year; 350+ employers; 12 months count toward the P.Eng. licence</td></tr>
+<tr><td>All Engineering</td><td>Summer internship (ESIP)</td><td>About 4 months, after 2nd or 3rd year</td><td>Optional; with PEY, up to about 20 months of paid work</td></tr>
+<tr><td>Arts &amp; Science Math &amp; Physical Sciences</td><td>Arts &amp; Science Co-op (by major)</td><td>4–16 months, after 2nd and 3rd year</td><td>Selected majors only</td></tr>
+</tbody></table></div>
+<p class="note">Sample PEY employers: NVIDIA, Intel, Amazon, IBM, Google, Environment and Climate Change Canada.</p>
+</section>
+<section class="block"><h2>Timeline and to-dos</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>When</th><th>To do</th><th>Who</th></tr></thead>
+<tbody>
+<tr><td class="when">Nov 2–7</td><td>Submit OUAC (Group B); rank U of T Engineering first</td><td>Student</td></tr>
+<tr><td class="when">Nov 2–7</td><td>Send SAT (all sittings) and AP scores to code 0982</td><td>Student</td></tr>
+<tr><td class="when">Nov 2–7</td><td>Request transcript and school profile be sent to U of T</td><td>Counselor</td></tr>
+<tr><td class="when">~Nov 9–13</td><td>Enable JOINid; open Engineering Applicant Portal; pay $69 ESA fee</td><td>Student</td></tr>
+<tr><td class="when">Nov 14–20</td><td>ESA forms: program ranking, timeline, academics, activities with references</td><td>Student</td></tr>
+<tr><td class="when">Nov 21–23</td><td>Practise the video questions; test webcam and browser</td><td>Student</td></tr>
+<tr><td class="when">By Nov 24</td><td>Personal Profile: 3 timed video questions, one attempt</td><td>Student</td></tr>
+<tr class="key"><td class="when">Dec 1</td><td>Early deadline: ESA and all documents</td><td>Student, counselor</td></tr>
+<tr><td class="when">When issued</td><td>Upload first-term grades</td><td>Student, counselor</td></tr>
+<tr><td class="when">Jan 15</td><td>Final Engineering deadline</td><td>—</td></tr>
+<tr><td class="when">Feb 1</td><td>Arts &amp; Science documents due</td><td>—</td></tr>
+<tr><td class="when">Mar 31</td><td>Residence application</td><td>Student</td></tr>
+<tr><td class="when">Apr 30</td><td>Engineering decision guaranteed by</td><td>U of T</td></tr>
+<tr><td class="when">May</td><td>AP exams; scores become offer conditions</td><td>Student</td></tr>
+</tbody></table></div>
+<p class="warn">The Personal Profile allows one attempt only. Practice questions are unlimited, so finish them before the real sitting.</p>
+</section>
+<section class="block"><h2>Checklist</h2>
+<ul class="todo"><li><input type="checkbox" id="uoft-3-0"><label for="uoft-3-0">Decide final ESA order</label></li><li><input type="checkbox" id="uoft-3-1"><label for="uoft-3-1">Submit OUAC</label></li><li><input type="checkbox" id="uoft-3-2"><label for="uoft-3-2">Send SAT and AP scores</label></li><li><input type="checkbox" id="uoft-3-3"><label for="uoft-3-3">Counselor sends transcript and school profile</label></li><li><input type="checkbox" id="uoft-3-4"><label for="uoft-3-4">Enable JOINid and pay ESA fee</label></li><li><input type="checkbox" id="uoft-3-5"><label for="uoft-3-5">Line up activity references</label></li><li><input type="checkbox" id="uoft-3-6"><label for="uoft-3-6">Complete ESA forms</label></li><li><input type="checkbox" id="uoft-3-7"><label for="uoft-3-7">Complete the Personal Profile</label></li><li><input type="checkbox" id="uoft-3-8"><label for="uoft-3-8">Upload documents and submit every page by Dec 1</label></li></ul>
+<p class="note">Ticks are saved in this browser only.</p>
+</section>
+<section class="sources"><p>Sources, checked Nov 1, 2026. Confirm in each applicant portal before submitting.</p><ul><li><a href="https://discover.engineering.utoronto.ca/how-to-apply/important-deadlines/">U of T Engineering deadlines</a></li><li><a href="https://discover.engineering.utoronto.ca/how-to-apply/supplemental-application/">Engineering Supplemental Application</a></li><li><a href="https://discover.engineering.utoronto.ca/faqs/">Engineering FAQ and grade ranges</a></li><li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/general-first-year/">TrackOne pause</a></li><li><a href="https://future.utoronto.ca/deadlines">U of T dates and deadlines</a></li><li><a href="https://ouinfo.ca/programs/tpg">Mathematical &amp; Physical Sciences (TPG)</a></li><li><a href="https://engineeringcareers.utoronto.ca/?p=9062">PEY Co-op</a></li><li><a href="https://undergrad.engineering.utoronto.ca/internships-jobs-careers/">Engineering internships (PEY and ESIP)</a></li><li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/electrical-computer-engineering/">ECE sample PEY employers</a></li></ul></section>
+<nav class="more" aria-label="All schools"><div><h2>Canada</h2><ul class="ca"><li><a href="uoft.html" aria-current="page">U of T</a></li><li><a href="waterloo.html">Waterloo</a></li><li><a href="mcgill.html">McGill</a></li></ul></div><div><h2>United States</h2><ul class="us"><li><a href="berkeley.html">UC Berkeley</a></li><li><a href="harvard.html">Harvard</a></li><li><a href="princeton.html">Princeton</a></li><li><a href="dartmouth.html">Dartmouth</a></li><li><a href="yale.html">Yale</a></li><li><a href="cornell.html">Cornell</a></li><li><a href="mit.html">MIT</a></li><li><a href="duke.html">Duke</a></li><li><a href="cmu.html">CMU</a></li><li><a href="rice.html">Rice</a></li><li><a href="uchicago.html">UChicago</a></li><li><a href="brown.html">Brown</a></li><li><a href="penn.html">Penn</a></li><li><a href="stanford.html">Stanford</a></li></ul></div></nav>
+<div class="pager"><span></span><a href="waterloo.html">Next: Waterloo</a></div>
 </main>
+<footer class="site"><p>Built from build.py. Dates checked Nov 1, 2026.</p></footer>
+</div>
 <script>
-  (function () {
-    var KEY = 'uoft-checklist';
-    var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-    document.querySelectorAll('#todo input').forEach(function (box) {
-      box.checked = !!saved[box.id];
+(function () {
+  var KEY = 'check-' + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (x) {}
+  document.querySelectorAll('ul.todo input').forEach(function (box) {
+    box.checked = !!saved[box.id];
+    box.parentElement.classList.toggle('done', box.checked);
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
       box.parentElement.classList.toggle('done', box.checked);
-      box.addEventListener('change', function () {
-        saved[box.id] = box.checked;
-        box.parentElement.classList.toggle('done', box.checked);
-        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
-      });
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (x) {}
     });
-  })();
+  });
+})();
 </script>
 </body>
 </html>

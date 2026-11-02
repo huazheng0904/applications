@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>University of Pennsylvania plan</title>
+<meta name="description" content="Penn requires the SAT or ACT; the last accepted test dates for Regular Decision are in December 2026. Applicants pick one undergraduate school, which sets the third essay.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a><nav class="topnav" aria-label="Site"><a href="index.html">Overview</a><a href="index.html#canada">Canada</a><a href="us.html" aria-current="page">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav></header>
+<main class="us-page">
+<p class="crumbs"><a href="index.html">Overview</a> / <a href="us.html">U.S. schools</a> / Penn</p>
+<div class="school-hero"><span class="country">United States</span><h1>University of Pennsylvania</h1><p class="summary">Penn requires the SAT or ACT; the last accepted test dates for Regular Decision are in December 2026. Applicants pick one undergraduate school, which sets the third essay.</p></div>
+<dl class="facts"><div><dt>Regular Decision deadline</dt><dd class="big">Jan 5</dd></div><div><dt>Testing</dt><dd>SAT/ACT required</dd></div><div><dt>Application</dt><dd>Common App</dd></div><div><dt>Applying to</dt><dd>Penn Engineering or the College</dd></div></dl>
+<section class="block"><h2>What to apply to</h2>
+<p>Choose Penn Engineering, with an intended major such as Electrical Engineering or Systems Science &amp; Engineering, or the College of Arts and Sciences for Mathematics or Physics. Coordinated dual-degree programs (such as VIPER, for energy research) add their own essays.</p>
+</section>
+<section class="block"><h2>Supplemental essays</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Prompt</th><th>Limit</th></tr></thead>
+<tbody>
+<tr><td>Thank-you note: write to someone you have not yet thanked</td><td>50–200 words</td></tr>
+<tr><td>How will you explore community at Penn, and how will your experiences shape Penn?</td><td>50–200 words</td></tr>
+<tr><td>Penn Engineering: how you will pursue your engineering interests at Penn, within your intended major. Or the College: something you are curious about and how you would pursue it in the College</td><td>50–200 words</td></tr>
+</tbody></table></div>
+</section>
+<section class="block"><h2>Also required or recommended</h2>
+<ul class="plain"><li>Counselor letter plus one core-subject teacher letter; one optional extra letter</li><li>Mid-year report once grades are available</li></ul>
+</section>
+<section class="block"><h2>Checklist</h2>
+<ul class="todo"><li><input type="checkbox" id="penn-3-0"><label for="penn-3-0">Choose the program or school within the university</label></li><li><input type="checkbox" id="penn-3-1"><label for="penn-3-1">Draft every supplement, then cut to the word limits</label></li><li><input type="checkbox" id="penn-3-2"><label for="penn-3-2">Send SAT/ACT scores if the school takes them</label></li><li><input type="checkbox" id="penn-3-3"><label for="penn-3-3">Confirm teacher and counselor letters are attached</label></li><li><input type="checkbox" id="penn-3-4"><label for="penn-3-4">Submit before the deadline and pay the fee</label></li><li><input type="checkbox" id="penn-3-5"><label for="penn-3-5">Check the applicant portal shows every item received</label></li><li><input type="checkbox" id="penn-3-6"><label for="penn-3-6">Mid-year report sent once first-semester grades post</label></li></ul>
+<p class="note">Ticks are saved in this browser only.</p>
+</section>
+<section class="sources"><p>Sources, checked Nov 1, 2026. Confirm in each applicant portal before submitting.</p><ul><li><a href="https://admissions.upenn.edu/how-to-apply/first-year-applicants/application-requirements">Penn application requirements</a></li><li><a href="https://gradpilot.com/news/upenn-supplemental-essays-2026-2027">Penn prompts 2026–27</a></li></ul></section>
+<nav class="more" aria-label="All schools"><div><h2>Canada</h2><ul class="ca"><li><a href="uoft.html">U of T</a></li><li><a href="waterloo.html">Waterloo</a></li><li><a href="mcgill.html">McGill</a></li></ul></div><div><h2>United States</h2><ul class="us"><li><a href="berkeley.html">UC Berkeley</a></li><li><a href="harvard.html">Harvard</a></li><li><a href="princeton.html">Princeton</a></li><li><a href="dartmouth.html">Dartmouth</a></li><li><a href="yale.html">Yale</a></li><li><a href="cornell.html">Cornell</a></li><li><a href="mit.html">MIT</a></li><li><a href="duke.html">Duke</a></li><li><a href="cmu.html">CMU</a></li><li><a href="rice.html">Rice</a></li><li><a href="uchicago.html">UChicago</a></li><li><a href="brown.html">Brown</a></li><li><a href="penn.html" aria-current="page">Penn</a></li><li><a href="stanford.html">Stanford</a></li></ul></div></nav>
+<div class="pager"><a href="brown.html">Previous: Brown</a><a href="stanford.html">Next: Stanford</a></div>
+</main>
+<footer class="site"><p>Built from build.py. Dates checked Nov 1, 2026.</p></footer>
+</div>
+<script>
+(function () {
+  var KEY = 'check-' + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (x) {}
+  document.querySelectorAll('ul.todo input').forEach(function (box) {
+    box.checked = !!saved[box.id];
+    box.parentElement.classList.toggle('done', box.checked);
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
+      box.parentElement.classList.toggle('done', box.checked);
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (x) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>

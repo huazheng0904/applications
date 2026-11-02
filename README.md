@@ -1,6 +1,16 @@
-# U of T Application Plan (Fall 2027)
+# Fall 2027 Applications
 
-Timeline, to-dos and program choices for a University of Toronto application from a U.S. high school. The site's overview is `index.html` (Canada and U.S. sections with a deadline timeline); the U of T plan is `uoft.html`. Served with GitHub Pages.
+Timeline, to-dos and program choices for Fall 2027 university applications in Canada and the U.S. Served with GitHub Pages.
+
+## Editing the site
+
+Every page is generated. Edit the data in `schools.py` (or layout in `build.py`, styles in `style.css`), then run:
+
+```
+python3 build.py
+```
+
+`index.html` is the overview, `us.html` compares the U.S. schools, and each school has its own page (`uoft.html`, `penn.html`, ...).
 
 ## Key dates
 
@@ -63,4 +73,4 @@ See `euclid.html`. Euclid is Tuesday, April 6, 2027; a school must register the 
 
 ## U.S. schools
 
-See `us.html`. UC Berkeley (Nov 30), then Harvard, Princeton, Dartmouth, Yale, Cornell, MIT, Duke, CMU, Rice, Brown and Stanford (Jan 1–5).
+See `us.html` and each school's page. UC Berkeley (Nov 30), then Harvard, Princeton, Dartmouth, Yale, Cornell, MIT, Duke, CMU, Rice, UChicago, Brown, Penn and Stanford (Jan 1–5).

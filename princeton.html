@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Princeton University plan</title>
+<meta name="description" content="Princeton is test-optional for Fall 2027 entry (required from the next cycle). It is the only school on the list that asks for a graded written paper.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a><nav class="topnav" aria-label="Site"><a href="index.html">Overview</a><a href="index.html#canada">Canada</a><a href="us.html" aria-current="page">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav></header>
+<main class="us-page">
+<p class="crumbs"><a href="index.html">Overview</a> / <a href="us.html">U.S. schools</a> / Princeton</p>
+<div class="school-hero"><span class="country">United States</span><h1>Princeton University</h1><p class="summary">Princeton is test-optional for Fall 2027 entry (required from the next cycle). It is the only school on the list that asks for a graded written paper.</p></div>
+<dl class="facts"><div><dt>Regular Decision deadline</dt><dd class="big">Jan 1</dd></div><div><dt>Testing</dt><dd>Test-optional this cycle; send scores</dd></div><div><dt>Application</dt><dd>Common App</dd></div><div><dt>Applying to</dt><dd>B.S.E. (engineering) or A.B.</dd></div></dl>
+<section class="block"><h2>What to apply to</h2>
+<p>Choose the B.S.E. (engineering), with majors such as Operations Research &amp; Financial Engineering (ORFE), Electrical &amp; Computer Engineering, or Civil &amp; Environmental Engineering; or the A.B. for Mathematics or Physics.</p>
+</section>
+<section class="block"><h2>Supplemental essays</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Prompt</th><th>Limit</th></tr></thead>
+<tbody>
+<tr><td>B.S.E. applicants: why engineering, including any engineering experience</td><td>250 words</td></tr>
+<tr><td>Your Voice 1: how your lived experiences will shape respectful conversations, and what you will teach classmates</td><td>400–500 words</td></tr>
+<tr><td>Your Voice 2: how your story connects to Princeton&#x27;s commitment to service</td><td>250 words</td></tr>
+<tr><td>More About You: a new skill to learn; what brings you joy; a song for your life right now</td><td>50 words each</td></tr>
+<tr><td>Graded written paper: an analytical paper from English, history or social studies in the last three years, with grade, teacher comments and prompt</td><td>1+ pages</td></tr>
+</tbody></table></div>
+<p class="note">Princeton says not to trim an essay written for another school.</p>
+</section>
+<section class="block"><h2>Also required or recommended</h2>
+<ul class="plain"><li>Alumni interview: optional, by invitation</li></ul>
+</section>
+<section class="block"><h2>Checklist</h2>
+<ul class="todo"><li><input type="checkbox" id="princeton-3-0"><label for="princeton-3-0">Choose the graded paper (with grade, comments and prompt)</label></li><li><input type="checkbox" id="princeton-3-1"><label for="princeton-3-1">Choose the program or school within the university</label></li><li><input type="checkbox" id="princeton-3-2"><label for="princeton-3-2">Draft every supplement, then cut to the word limits</label></li><li><input type="checkbox" id="princeton-3-3"><label for="princeton-3-3">Send SAT/ACT scores if the school takes them</label></li><li><input type="checkbox" id="princeton-3-4"><label for="princeton-3-4">Confirm teacher and counselor letters are attached</label></li><li><input type="checkbox" id="princeton-3-5"><label for="princeton-3-5">Submit before the deadline and pay the fee</label></li><li><input type="checkbox" id="princeton-3-6"><label for="princeton-3-6">Check the applicant portal shows every item received</label></li><li><input type="checkbox" id="princeton-3-7"><label for="princeton-3-7">Mid-year report sent once first-semester grades post</label></li></ul>
+<p class="note">Ticks are saved in this browser only.</p>
+</section>
+<section class="sources"><p>Sources, checked Nov 1, 2026. Confirm in each applicant portal before submitting.</p><ul><li><a href="https://gradpilot.com/news/princeton-supplemental-essays-2026-2027">Princeton prompts</a></li><li><a href="https://www.ivystrides.com/blog/princeton-admission-requirements/">Princeton requirements</a></li></ul></section>
+<nav class="more" aria-label="All schools"><div><h2>Canada</h2><ul class="ca"><li><a href="uoft.html">U of T</a></li><li><a href="waterloo.html">Waterloo</a></li><li><a href="mcgill.html">McGill</a></li></ul></div><div><h2>United States</h2><ul class="us"><li><a href="berkeley.html">UC Berkeley</a></li><li><a href="harvard.html">Harvard</a></li><li><a href="princeton.html" aria-current="page">Princeton</a></li><li><a href="dartmouth.html">Dartmouth</a></li><li><a href="yale.html">Yale</a></li><li><a href="cornell.html">Cornell</a></li><li><a href="mit.html">MIT</a></li><li><a href="duke.html">Duke</a></li><li><a href="cmu.html">CMU</a></li><li><a href="rice.html">Rice</a></li><li><a href="uchicago.html">UChicago</a></li><li><a href="brown.html">Brown</a></li><li><a href="penn.html">Penn</a></li><li><a href="stanford.html">Stanford</a></li></ul></div></nav>
+<div class="pager"><a href="harvard.html">Previous: Harvard</a><a href="dartmouth.html">Next: Dartmouth</a></div>
+</main>
+<footer class="site"><p>Built from build.py. Dates checked Nov 1, 2026.</p></footer>
+</div>
+<script>
+(function () {
+  var KEY = 'check-' + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (x) {}
+  document.querySelectorAll('ul.todo input').forEach(function (box) {
+    box.checked = !!saved[box.id];
+    box.parentElement.classList.toggle('done', box.checked);
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
+      box.parentElement.classList.toggle('done', box.checked);
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (x) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>

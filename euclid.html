@@ -3,179 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Euclid Contest Prep</title>
-<meta name="description" content="Five-month preparation plan for the April 2027 Euclid Mathematics Contest.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5e58;
-    --line: #e3e1d9; --accent: #1e5bb8; --accent-soft: #e7eefa; --warn: #a3470f; --warn-soft: #fbefe6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-      --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-    --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, sans-serif; }
-  main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; }
-  header p.kicker { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
-  h2 { font-size: 22px; margin: 0 0 12px; }
-  .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
-  .lead strong { color: var(--ink); }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 20px; }
-  .callout { background: var(--accent-soft); border-color: transparent; display: flex; gap: 24px; flex-wrap: wrap; }
-  .callout div { flex: 1 1 160px; }
-  .callout .date { font-size: 26px; font-weight: 700; color: var(--accent); }
-  .callout .what { color: var(--muted); font-size: 14px; }
-  .tablewrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-  tr.key td { background: var(--accent-soft); font-weight: 600; }
-  td.when { white-space: nowrap; font-weight: 600; }
-  .rank { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); font-weight: 700; font-size: 13px; }
-  .rank.opt { background: var(--line); color: var(--ink); }
-  ul.todo { list-style: none; padding: 0; margin: 0; }
-  ul.todo li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  ul.todo li:last-child { border-bottom: 0; }
-  ul.todo input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
-  ul.todo label { cursor: pointer; }
-  ul.todo .done label { color: var(--muted); text-decoration: line-through; }
-  .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
-  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-top: 14px; }
-  footer { font-size: 13px; color: var(--muted); }
-  footer a, section a { color: var(--accent); }
-  footer ul { padding-left: 18px; }
-
-  nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
-  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
-  nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
-  nav.site a.ca { border-left: 3px solid #A82C3C; }
-  nav.site a.us { border-left: 3px solid #2E5E8C; }
-</style>
+<title>Euclid contest prep</title>
+<meta name="description" content="The Euclid is on Tuesday, April 6, 2027: 10 questions, 2.5 hours, 100 marks, on paper at a registered school. It isn&#x27;t required for Waterloo admission, but it feeds Faculty of Math scholarships.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <nav class="site" aria-label="Pages"><a href="index.html">Overview</a><a class="ca" href="uoft.html">U of T</a><a class="ca" href="waterloo.html">Waterloo</a><a class="ca" href="mcgill.html">McGill</a><a class="us" href="us.html">U.S. schools</a><a href="euclid.html" aria-current="page">Euclid prep</a></nav>
-  <header>
-    <p class="kicker">CEMC Euclid Mathematics Contest · April 2027</p>
-    <h1>Euclid contest prep</h1>
-    <p class="lead">The Euclid is on <strong>Tuesday, April 6, 2027</strong>: 10 questions, 2.5 hours, 100 marks, on paper at a registered school. It isn't required for Waterloo admission, but it feeds Faculty of Math scholarships.</p>
-  </header>
-
-  <section class="callout" aria-label="Key facts">
-    <div><div class="date">Apr 6</div><div class="what">Contest day</div></div>
-    <div><div class="date">10</div><div class="what">Questions</div></div>
-    <div><div class="date">2.5 h</div><div class="what">Time allowed</div></div>
-    <div><div class="date">~30 h</div><div class="what">Total prep</div></div>
-  </section>
-
-  <section>
-    <h2>Registration</h2>
-    <p>Students can't register themselves. A school must order the contest through CEMC's Contest Supervisor Portal and supervise it; students in 85+ countries write it.</p>
-    <div class="warn">Ask your own school's math department to register. If it won't, find a nearby school that already writes CEMC contests; you must write at the school that ordered it.</div>
-  </section>
-
-  <section>
-    <h2>What's on it</h2>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>Questions</th><th>Difficulty</th><th>Format</th><th>Typical content</th></tr></thead>
-      <tbody>
-        <tr><td>1–3</td><td>Accessible</td><td>Mostly answer only</td><td>Algebra, equations, averages, simple geometry</td></tr>
-        <tr><td>4–6</td><td>Moderate</td><td>Mixed</td><td>Exponents and logs, trig equations, sequences, counting</td></tr>
-        <tr><td>7–8</td><td>Hard</td><td>Full solutions</td><td>Circles and triangles, functions, number theory</td></tr>
-        <tr><td>9–10</td><td>Very hard</td><td>Full solutions</td><td>Proofs and extended problems; partial credit common</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="note">No calculus. Topics U.S. courses cover lightly: logarithms, trig identities and equations, Euclidean geometry, number theory, counting, and writing full solutions.</p>
-  </section>
-
-  <section>
-    <h2>Study plan</h2>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>When</th><th>Hours/week</th><th>Focus</th></tr></thead>
-      <tbody>
-        <tr><td class="when">Nov 2–30</td><td>1</td><td>Arrange registration; 2026 Euclid Q1–5 untimed as a baseline</td></tr>
-        <tr><td class="when">Dec 1–31</td><td>2</td><td>Q1–6 from one past paper a week (2025, 2024, 2023); list weak topics</td></tr>
-        <tr><td class="when">Jan 1–15</td><td>0</td><td>Pause for application deadlines</td></tr>
-        <tr><td class="when">Jan 16–Feb 15</td><td>2</td><td>Drill weak topics with CEMC Courseware; practise full solutions</td></tr>
-        <tr class="key"><td class="when">Feb 16–Mar 31</td><td>3–4</td><td>One full timed paper (2.5 h) a week, then review every miss</td></tr>
-        <tr><td class="when">Apr 1–5</td><td>1–2</td><td>One last paper; formulas and identities; rest</td></tr>
-      </tbody>
-    </table>
-    </div>
-  </section>
-
-  <section>
-    <h2>Resources</h2>
-    <ul>
-      <li><a href="https://cemc.uwaterloo.ca/contests/euclid">Euclid past contests, solutions and prep materials</a> — use the last 8–10 years</li>
-      <li><a href="https://cemc.uwaterloo.ca/sites/default/files/documents/2026/2026EuclidContest.html">2026 Euclid</a> — baseline paper</li>
-      <li><a href="https://cemc.uwaterloo.ca/resources/grade-level/grade-11-12">CEMC Grade 11–12 resources and Courseware</a> — logs, trig, sequences, functions</li>
-      <li>Art of Problem Solving: Introduction to Counting &amp; Probability, Number Theory, Geometry (optional)</li>
-    </ul>
-    <p class="note">For each paper: write it under contest conditions, mark it with the official solutions, rewrite every missed solution a day later, and keep a one-page formula and tricks sheet.</p>
-  </section>
-
-  <section>
-    <h2>Test-day strategy</h2>
-    <ul>
-      <li><strong>First 10 min:</strong> read all ten questions; mark what you can do</li>
-      <li><strong>Q1–6 (~75 min):</strong> steady work; double-check answer-only parts</li>
-      <li><strong>Q7–10 (~60 min):</strong> attempt every part; clear partial solutions earn marks</li>
-      <li><strong>Last 15 min:</strong> check answers and solution write-ups</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Checklist</h2>
-    <ul class="todo" id="todo">
-      <li><input type="checkbox" id="e1"><label for="e1">School (or a nearby school) registered for the Euclid</label></li>
-      <li><input type="checkbox" id="e2"><label for="e2">Baseline: 2026 Euclid Q1–5</label></li>
-      <li><input type="checkbox" id="e3"><label for="e3">Three past papers, Q1–6 (December)</label></li>
-      <li><input type="checkbox" id="e4"><label for="e4">Weak-topic drills (late Jan–mid Feb)</label></li>
-      <li><input type="checkbox" id="e5"><label for="e5">Six full timed papers (Feb 16–Mar 31)</label></li>
-      <li><input type="checkbox" id="e6"><label for="e6">Calculator checked against CEMC policy</label></li>
-      <li><input type="checkbox" id="e7"><label for="e7">Time and room confirmed for April 6</label></li>
-    </ul>
-    <p class="note">Ticks are saved in this browser only.</p>
-  </section>
-
-  <footer>
-    <p>Sources, checked Nov 1, 2026:</p>
-    <ul>
-      <li><a href="https://cemc.uwaterloo.ca/contests/euclid">Euclid contest (CEMC)</a></li>
-      <li><a href="https://cemc.uwaterloo.ca/sites/default/files/documents/2026/NASA%20Tentative%20Contest%20Dates%202026-2027.pdf">2026–27 contest dates</a></li>
-      <li><a href="https://cemc.uwaterloo.ca/contests/how-contests-work">How CEMC contests work</a></li>
-    </ul>
-  </footer>
+<div class="wrap">
+<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a><nav class="topnav" aria-label="Site"><a href="index.html">Overview</a><a href="index.html#canada">Canada</a><a href="us.html">U.S. schools</a><a href="euclid.html" aria-current="page">Euclid prep</a></nav></header>
+<main class="tool-page">
+<p class="crumbs"><a href="index.html">Overview</a> / Euclid prep</p>
+<div class="school-hero"><span class="country">Tool</span><h1>Euclid contest prep</h1><p class="summary">The Euclid is on Tuesday, April 6, 2027: 10 questions, 2.5 hours, 100 marks, on paper at a registered school. It isn&#x27;t required for Waterloo admission, but it feeds Faculty of Math scholarships.</p></div>
+<dl class="facts"><div><dt>Contest day</dt><dd class="big">Apr 6</dd></div><div><dt>Questions</dt><dd>10</dd></div><div><dt>Time allowed</dt><dd>2.5 hours</dd></div><div><dt>Total prep</dt><dd>About 30 hours</dd></div></dl>
+<section class="block"><h2>Registration</h2>
+<p>Students can&#x27;t register themselves. A school must order the contest through CEMC&#x27;s Contest Supervisor Portal and supervise it.</p>
+<p>Ask your own school&#x27;s math department to register. If it won&#x27;t, find a nearby school that already writes CEMC contests; you must write at the school that ordered it.</p>
+</section>
+<section class="block"><h2>What&#x27;s on it</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Questions</th><th>Difficulty</th><th>Format</th><th>Typical content</th></tr></thead>
+<tbody>
+<tr><td>1–3</td><td>Accessible</td><td>Mostly answer only</td><td>Algebra, equations, averages, simple geometry</td></tr>
+<tr><td>4–6</td><td>Moderate</td><td>Mixed</td><td>Exponents and logs, trig equations, sequences, counting</td></tr>
+<tr><td>7–8</td><td>Hard</td><td>Full solutions</td><td>Circles and triangles, functions, number theory</td></tr>
+<tr><td>9–10</td><td>Very hard</td><td>Full solutions</td><td>Proofs and extended problems; partial credit common</td></tr>
+</tbody></table></div>
+<p class="note">No calculus. Topics U.S. courses cover lightly: logarithms, trig identities and equations, Euclidean geometry, number theory, counting, and writing full solutions.</p>
+</section>
+<section class="block"><h2>Study plan</h2>
+<p>For each paper: write it under contest conditions, mark it with the official solutions, rewrite every missed solution a day later, and keep a one-page formula and tricks sheet.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>When</th><th>Hours/week</th><th>Focus</th></tr></thead>
+<tbody>
+<tr><td class="when">Nov 2–30</td><td>1</td><td>Arrange registration; 2026 Euclid Q1–5 untimed as a baseline</td></tr>
+<tr><td class="when">Dec 1–31</td><td>2</td><td>Q1–6 from one past paper a week (2025, 2024, 2023); list weak topics</td></tr>
+<tr><td class="when">Jan 1–15</td><td>0</td><td>Pause for application deadlines</td></tr>
+<tr><td class="when">Jan 16–Feb 15</td><td>2</td><td>Drill weak topics with CEMC Courseware; practise full solutions</td></tr>
+<tr><td class="when">Feb 16–Mar 31</td><td>3–4</td><td>One full timed paper (2.5 h) a week, then review every miss</td></tr>
+<tr><td class="when">Apr 1–5</td><td>1–2</td><td>One last paper; formulas and identities; rest</td></tr>
+</tbody></table></div>
+</section>
+<section class="block"><h2>Test-day strategy</h2>
+<ul class="plain"><li>First 10 min: read all ten questions; mark what you can do</li><li>Q1–6 (about 75 min): steady work; double-check answer-only parts</li><li>Q7–10 (about 60 min): attempt every part; clear partial solutions earn marks</li><li>Last 15 min: check answers and solution write-ups</li></ul>
+</section>
+<section class="block"><h2>Checklist</h2>
+<ul class="todo"><li><input type="checkbox" id="euclid-4-0"><label for="euclid-4-0">School (or a nearby school) registered for the Euclid</label></li><li><input type="checkbox" id="euclid-4-1"><label for="euclid-4-1">Baseline: 2026 Euclid Q1–5</label></li><li><input type="checkbox" id="euclid-4-2"><label for="euclid-4-2">Three past papers, Q1–6 (December)</label></li><li><input type="checkbox" id="euclid-4-3"><label for="euclid-4-3">Weak-topic drills (late Jan–mid Feb)</label></li><li><input type="checkbox" id="euclid-4-4"><label for="euclid-4-4">Six full timed papers (Feb 16–Mar 31)</label></li><li><input type="checkbox" id="euclid-4-5"><label for="euclid-4-5">Calculator checked against CEMC policy</label></li><li><input type="checkbox" id="euclid-4-6"><label for="euclid-4-6">Time and room confirmed for April 6</label></li></ul>
+<p class="note">Ticks are saved in this browser only.</p>
+</section>
+<section class="sources"><p>Sources, checked Nov 1, 2026. Confirm in each applicant portal before submitting.</p><ul><li><a href="https://cemc.uwaterloo.ca/contests/euclid">Euclid past contests, solutions and prep</a></li><li><a href="https://cemc.uwaterloo.ca/sites/default/files/documents/2026/2026EuclidContest.html">2026 Euclid (baseline paper)</a></li><li><a href="https://cemc.uwaterloo.ca/resources/grade-level/grade-11-12">CEMC Grade 11–12 resources and Courseware</a></li><li><a href="https://cemc.uwaterloo.ca/sites/default/files/documents/2026/NASA%20Tentative%20Contest%20Dates%202026-2027.pdf">2026–27 contest dates</a></li><li><a href="https://cemc.uwaterloo.ca/contests/how-contests-work">How CEMC contests work</a></li></ul></section>
+<nav class="more" aria-label="All schools"><div><h2>Canada</h2><ul class="ca"><li><a href="uoft.html">U of T</a></li><li><a href="waterloo.html">Waterloo</a></li><li><a href="mcgill.html">McGill</a></li></ul></div><div><h2>United States</h2><ul class="us"><li><a href="berkeley.html">UC Berkeley</a></li><li><a href="harvard.html">Harvard</a></li><li><a href="princeton.html">Princeton</a></li><li><a href="dartmouth.html">Dartmouth</a></li><li><a href="yale.html">Yale</a></li><li><a href="cornell.html">Cornell</a></li><li><a href="mit.html">MIT</a></li><li><a href="duke.html">Duke</a></li><li><a href="cmu.html">CMU</a></li><li><a href="rice.html">Rice</a></li><li><a href="uchicago.html">UChicago</a></li><li><a href="brown.html">Brown</a></li><li><a href="penn.html">Penn</a></li><li><a href="stanford.html">Stanford</a></li></ul></div></nav>
 </main>
+<footer class="site"><p>Built from build.py.</p></footer>
+</div>
 <script>
-  (function () {
-    var KEY = 'euclid-checklist';
-    var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-    document.querySelectorAll('#todo input').forEach(function (box) {
-      box.checked = !!saved[box.id];
+(function () {
+  var KEY = 'check-' + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (x) {}
+  document.querySelectorAll('ul.todo input').forEach(function (box) {
+    box.checked = !!saved[box.id];
+    box.parentElement.classList.toggle('done', box.checked);
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
       box.parentElement.classList.toggle('done', box.checked);
-      box.addEventListener('change', function () {
-        saved[box.id] = box.checked;
-        box.parentElement.classList.toggle('done', box.checked);
-        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
-      });
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (x) {}
     });
-  })();
+  });
+})();
 </script>
 </body>
 </html>
