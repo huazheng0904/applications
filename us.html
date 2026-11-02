@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U.S. Application Plan</title>
+<meta name="description" content="Deadlines, testing, supplements and program choices for eleven U.S. universities, Fall 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5e58;
+    --line: #e3e1d9; --accent: #1e5bb8; --accent-soft: #e7eefa; --warn: #a3470f; --warn-soft: #fbefe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
+      --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
+    --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; }
+  header p.kicker { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
+  h2 { font-size: 22px; margin: 0 0 12px; }
+  .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
+  .lead strong { color: var(--ink); }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 20px; }
+  .callout { background: var(--accent-soft); border-color: transparent; display: flex; gap: 24px; flex-wrap: wrap; }
+  .callout div { flex: 1 1 160px; }
+  .callout .date { font-size: 26px; font-weight: 700; color: var(--accent); }
+  .callout .what { color: var(--muted); font-size: 14px; }
+  .tablewrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  tr.key td { background: var(--accent-soft); font-weight: 600; }
+  td.when { white-space: nowrap; font-weight: 600; }
+  .rank { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); font-weight: 700; font-size: 13px; }
+  .rank.opt { background: var(--line); color: var(--ink); }
+  ul.todo { list-style: none; padding: 0; margin: 0; }
+  ul.todo li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  ul.todo li:last-child { border-bottom: 0; }
+  ul.todo input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+  ul.todo label { cursor: pointer; }
+  ul.todo .done label { color: var(--muted); text-decoration: line-through; }
+  .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-top: 14px; }
+  footer { font-size: 13px; color: var(--muted); }
+  footer a, section a { color: var(--accent); }
+  footer ul { padding-left: 18px; }
+
+  nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
+  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
+  nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <nav class="site" aria-label="Pages"><a href="index.html">U of T</a><a href="mcgill.html">McGill</a><a href="waterloo.html">Waterloo</a><a href="us.html" aria-current="page">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
+  <header>
+    <p class="kicker">U.S. universities · Fall 2027 entry</p>
+    <h1>U.S. application plan</h1>
+    <p class="lead">Eleven schools. Two are due in November: <strong>Georgia Tech Early Action (Nov 2)</strong> and <strong>UC Berkeley (Nov 30)</strong>. The other nine are due Jan 1–6.</p>
+  </header>
+
+  <section class="callout" aria-label="Key dates">
+    <div><div class="date">Nov 2</div><div class="what">Georgia Tech EA</div></div>
+    <div><div class="date">Nov 30</div><div class="what">UC Berkeley</div></div>
+    <div><div class="date">Jan 1–2</div><div class="what">Harvard, Yale, Cornell</div></div>
+    <div><div class="date">Jan 4–6</div><div class="what">MIT, Duke, CMU, Rice, Brown, Stanford, GT RD</div></div>
+  </section>
+
+  <section>
+    <h2>Schools at a glance</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>School</th><th>Deadline</th><th>Testing</th><th>Supplements</th><th>Programs that fit</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Georgia Tech</strong></td><td class="when">EA Nov 2 (non-binding); RD Jan 6</td><td>SAT/ACT required</td><td>1 essay, ~300 words</td><td>Electrical Eng., Applied Math, Physics, Environmental Eng.</td></tr>
+        <tr><td><strong>UC Berkeley</strong></td><td class="when">Nov 30 (firm)</td><td>Test-free</td><td>UC app: 4 of 8 PIQs, 350 words; no recommendations</td><td>Engineering Physics, Civil &amp; Environmental, EECS; Applied Math; Statistics/Data Science</td></tr>
+        <tr><td><strong>Harvard</strong></td><td class="when">Jan 1</td><td>SAT/ACT required</td><td>5 × 150 words</td><td>Applied Math, Environmental Science &amp; Eng., Physics</td></tr>
+        <tr><td><strong>Yale</strong></td><td class="when">Jan 2</td><td>SAT/ACT required</td><td>200 words + 3 × 200 characters + 400 words</td><td>Applied Math, Statistics &amp; Data Science, Environmental Studies</td></tr>
+        <tr><td><strong>Cornell</strong></td><td class="when">Jan 2 (materials Jan 19)</td><td>SAT/ACT required</td><td>Engineering: 2 × 200 + 4 × 100 words</td><td>College of Engineering (Eng. Physics, ECE, ORIE, Environmental)</td></tr>
+        <tr><td><strong>MIT</strong></td><td class="when">Jan 4</td><td>SAT/ACT required</td><td>Own app: 4 × 100–200 + 4 × 40–50 words</td><td>Course 18 Math, 8 Physics, 6 EECS, 1 Civil &amp; Environmental</td></tr>
+        <tr><td><strong>Duke</strong></td><td class="when">Jan 4</td><td>Test-optional (send scores)</td><td>2 × 250 words + 1 optional</td><td>Pratt (ECE, Civil &amp; Environmental) or Trinity (Math, Stats, Physics)</td></tr>
+        <tr><td><strong>Carnegie Mellon</strong></td><td class="when">Jan 4</td><td>Test-flexible (SAT/ACT/AP)</td><td>3 × 300 words</td><td>College of Engineering or Mellon College of Science</td></tr>
+        <tr><td><strong>Rice</strong></td><td class="when">Jan 4</td><td>Send scores</td><td>2 × 150 + 500 words + The Box image</td><td>CMOR (applied math), ECE, Civil &amp; Environmental</td></tr>
+        <tr><td><strong>Brown</strong></td><td class="when">Jan 5</td><td>SAT/ACT required; superscored</td><td>2 × 250 + 2 × 150 words</td><td>Applied Math, Applied Math–CS, Engineering (Sc.B.), Environmental Sci.</td></tr>
+        <tr><td><strong>Stanford</strong></td><td class="when">Jan 5</td><td>SAT/ACT required</td><td>3 × 100–250 + 5 × 50 words</td><td>Math &amp; Computational Science, Engineering Physics, Earth Systems, EE</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">MIT and UC Berkeley use their own applications, not the Common App. Georgia Tech's EA is non-binding; confirm any early-decision terms elsewhere before applying.</p>
+  </section>
+
+  <section>
+    <h2>Write once, adapt everywhere</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Core story</th><th>Where it's used</th></tr></thead>
+      <tbody>
+        <tr><td>An idea that excites him (river data and modeling)</td><td>Yale topic essay, Stanford intellectual vitality, Brown Open Curriculum, Cornell "why engineering", MIT field of study, CMU passion, Rice academic areas, Georgia Tech major essay, Berkeley academic PIQ</td></tr>
+        <tr><td>A community he built (sampling team, advisory group)</td><td>Yale community essay, Stanford and Cornell contribution, Duke community, Rice residential college, Berkeley leadership and community PIQs</td></tr>
+        <tr><td>Growing up and identity</td><td>Brown background, Harvard perspectives, Rice change agents, Yale option 3, Berkeley "stand out" PIQ</td></tr>
+        <tr><td>A mistake or challenge (correcting published data)</td><td>MIT unexpected challenge, Harvard disagreement, Berkeley challenge PIQ</td></tr>
+        <tr><td>Joy and small moments</td><td>Brown joy, Cornell joy, Stanford short answers, MIT fun, Yale short answers</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Checklist</h2>
+    <ul class="todo" id="todo">
+      <li><input type="checkbox" id="u1"><label for="u1">Georgia Tech EA submitted by Nov 2; scores sent by Dec 8</label></li>
+      <li><input type="checkbox" id="u2"><label for="u2">UC application submitted by Nov 30 (4 PIQs, activities)</label></li>
+      <li><input type="checkbox" id="u3"><label for="u3">Draft the five core stories</label></li>
+      <li><input type="checkbox" id="u4"><label for="u4">MIT portal set up; activities re-entered</label></li>
+      <li><input type="checkbox" id="u5"><label for="u5">Harvard, Yale, Cornell submitted by Dec 31</label></li>
+      <li><input type="checkbox" id="u6"><label for="u6">MIT, Duke, CMU, Rice, Brown, Stanford submitted by Jan 4</label></li>
+      <li><input type="checkbox" id="u7"><label for="u7">Georgia Tech RD fallback (Jan 6) only if EA missed</label></li>
+      <li><input type="checkbox" id="u8"><label for="u8">SAT scores sent to every school that takes them</label></li>
+      <li><input type="checkbox" id="u9"><label for="u9">Mid-year report requested from counselor</label></li>
+      <li><input type="checkbox" id="u10"><label for="u10">Interviews: MIT, Rice (request after applying)</label></li>
+    </ul>
+    <p class="note">Ticks are saved in this browser only.</p>
+  </section>
+
+  <footer>
+    <p>Sources, checked Nov 1, 2026 (confirm in each school's portal):</p>
+    <ul>
+      <li><a href="https://orieladmissions.com/does-georgia-tech-require-the-sat/">Georgia Tech testing and deadlines</a></li>
+      <li><a href="https://riseglobaleducation.com/blogs/uc-application-deadlines-2026-27">UC application deadlines 2026–27</a></li>
+      <li><a href="https://gradpilot.com/news/harvard-supplemental-essays-2026-2027">Harvard prompts</a></li>
+      <li><a href="https://admissions.yale.edu/application-deadlines">Yale deadlines</a> · <a href="https://www.collegeessayguy.com/blog/yale-supplemental-essay">Yale prompts</a></li>
+      <li><a href="https://admissions.cornell.edu/node/1066">Cornell first-year</a> · <a href="https://www.collegetransitions.com/blog/cornell-supplemental-essay-prompts/">Cornell prompts</a></li>
+      <li><a href="https://gradpilot.com/news/mit-supplemental-essays-2026-2027">MIT prompts, deadline, testing</a></li>
+      <li><a href="https://gradpilot.com/news/duke-supplemental-essays-2026-2027">Duke prompts</a> · <a href="https://orieladmissions.com/does-duke-require-the-sat/">Duke testing</a></li>
+      <li><a href="https://orieladmissions.com/how-to-get-into-carnegie-mellon/">Carnegie Mellon guide</a></li>
+      <li><a href="https://gradpilot.com/news/rice-supplemental-essays-2026-2027">Rice prompts and deadlines</a></li>
+      <li><a href="https://admission.brown.edu/first-year/regular-decision">Brown RD</a> · <a href="https://www.collegetransitions.com/blog/brown-supplemental-essay-prompts/">Brown prompts</a></li>
+      <li><a href="https://www.collegetransitions.com/blog/stanford-supplemental-essay-prompts/">Stanford prompts</a> · <a href="https://waf.collegedata.com/college-search/stanford-university/admission">Stanford deadline and testing</a></li>
+    </ul>
+  </footer>
+</main>
+<script>
+  (function () {
+    var KEY = 'us-checklist';
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    document.querySelectorAll('#todo input').forEach(function (box) {
+      box.checked = !!saved[box.id];
+      box.parentElement.classList.toggle('done', box.checked);
+      box.addEventListener('change', function () {
+        saved[box.id] = box.checked;
+        box.parentElement.classList.toggle('done', box.checked);
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

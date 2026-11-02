@@ -60,3 +60,7 @@ See `waterloo.html`. Same OUAC application as U of T; AIF due Feb 15 (Math/CS) o
 ## Euclid contest prep
 
 See `euclid.html`. Euclid is Tuesday, April 6, 2027; a school must register the student. About 30 hours of prep, mostly Feb 16–Mar 31.
+
+## U.S. schools
+
+See `us.html`. Georgia Tech EA (Nov 2), UC Berkeley (Nov 30), then Harvard, Yale, Cornell, MIT, Duke, CMU, Rice, Brown and Stanford (Jan 1–6).
