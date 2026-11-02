@@ -58,11 +58,13 @@
   nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
   nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
   nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
+  nav.site a.ca { border-left: 3px solid #A82C3C; }
+  nav.site a.us { border-left: 3px solid #2E5E8C; }
 </style>
 </head>
 <body>
 <main>
-  <nav class="site" aria-label="Pages"><a href="index.html">U of T</a><a href="mcgill.html" aria-current="page">McGill</a><a href="waterloo.html">Waterloo</a><a href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
+  <nav class="site" aria-label="Pages"><a href="index.html">Overview</a><a class="ca" href="uoft.html">U of T</a><a class="ca" href="waterloo.html">Waterloo</a><a class="ca" href="mcgill.html" aria-current="page">McGill</a><a class="us" href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
   <header>
     <p class="kicker">McGill University · Fall 2027 entry</p>
     <h1>McGill application plan</h1>

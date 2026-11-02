@@ -3,186 +3,287 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>U of T Application Plan</title>
-<meta name="description" content="Timeline, to-dos and program choices for a Fall 2027 University of Toronto application from a U.S. high school.">
+<title>Fall 2027 Applications</title>
+<meta name="description" content="Deadlines, programs and plans for Fall 2027 university applications in Canada and the United States.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f6f2; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5e58;
-    --line: #e3e1d9; --accent: #1e5bb8; --accent-soft: #e7eefa; --warn: #a3470f; --warn-soft: #fbefe6;
+    --paper: #F4F7F7; --surface: #FFFFFF; --ink: #15303A; --muted: #4F656D;
+    --rule: #D5DEE0; --ca: #A82C3C; --ca-soft: #F6E7E9; --us: #2E5E8C; --us-soft: #E5EDF5;
+    --river: #CFE3E6;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-      --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+      --paper: #0F1E24; --surface: #16282F; --ink: #E6EEF0; --muted: #9DB2B8;
+      --rule: #2A4048; --ca: #E5707F; --ca-soft: #3A2228; --us: #7FA9D6; --us-soft: #1D2E40; --river: #1F3C44;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #151514; --card: #1e1e1c; --ink: #ecebe6; --muted: #a5a39b;
-    --line: #33322e; --accent: #7aa8f0; --accent-soft: #1f2a3d; --warn: #f0a070; --warn-soft: #3a2619;
+    --paper: #0F1E24; --surface: #16282F; --ink: #E6EEF0; --muted: #9DB2B8;
+    --rule: #2A4048; --ca: #E5707F; --ca-soft: #3A2228; --us: #7FA9D6; --us-soft: #1D2E40; --river: #1F3C44;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, sans-serif; }
-  main { max-width: 860px; margin: 0 auto; padding: 40px 16px 64px; }
-  header p.kicker { margin: 0; color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 8px 0 12px; }
-  h2 { font-size: 22px; margin: 0 0 12px; }
-  .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
-  .lead strong { color: var(--ink); }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 20px; }
-  .callout { background: var(--accent-soft); border-color: transparent; display: flex; gap: 24px; flex-wrap: wrap; }
-  .callout div { flex: 1 1 160px; }
-  .callout .date { font-size: 26px; font-weight: 700; color: var(--accent); }
-  .callout .what { color: var(--muted); font-size: 14px; }
-  .tablewrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-  tr.key td { background: var(--accent-soft); font-weight: 600; }
-  td.when { white-space: nowrap; font-weight: 600; }
-  .rank { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); font-weight: 700; font-size: 13px; }
-  .rank.opt { background: var(--line); color: var(--ink); }
-  ul.todo { list-style: none; padding: 0; margin: 0; }
-  ul.todo li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  ul.todo li:last-child { border-bottom: 0; }
-  ul.todo input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
-  ul.todo label { cursor: pointer; }
-  ul.todo .done label { color: var(--muted); text-decoration: line-through; }
-  .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
-  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin-top: 14px; }
-  footer { font-size: 13px; color: var(--muted); }
-  footer a, section a { color: var(--accent); }
-  footer ul { padding-left: 18px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--us); outline-offset: 2px; border-radius: 4px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 
-  nav.site { display: flex; gap: 8px; margin: 0 0 24px; flex-wrap: wrap; }
-  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--card); }
-  nav.site a[aria-current] { background: var(--accent); color: var(--card); border-color: var(--accent); }
+  nav.site { display: flex; gap: 6px; flex-wrap: wrap; padding: 20px 0 0; }
+  nav.site a { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rule); text-decoration: none; font-size: 14px; font-weight: 500; background: var(--surface); }
+  nav.site a[aria-current] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  nav.site .ca { border-left: 3px solid var(--ca); }
+  nav.site .us { border-left: 3px solid var(--us); }
+
+  header.hero { padding: 40px 0 8px; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", Inter, sans-serif; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.02; margin: 0 0 14px; font-weight: 800; max-width: 14ch; }
+  .lede { font-size: 18px; color: var(--muted); max-width: 60ch; margin: 0; }
+
+  /* Deadline river */
+  .river-wrap { margin: 10px 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .river { position: relative; min-width: 860px; height: 320px; }
+  .legend { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin: 28px 0 0; }
+  .channel { position: absolute; left: 0; right: 0; top: 150px; height: 40px; background: var(--river); border-radius: 20px; }
+  .month { position: absolute; top: 150px; height: 40px; display: flex; align-items: center; font-size: 12px; font-weight: 600; color: var(--muted); transform: translateX(-50%); }
+  .month::before { content: ""; position: absolute; left: 50%; top: -6px; bottom: -6px; border-left: 1px dashed var(--rule); }
+  .today { position: absolute; top: 140px; height: 60px; border-left: 2px solid var(--ink); }
+  .today span { position: absolute; top: 18px; left: 6px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .pin { position: absolute; width: 124px; height: var(--d); font-size: 12.5px; line-height: 1.3; }
+  .pin::before { content: ""; position: absolute; left: 3px; width: 2px; background: currentColor; opacity: .45; }
+  .pin.ca { color: var(--ca); top: calc(150px - var(--d)); }
+  .pin.us { color: var(--us); top: 190px; }
+  .pin.ca::before { top: 34px; bottom: 0; }
+  .pin.us::before { top: 0; bottom: 34px; }
+  .pin .dot { position: absolute; left: 0; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .pin.ca .dot { bottom: -4px; }
+  .pin.us .dot { top: -4px; }
+  .pin .lbl { position: absolute; left: 12px; right: 0; }
+  .pin.ca .lbl { top: 0; }
+  .pin.us .lbl { bottom: 0; }
+  .pin b { display: block; }
+  .pin .lbl span { color: var(--muted); }
+  .river-note { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+
+  /* Next up */
+  .next { margin: 28px 0 0; padding: 22px 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; }
+  .next h2 { font-size: 22px; margin: 0 0 12px; }
+  .next ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .next li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: baseline; }
+  .next .when { font-weight: 700; font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; }
+  .next .in { display: block; font-size: 12px; color: var(--muted); font-family: Inter, sans-serif; font-weight: 500; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; margin-right: 6px; }
+  .tag.ca { background: var(--ca-soft); color: var(--ca); }
+  .tag.us { background: var(--us-soft); color: var(--us); }
+
+  /* Country sections */
+  section.country { margin: 56px 0 0; }
+  .country-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; border-bottom: 3px solid var(--c); padding-bottom: 10px; }
+  .country-head h2 { font-size: clamp(28px, 4vw, 40px); margin: 0; color: var(--c); }
+  .country-head p { margin: 0; color: var(--muted); max-width: 60ch; }
+  .country.ca { --c: var(--ca); --soft: var(--ca-soft); }
+  .country.us { --c: var(--us); --soft: var(--us-soft); }
+
+  .school { display: grid; grid-template-columns: 220px 1fr auto; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .school h3 { font-size: 24px; margin: 0; line-height: 1.15; }
+  .school .route { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .school dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 4px 14px; font-size: 15px; }
+  .school dt { color: var(--muted); }
+  .school dd { margin: 0; }
+  .go { display: inline-block; padding: 9px 16px; border-radius: 999px; background: var(--c); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; white-space: nowrap; }
+  :root[data-theme="dark"] .go { color: #0F1E24; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .go { color: #0F1E24; } }
+
+  .us-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 8px; }
+  .us-table th { text-align: left; font-size: 13px; color: var(--muted); font-weight: 600; padding: 12px 10px 8px; border-bottom: 1px solid var(--rule); }
+  .us-table td { padding: 12px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .us-table td.d { font-weight: 700; white-space: nowrap; font-family: "Bricolage Grotesque", sans-serif; }
+  .us-table tr.early td { background: var(--soft); }
+  .tablewrap { overflow-x: auto; }
+  .us-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; }
+  .us-foot p { margin: 0; color: var(--muted); font-size: 14px; max-width: 60ch; }
+
+  .tools { margin: 56px 0 0; padding: 22px 24px; border: 1px dashed var(--rule); border-radius: 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .tools h2 { font-size: 20px; margin: 0 0 4px; }
+  .tools p { margin: 0; color: var(--muted); }
+  .tools a { font-weight: 600; }
+
+  footer { margin: 48px 0 40px; font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .school { grid-template-columns: 1fr; gap: 12px; }
+    .school dl { grid-template-columns: 96px 1fr; }
+    .next li { grid-template-columns: 76px 1fr; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <nav class="site" aria-label="Pages"><a href="index.html" aria-current="page">U of T</a><a href="mcgill.html">McGill</a><a href="waterloo.html">Waterloo</a><a href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
-  <header>
-    <p class="kicker">University of Toronto · Fall 2027 entry</p>
-    <h1>U of T application plan</h1>
-    <p class="lead">Apply on OUAC by <strong>Nov 7</strong>, then finish the Engineering Supplemental Application (ESA) and documents by <strong>Dec 1</strong>. That early package guarantees an Engineering decision by April 30.</p>
+<div class="wrap">
+  <nav class="site" aria-label="Pages"><a href="index.html" aria-current="page">Overview</a><a class="ca" href="uoft.html">U of T</a><a class="ca" href="waterloo.html">Waterloo</a><a class="ca" href="mcgill.html">McGill</a><a class="us" href="us.html">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav>
+
+  <header class="hero">
+    <h1>Fall 2027 applications</h1>
+    <p class="lede">Three Canadian universities and eleven in the U.S. Every deadline from now to June on one line.</p>
   </header>
 
-  <section class="callout" aria-label="Key dates">
-    <div><div class="date">Nov 7</div><div class="what">OUAC application in</div></div>
-    <div><div class="date">Dec 1</div><div class="what">ESA + all documents (early)</div></div>
-    <div><div class="date">Jan 15</div><div class="what">Final Engineering deadline</div></div>
-    <div><div class="date">Apr 30</div><div class="what">Engineering decision by</div></div>
+  <p class="legend"><span class="tag ca">Canada</span> above the line <span class="tag us">U.S.</span> below</p>
+  <div class="river-wrap" role="img" aria-label="Timeline of application deadlines from November 2026 to June 2027, Canada above and U.S. below">
+    <div class="river" id="river">
+      <div class="channel"></div>
+    </div>
+  </div>
+  <p class="river-note">Scroll sideways on a phone. The dark line marks today.</p>
+
+  <div class="next">
+    <h2>Next up</h2>
+    <ol id="next"></ol>
+  </div>
+
+  <section class="country ca" aria-labelledby="ca-h">
+    <div class="country-head">
+      <h2 id="ca-h">Canada</h2>
+      <p>U of T and Waterloo share one OUAC application; McGill is separate. All three charge domestic tuition to Canadian citizens.</p>
+    </div>
+
+    <article class="school">
+      <div><h3>University of Toronto</h3><div class="route">OUAC + Engineering Supplemental Application</div></div>
+      <dl>
+        <dt>Apply by</dt><dd>Nov 7 on OUAC; ESA and documents Dec 1 (early), Jan 15 final</dd>
+        <dt>Programs</dt><dd>Engineering ranked Engineering Science, Electrical, Industrial, Civil or Mechanical; plus Arts &amp; Science Mathematical &amp; Physical Sciences</dd>
+        <dt>Co-op</dt><dd>PEY: one 12–16 month paid placement after third year</dd>
+      </dl>
+      <a class="go" href="uoft.html">U of T plan</a>
+    </article>
+
+    <article class="school">
+      <div><h3>University of Waterloo</h3><div class="route">OUAC + Admission Information Form</div></div>
+      <dl>
+        <dt>Apply by</dt><dd>Nov 7 on OUAC (same form as U of T); AIF Feb 15, or Feb 1 with engineering</dd>
+        <dt>Programs</dt><dd>Mathematics (most likely admit), Computer Science, and Electrical or Computer Engineering</dd>
+        <dt>Co-op</dt><dd>4–6 rotating four-month terms, up to two years of paid work</dd>
+      </dl>
+      <a class="go" href="waterloo.html">Waterloo plan</a>
+    </article>
+
+    <article class="school">
+      <div><h3>McGill University</h3><div class="route">Direct application, grades self-reported</div></div>
+      <dl>
+        <dt>Apply by</dt><dd>Jan 15; scholarship Jan 21; documents Mar 1</dd>
+        <dt>Programs</dt><dd>B.Sc. Physical, Earth, Math &amp; Computer Science (applied math, physics, statistics, AI); Electrical Engineering second</dd>
+        <dt>Tuition</dt><dd>Quebec-resident rate, about $3,100 CAD a year, for applicants born in Quebec</dd>
+      </dl>
+      <a class="go" href="mcgill.html">McGill plan</a>
+    </article>
   </section>
 
-  <section>
-    <h2>Programs to apply to</h2>
+  <section class="country us" aria-labelledby="us-h">
+    <div class="country-head">
+      <h2 id="us-h">United States</h2>
+      <p>UC Berkeley comes first, on Nov 30. The other ten are due Jan 1–5 and share most essay material.</p>
+    </div>
     <div class="tablewrap">
-    <table>
-      <thead><tr><th>ESA rank</th><th>Program</th><th>Competitive range*</th><th>Why</th></tr></thead>
+    <table class="us-table">
+      <thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Applying to</th></tr></thead>
       <tbody>
-        <tr><td><span class="rank">1</span></td><td>Engineering Science</td><td>Low to mid 90s</td><td>Two broad years, then a major: Engineering Physics; Math, Statistics &amp; Finance; Machine Intelligence; Energy Systems; and others</td></tr>
-        <tr><td><span class="rank">2</span></td><td>Electrical Engineering</td><td>Low to mid 90s</td><td>Physics-heavy: electronics, energy systems, photonics, signal processing and ML</td></tr>
-        <tr><td><span class="rank">3</span></td><td>Industrial Engineering</td><td>High 80s to low 90s</td><td>Statistics, operations research and data analytics; the realistic backup</td></tr>
-        <tr><td><span class="rank opt">4</span></td><td>Civil or Mechanical (optional)</td><td>High 80s to low 90s</td><td>Civil for water and environment; Mechanical for physics</td></tr>
+        <tr class="early"><td class="d">Nov 30</td><td>UC Berkeley</td><td>Not considered</td><td>Engineering, Applied Math, or Statistics / Data Science</td></tr>
+        <tr><td class="d">Jan 1</td><td>Harvard</td><td>Required</td><td>Applied Mathematics</td></tr>
+        <tr><td class="d">Jan 1</td><td>Princeton</td><td>Optional this cycle</td><td>B.S.E., e.g. Operations Research &amp; Financial Engineering</td></tr>
+        <tr><td class="d">Jan 2</td><td>Yale</td><td>Required</td><td>Applied Math, Statistics &amp; Data Science</td></tr>
+        <tr><td class="d">Jan 2</td><td>Cornell</td><td>Required</td><td>College of Engineering</td></tr>
+        <tr><td class="d">Jan 4</td><td>MIT</td><td>Required</td><td>Math, Physics, EECS, or Civil &amp; Environmental</td></tr>
+        <tr><td class="d">Jan 4</td><td>Duke</td><td>Optional</td><td>Pratt Engineering or Trinity</td></tr>
+        <tr><td class="d">Jan 4</td><td>Carnegie Mellon</td><td>Test-flexible</td><td>Engineering or Mellon College of Science</td></tr>
+        <tr><td class="d">Jan 4</td><td>Rice</td><td>Send scores</td><td>Computational Applied Math &amp; Operations Research</td></tr>
+        <tr><td class="d">Jan 5</td><td>Brown</td><td>Required</td><td>Applied Math, Engineering (Sc.B.)</td></tr>
+        <tr><td class="d">Jan 5</td><td>Stanford</td><td>Required</td><td>Math &amp; Computational Science, Engineering Physics</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="note">These four are ranked inside one OUAC choice (U of T Engineering). The second OUAC choice is <strong>Arts &amp; Science Mathematical &amp; Physical Sciences (TPG)</strong>: applied math, physics, statistics or math, chosen after first year; mid to high 80s; no supplement.</p>
-    <p class="note">*% average in prerequisite courses. TrackOne (undeclared engineering) is paused for 2027 entry. All engineering programs offer PEY Co-op, a paid 12–16 month placement after third year.</p>
-  </section>
-
-  <section>
-    <h2>Co-op opportunities</h2>
-    <p>U of T co-op is one long paid placement, not Waterloo-style rotating terms. Engineering students apply through the program; it does not affect admission.</p>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>Program</th><th>Co-op route</th><th>Length and timing</th><th>Details</th></tr></thead>
-      <tbody>
-        <tr><td>All Engineering, incl. Engineering Science, Electrical, Industrial</td><td>PEY Co-op (Professional Experience Year)</td><td>12–16 months, full-time, after 3rd year</td><td>About 70% of 3rd-year engineers take it; average pay about $50,000 a year, top roles up to $90,000; 350+ employer partners; 12 months count toward the P.Eng. licence</td></tr>
-        <tr><td>All Engineering</td><td>Summer internship (ESIP)</td><td>About 4 months, summer after 2nd or 3rd year</td><td>Optional; can be added to PEY for up to about 20 months of paid work</td></tr>
-        <tr><td>Arts &amp; Science Mathematical &amp; Physical Sciences</td><td>Arts &amp; Science Co-op (by major)</td><td>4, 8, 12 or 16 months, after 2nd and 3rd year</td><td>Available in selected majors; check the major he picks after first year</td></tr>
-      </tbody>
-    </table>
+    <div class="us-foot">
+      <p>Prompts, word limits and the essay reuse map for every school are on the U.S. page.</p>
+      <a class="go" href="us.html">U.S. plan</a>
     </div>
-    <p class="note">Sample PEY employers: NVIDIA (U.S.), Intel, Amazon, IBM, Google and Environment and Climate Change Canada. Indicate PEY interest on OUAC and confirm it in the ESA.</p>
-    <div class="warn">Compared with Waterloo's six 4-month work terms starting in first year, U of T gives one deeper placement later, with fewer separate chances at U.S. internships.</div>
   </section>
 
-  <section>
-    <h2>Timeline and to-dos</h2>
-    <div class="tablewrap">
-    <table>
-      <thead><tr><th>When</th><th>To do</th><th>Who</th></tr></thead>
-      <tbody>
-        <tr><td class="when">Nov 2–7</td><td>Submit OUAC (Group B); rank U of T Engineering first</td><td>Student</td></tr>
-        <tr><td class="when">Nov 2–7</td><td>Send SAT (all sittings) and AP scores to code 0982</td><td>Student, via College Board</td></tr>
-        <tr><td class="when">Nov 2–7</td><td>Request transcript and school profile be sent to U of T</td><td>School counselor</td></tr>
-        <tr><td class="when">~Nov 9–13</td><td>Enable JOINid; open Engineering Applicant Portal; pay $69 ESA fee; request English test exemption if needed</td><td>Student</td></tr>
-        <tr><td class="when">Nov 14–20</td><td>ESA forms: program ranking, timeline, academics, activities with references</td><td>Student</td></tr>
-        <tr><td class="when">Nov 21–23</td><td>Practice the video questions; test webcam and browser</td><td>Student</td></tr>
-        <tr><td class="when">By Nov 24</td><td>Personal Profile: 3 timed video questions, one attempt</td><td>Student</td></tr>
-        <tr class="key"><td class="when">Dec 1</td><td>Early deadline: ESA and all documents</td><td>Student, counselor</td></tr>
-        <tr><td class="when">When issued</td><td>Upload first-term grades</td><td>Student, counselor</td></tr>
-        <tr><td class="when">Jan 15</td><td>Final Engineering deadline</td><td>—</td></tr>
-        <tr><td class="when">Feb 1</td><td>Arts &amp; Science documents due</td><td>—</td></tr>
-        <tr><td class="when">Mar 31</td><td>Residence application</td><td>Student</td></tr>
-        <tr><td class="when">Apr 30</td><td>Engineering decision guaranteed by</td><td>U of T</td></tr>
-        <tr><td class="when">May</td><td>AP exams; scores become offer conditions</td><td>Student</td></tr>
-      </tbody>
-    </table>
+  <aside class="tools">
+    <div>
+      <h2>Euclid Mathematics Contest, April 6</h2>
+      <p>Counts toward Waterloo Math scholarships. A school must register the student.</p>
     </div>
-    <div class="warn">The Personal Profile allows one attempt only. Practice questions are unlimited, so finish them before the real sitting.</div>
-  </section>
-
-  <section>
-    <h2>Checklist</h2>
-    <ul class="todo" id="todo">
-      <li><input type="checkbox" id="t1"><label for="t1">Decide final ESA order</label></li>
-      <li><input type="checkbox" id="t2"><label for="t2">Submit OUAC</label></li>
-      <li><input type="checkbox" id="t3"><label for="t3">Send SAT and AP scores</label></li>
-      <li><input type="checkbox" id="t4"><label for="t4">Counselor sends transcript and school profile</label></li>
-      <li><input type="checkbox" id="t5"><label for="t5">Enable JOINid and pay ESA fee</label></li>
-      <li><input type="checkbox" id="t6"><label for="t6">Line up activity references</label></li>
-      <li><input type="checkbox" id="t7"><label for="t7">Complete ESA forms</label></li>
-      <li><input type="checkbox" id="t8"><label for="t8">Complete the Personal Profile</label></li>
-      <li><input type="checkbox" id="t9"><label for="t9">Upload documents and submit every page by Dec 1</label></li>
-    </ul>
-    <p class="note">Ticks are saved in this browser only.</p>
-  </section>
+    <a href="euclid.html">Prep plan</a>
+  </aside>
 
   <footer>
-    <p>Sources, checked Nov 1, 2026:</p>
-    <ul>
-      <li><a href="https://discover.engineering.utoronto.ca/how-to-apply/important-deadlines/">U of T Engineering deadlines</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/how-to-apply/supplemental-application/">Engineering Supplemental Application</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/faqs/">Engineering FAQ and grade ranges</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/general-first-year/">TrackOne pause</a></li>
-      <li><a href="https://future.utoronto.ca/deadlines">U of T dates and deadlines</a></li>
-      <li><a href="https://ouinfo.ca/programs/tpg">Mathematical &amp; Physical Sciences (TPG)</a></li>
-      <li><a href="https://engineeringcareers.utoronto.ca/?p=9062">PEY Co-op</a></li>
-      <li><a href="https://undergrad.engineering.utoronto.ca/internships-jobs-careers/">Engineering internships (PEY and ESIP)</a></li>
-      <li><a href="https://hireuoftcoop.utoronto.ca/wp-content/uploads/U-of-T-Co-op-Brochure.pdf">U of T Co-op (Arts &amp; Science terms)</a></li>
-      <li><a href="https://discover.engineering.utoronto.ca/programs/engineering-programs/electrical-computer-engineering/">ECE sample PEY employers</a></li>
-    </ul>
+    <p>Dates checked Nov 1, 2026 against each university's admissions pages. Confirm in each applicant portal before submitting.</p>
   </footer>
-</main>
+</div>
+
 <script>
-  (function () {
-    var KEY = 'uoft-checklist';
-    var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-    document.querySelectorAll('#todo input').forEach(function (box) {
-      box.checked = !!saved[box.id];
-      box.parentElement.classList.toggle('done', box.checked);
-      box.addEventListener('change', function () {
-        saved[box.id] = box.checked;
-        box.parentElement.classList.toggle('done', box.checked);
-        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
-      });
-    });
-  })();
+(function () {
+  var START = Date.UTC(2026, 10, 1), END = Date.UTC(2027, 6, 10);
+  var events = [
+    { d: '2026-11-07', c: 'ca', t: 'OUAC', s: 'U of T and Waterloo choices', lvl: 1 },
+    { d: '2026-11-30', c: 'us', t: 'UC Berkeley', s: 'UC application', lvl: 1 },
+    { d: '2026-12-01', c: 'ca', t: 'U of T ESA', s: 'and documents, early', lvl: 2 },
+    { d: '2027-01-01', c: 'us', t: '10 schools', s: 'Jan 1–5: Harvard to Stanford', lvl: 2 },
+    { d: '2027-01-15', c: 'ca', t: 'McGill', s: 'and U of T final', lvl: 1 },
+    { d: '2027-02-15', c: 'ca', t: 'Waterloo AIF', s: 'Feb 1 with engineering', lvl: 2 },
+    { d: '2027-03-25', c: 'us', t: 'Decisions', s: 'late March to early April', lvl: 1 },
+    { d: '2027-04-30', c: 'ca', t: 'U of T decision', s: 'guaranteed by', lvl: 1 },
+    { d: '2027-05-01', c: 'us', t: 'Reply deadline', s: 'commit by May 1', lvl: 2 },
+    { d: '2027-06-01', c: 'ca', t: 'Accept on OUAC', s: 'Ontario offers', lvl: 2 }
+  ];
+  var next = [
+    { d: '2026-11-07', c: 'ca', t: 'Submit OUAC with U of T and Waterloo choices' },
+    { d: '2026-11-24', c: 'ca', t: 'Finish the U of T ESA and video (target)' },
+    { d: '2026-11-30', c: 'us', t: 'Submit the UC Berkeley application' },
+    { d: '2026-12-01', c: 'ca', t: 'U of T ESA and documents for early consideration' },
+    { d: '2026-12-31', c: 'us', t: 'Submit Harvard, Princeton, Yale and Cornell' },
+    { d: '2027-01-04', c: 'us', t: 'Submit MIT, Duke, CMU, Rice, Brown and Stanford' },
+    { d: '2027-01-15', c: 'ca', t: 'Submit McGill; U of T final deadline' },
+    { d: '2027-01-21', c: 'ca', t: 'McGill Major Entrance Scholarship' },
+    { d: '2027-02-15', c: 'ca', t: 'Waterloo AIF and documents' },
+    { d: '2027-03-01', c: 'ca', t: 'McGill documents and grades' },
+    { d: '2027-04-06', c: 'ca', t: 'Euclid contest' },
+    { d: '2027-05-01', c: 'us', t: 'U.S. reply deadline' }
+  ];
+  var t = function (s) { return Date.parse(s + 'T12:00:00Z'); };
+  var pct = function (ms) { return Math.max(0, Math.min(100, (ms - START) / (END - START) * 100)); };
+  var river = document.getElementById('river');
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  for (var i = 0; i < 9; i++) {
+    var ms = Date.UTC(2026, 10 + i, 1);
+    var dt = new Date(ms), m = document.createElement('div');
+    m.className = 'month'; m.style.left = pct(ms) + '%';
+    m.textContent = MONTHS[dt.getUTCMonth()] + (dt.getUTCMonth() === 0 ? ' ' + dt.getUTCFullYear() : '');
+    if (i > 0) river.appendChild(m);
+  }
+  var fmt = function (s) { var p = s.split('-'); return MONTHS[+p[1] - 1] + ' ' + (+p[2]); };
+  events.forEach(function (e) {
+    var el = document.createElement('div');
+    el.className = 'pin ' + e.c;
+    el.style.setProperty('--d', (e.lvl === 1 ? 118 : 62) + 'px');
+    el.style.left = pct(t(e.d)) + '%';
+    el.innerHTML = '<span class="dot"></span><div class="lbl"><b>' + fmt(e.d) + ', ' + e.t + '</b><span>' + e.s + '</span></div>';
+    river.appendChild(el);
+  });
+  var now = Date.now();
+  if (now > START && now < END) {
+    var td = document.createElement('div'); td.className = 'today'; td.style.left = pct(now) + '%';
+    td.innerHTML = '<span>Today</span>'; river.appendChild(td);
+  }
+  var list = document.getElementById('next'), shown = 0;
+  next.forEach(function (n) {
+    var due = t(n.d); if (due < now - 864e5 || shown >= 5) return; shown++;
+    var days = Math.ceil((due - now) / 864e5);
+    var li = document.createElement('li');
+    li.innerHTML = '<div class="when">' + fmt(n.d) + '<span class="in">' + (days <= 0 ? 'today' : 'in ' + days + ' day' + (days === 1 ? '' : 's')) + '</span></div>' +
+      '<div><span class="tag ' + n.c + '">' + (n.c === 'ca' ? 'Canada' : 'U.S.') + '</span>' + n.t + '</div>';
+    list.appendChild(li);
+  });
+  if (!shown) list.innerHTML = '<li><div class="when">Done</div><div>All listed deadlines have passed.</div></li>';
+})();
 </script>
 </body>
 </html>

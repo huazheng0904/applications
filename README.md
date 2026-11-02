@@ -1,6 +1,6 @@
 # U of T Application Plan (Fall 2027)
 
-Timeline, to-dos and program choices for a University of Toronto application from a U.S. high school. The site is `index.html`, served with GitHub Pages.
+Timeline, to-dos and program choices for a University of Toronto application from a U.S. high school. The site's overview is `index.html` (Canada and U.S. sections with a deadline timeline); the U of T plan is `uoft.html`. Served with GitHub Pages.
 
 ## Key dates
 
