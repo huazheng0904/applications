@@ -63,4 +63,4 @@ See `euclid.html`. Euclid is Tuesday, April 6, 2027; a school must register the 
 
 ## U.S. schools
 
-See `us.html`. Georgia Tech EA (Nov 2), UC Berkeley (Nov 30), then Harvard, Yale, Cornell, MIT, Duke, CMU, Rice, Brown and Stanford (Jan 1–6).
+See `us.html`. Georgia Tech EA (Nov 2), UC Berkeley (Nov 30), then Harvard, Princeton, Yale, Cornell, MIT, Duke, CMU, Rice, Brown and Stanford (Jan 1–6).
