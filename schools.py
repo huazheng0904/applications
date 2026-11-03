@@ -128,7 +128,7 @@ CANADA = [
           ['AP scores', 'College Board, code 0996', 'Optional now; results after May'],
           ['Official transcripts', 'School sends directly (Naviance or Parchment works)', 'Only after an offer']]},
        'note': 'WES verification is only needed if the portal asks for it after applying.'},
-      {'h': 'Checklist', 'check': ['Decide the three Waterloo choices and add them to OUAC (co-op) by Nov 7', 'Log in to the Waterloo portal and review the AIF checklist', 'Complete the Declaration of Academic Experience and upload an unofficial transcript',
+      {'h': 'Checklist', 'check': ['Add Waterloo Mathematics and Computer Engineering to OUAC (co-op) by Nov 7', 'Log in to the Waterloo portal and review the AIF checklist', 'Complete the Declaration of Academic Experience and upload an unofficial transcript',
           'Draft the five AIF answers and 2026 activities chart', 'Engineering: application complete by Jan 15', 'AIF, Math form, video interview and documents by Feb 1',
           'Mathematics National Scholarship application (early February)', 'Write the Euclid contest (early April)', 'AP Calculus exam in May (4+ needed for Math/CS offers)', 'Accept an offer by Jun 1; residence and deposit by Jun 8']},
     ],
