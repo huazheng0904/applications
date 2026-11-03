@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Columbia University plan</title>
+<meta name="description" content="Applied Early Decision by Nov 1. ED is binding: if admitted with enough aid, accept and withdraw every other application, Canadian ones included.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a><nav class="topnav" aria-label="Site"><a href="index.html">Overview</a><a href="index.html#canada">Canada</a><a href="us.html" aria-current="page">U.S. schools</a><a href="euclid.html">Euclid prep</a></nav></header>
+<main class="us-page">
+<p class="crumbs"><a href="index.html">Overview</a> / <a href="us.html">U.S. schools</a> / Columbia</p>
+<div class="school-hero"><span class="country">United States</span><h1>Columbia University</h1><p class="summary">Applied Early Decision by Nov 1. ED is binding: if admitted with enough aid, accept and withdraw every other application, Canadian ones included.</p></div>
+<dl class="facts"><div><dt>Status</dt><dd class="big">Submitted</dd></div><div><dt>Plan</dt><dd>Early Decision (binding)</dd></div><div><dt>Submitted</dt><dd>Nov 1</dd></div><div><dt>Decision</dt><dd>Mid-December</dd></div></dl>
+<section class="block"><h2>What happens next</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>When</th><th>What</th></tr></thead>
+<tbody>
+<tr><td class="when">November</td><td>Watch the Columbia applicant portal for missing items and financial aid documents</td></tr>
+<tr><td class="when">If offered</td><td>Alumni interview, if one is available in the area</td></tr>
+<tr><td class="when">Mid-December</td><td>Decision: admit, deny or defer to Regular Decision</td></tr>
+<tr><td class="when">If admitted</td><td>Accept, then withdraw all other applications (U.S. RD, OUAC and McGill)</td></tr>
+<tr><td class="when">If deferred or denied</td><td>Submit the Regular Decision applications, due Jan 1–5</td></tr>
+</tbody></table></div>
+<p class="warn">Binding: an Early Decision admit must be accepted unless the financial aid offer makes attending impossible.</p>
+</section>
+<section class="block"><h2>Effect on the rest of the plan</h2>
+<p>Draft the Regular Decision supplements now but finish them after the mid-December decision. The U of T engineering application (Dec 1) still goes in on time, since ED results arrive after it.</p>
+</section>
+<section class="block"><h2>Checklist</h2>
+<ul class="todo"><li><input type="checkbox" id="columbia-2-0"><label for="columbia-2-0">Application submitted by Nov 1</label></li><li><input type="checkbox" id="columbia-2-1"><label for="columbia-2-1">Portal checked: all documents received</label></li><li><input type="checkbox" id="columbia-2-2"><label for="columbia-2-2">Financial aid documents in, if applying for aid</label></li><li><input type="checkbox" id="columbia-2-3"><label for="columbia-2-3">Interview completed, if offered</label></li><li><input type="checkbox" id="columbia-2-4"><label for="columbia-2-4">Decision checked in mid-December</label></li></ul>
+<p class="note">Ticks are saved in this browser only.</p>
+</section>
+<section class="sources"><p>Sources, checked Nov 1, 2026. Confirm in each applicant portal before submitting.</p><ul><li><a href="https://gradpilot.com/news/early-decision-early-action-notification-dates-2026-2027">Early and regular notification dates 2026–27</a></li><li><a href="https://undergrad.admissions.columbia.edu/early-decision">Columbia Early Decision</a></li></ul></section>
+<nav class="more" aria-label="All schools"><div><h2>Canada</h2><ul class="ca"><li><a href="uoft.html">U of T</a></li><li><a href="waterloo.html">Waterloo</a></li><li><a href="mcgill.html">McGill</a></li></ul></div><div><h2>United States</h2><ul class="us"><li><a href="columbia.html" aria-current="page">Columbia</a></li><li><a href="northeastern.html">Northeastern</a></li><li><a href="berkeley.html">UC Berkeley</a></li><li><a href="harvard.html">Harvard</a></li><li><a href="princeton.html">Princeton</a></li><li><a href="dartmouth.html">Dartmouth</a></li><li><a href="yale.html">Yale</a></li><li><a href="cornell.html">Cornell</a></li><li><a href="mit.html">MIT</a></li><li><a href="duke.html">Duke</a></li><li><a href="cmu.html">CMU</a></li><li><a href="rice.html">Rice</a></li><li><a href="uchicago.html">UChicago</a></li><li><a href="brown.html">Brown</a></li><li><a href="penn.html">Penn</a></li><li><a href="stanford.html">Stanford</a></li></ul></div></nav>
+<div class="pager"><a href="mcgill.html">Previous: McGill</a><a href="northeastern.html">Next: Northeastern</a></div>
+</main>
+<footer class="site"><p>Built from build.py. Dates checked Nov 1, 2026.</p></footer>
+</div>
+<script>
+(function () {
+  var KEY = 'check-' + location.pathname;
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (x) {}
+  document.querySelectorAll('ul.todo input').forEach(function (box) {
+    box.checked = !!saved[box.id];
+    box.parentElement.classList.toggle('done', box.checked);
+    box.addEventListener('change', function () {
+      saved[box.id] = box.checked;
+      box.parentElement.classList.toggle('done', box.checked);
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (x) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>

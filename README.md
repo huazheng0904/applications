@@ -73,4 +73,4 @@ See `euclid.html`. Euclid is Tuesday, April 6, 2027; a school must register the 
 
 ## U.S. schools
 
-See `us.html` and each school's page. UC Berkeley (Nov 30), then Harvard, Princeton, Dartmouth, Yale, Cornell, MIT, Duke, CMU, Rice, UChicago, Brown, Penn and Stanford (Jan 1–5).
+Submitted early: Columbia (ED, decision mid-December) and Northeastern (EA, decision by Feb 15). See `us.html` and each school's page. Regular Decision: UC Berkeley (Nov 30), then Harvard, Princeton, Dartmouth, Yale, Cornell, MIT, Duke, CMU, Rice, UChicago, Brown, Penn and Stanford (Jan 1–5).

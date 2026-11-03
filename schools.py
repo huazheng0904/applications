@@ -357,6 +357,39 @@ US = [
      [('Stanford prompts', 'https://www.collegetransitions.com/blog/stanford-supplemental-essay-prompts/'), ('Stanford deadline and testing', 'https://waf.collegedata.com/college-search/stanford-university/admission')]),
 ]
 
+
+# ---------------------------------------------------------------- U.S. early applications (submitted)
+EARLY = [
+  {'slug': 'columbia', 'short': 'Columbia', 'name': 'Columbia University', 'plan': 'Early Decision (binding)',
+   'submitted': 'Nov 1', 'decision': 'Mid-December', 'decision_iso': '2026-12-15', 'status': 'Submitted',
+   'summary': 'Applied Early Decision by Nov 1. ED is binding: if admitted with enough aid, accept and withdraw every other application, Canadian ones included.',
+   'facts': [('Status', 'Submitted'), ('Plan', 'Early Decision (binding)'), ('Submitted', 'Nov 1'), ('Decision', 'Mid-December')],
+   'sections': [
+     {'h': 'What happens next', 'table': {'first_bold': True, 'head': ['When', 'What'], 'rows': [
+        ['November', 'Watch the Columbia applicant portal for missing items and financial aid documents'],
+        ['If offered', 'Alumni interview, if one is available in the area'],
+        ['Mid-December', 'Decision: admit, deny or defer to Regular Decision'],
+        ['If admitted', 'Accept, then withdraw all other applications (U.S. RD, OUAC and McGill)'],
+        ['If deferred or denied', 'Submit the Regular Decision applications, due Jan 1–5']]},
+      'warn': 'Binding: an Early Decision admit must be accepted unless the financial aid offer makes attending impossible.'},
+     {'h': 'Effect on the rest of the plan', 'p': ['Draft the Regular Decision supplements now but finish them after the mid-December decision. The U of T engineering application (Dec 1) still goes in on time, since ED results arrive after it.']},
+     {'h': 'Checklist', 'check': ['Application submitted by Nov 1', 'Portal checked: all documents received', 'Financial aid documents in, if applying for aid', 'Interview completed, if offered', 'Decision checked in mid-December']},
+   ],
+   'sources': [('Early and regular notification dates 2026–27', 'https://gradpilot.com/news/early-decision-early-action-notification-dates-2026-2027'), ('Columbia Early Decision', 'https://undergrad.admissions.columbia.edu/early-decision')]},
+  {'slug': 'northeastern', 'short': 'Northeastern', 'name': 'Northeastern University', 'plan': 'Early Action (non-binding)',
+   'submitted': 'Nov 1', 'decision': 'By Feb 15', 'decision_iso': '2027-02-15', 'status': 'Submitted',
+   'summary': 'Applied Early Action by Nov 1. Non-binding: an admit can be held until the May 1 reply date alongside every other offer.',
+   'facts': [('Status', 'Submitted'), ('Plan', 'Early Action (non-binding)'), ('Supporting materials', 'Dec 15'), ('Decision', 'By Feb 15')],
+   'sections': [
+     {'h': 'What happens next', 'table': {'first_bold': True, 'head': ['When', 'What'], 'rows': [
+        ['By Dec 15', 'Supporting materials due (school report, recommendations, scores)'],
+        ['By Feb 15', 'Early Action decision'],
+        ['May 1', 'Reply deadline, the same as every other U.S. school']]}},
+     {'h': 'Checklist', 'check': ['Application submitted by Nov 1', 'Supporting materials received by Dec 15', 'Decision checked by Feb 15']},
+   ],
+   'sources': [('Northeastern deadlines and decisions', 'https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions')]},
+]
+
 # ---------------------------------------------------------------- Tools
 TOOLS = [
   {
@@ -400,11 +433,13 @@ TOOLS = [
 # ---------------------------------------------------------------- Overview data
 TIMELINE = [
   {'d': '2026-11-07', 'c': 'ca', 't': 'OUAC', 's': 'U of T and Waterloo choices', 'lvl': 1},
-  {'d': '2026-11-30', 'c': 'us', 't': 'UC Berkeley', 's': 'UC application', 'lvl': 1},
+  {'d': '2026-11-30', 'c': 'us', 't': 'UC Berkeley', 's': 'UC application', 'lvl': 3},
+  {'d': '2026-12-15', 'c': 'us', 't': 'Columbia', 's': 'ED decision', 'lvl': 1},
   {'d': '2026-12-01', 'c': 'ca', 't': 'U of T ESA', 's': 'and documents, early', 'lvl': 2},
-  {'d': '2027-01-01', 'c': 'us', 't': '13 schools', 's': 'Jan 1–5: Harvard to Stanford', 'lvl': 2},
+  {'d': '2027-01-01', 'c': 'us', 't': '13 schools', 's': 'due Jan 1–5', 'lvl': 2},
   {'d': '2027-01-15', 'c': 'ca', 't': 'McGill', 's': 'and U of T final', 'lvl': 1},
   {'d': '2027-02-01', 'c': 'ca', 't': 'Waterloo AIF', 's': 'and video interview', 'lvl': 2},
+  {'d': '2027-02-15', 'c': 'us', 't': 'Northeastern', 's': 'EA decision by', 'lvl': 2},
   {'d': '2027-03-25', 'c': 'us', 't': 'Decisions', 's': 'late March to early April', 'lvl': 1},
   {'d': '2027-04-30', 'c': 'ca', 't': 'U of T decision', 's': 'guaranteed by', 'lvl': 1},
   {'d': '2027-05-01', 'c': 'us', 't': 'Reply deadline', 's': 'commit by May 1', 'lvl': 2},
@@ -416,6 +451,7 @@ NEXT_UP = [
   {'d': '2026-11-24', 'c': 'ca', 't': 'Finish the U of T ESA and video (target)', 'href': 'uoft.html'},
   {'d': '2026-11-30', 'c': 'us', 't': 'Submit the UC Berkeley application', 'href': 'berkeley.html'},
   {'d': '2026-12-01', 'c': 'ca', 't': 'U of T ESA and documents for early consideration', 'href': 'uoft.html'},
+  {'d': '2026-12-15', 'c': 'us', 't': 'Columbia ED decision (mid-December); Northeastern materials due', 'href': 'columbia.html'},
   {'d': '2026-12-31', 'c': 'us', 't': 'Submit Harvard, Princeton, Dartmouth, Yale and Cornell', 'href': 'us.html'},
   {'d': '2027-01-04', 'c': 'us', 't': 'Submit MIT, Duke, CMU, Rice, UChicago, Brown, Penn and Stanford', 'href': 'us.html'},
   {'d': '2027-01-10', 'c': 'us', 't': 'UChicago video profile (optional)', 'href': 'uchicago.html'},
@@ -423,6 +459,7 @@ NEXT_UP = [
   {'d': '2027-01-19', 'c': 'us', 't': 'Cornell recommendations and mid-year grades', 'href': 'cornell.html'},
   {'d': '2027-01-21', 'c': 'ca', 't': 'McGill Major Entrance Scholarship', 'href': 'mcgill.html'},
   {'d': '2027-02-01', 'c': 'ca', 't': 'Waterloo AIF and video interview', 'href': 'waterloo.html'},
+  {'d': '2027-02-15', 'c': 'us', 't': 'Northeastern Early Action decision', 'href': 'northeastern.html'},
   {'d': '2027-03-01', 'c': 'ca', 't': 'McGill documents and grades', 'href': 'mcgill.html'},
   {'d': '2027-04-06', 'c': 'ca', 't': 'Euclid contest', 'href': 'euclid.html'},
   {'d': '2027-05-01', 'c': 'us', 't': 'U.S. reply deadline', 'href': 'us.html'},

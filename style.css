@@ -95,7 +95,7 @@ footer.site { margin: 40px 0 36px; font-size: 13px; color: var(--muted); }
 .tag.us { background: var(--us-soft); color: var(--us); }
 .legend { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin: 28px 0 0; }
 .river-wrap { margin: 10px 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.river { position: relative; min-width: 860px; height: 320px; }
+.river { position: relative; min-width: 860px; height: 372px; }
 .channel { position: absolute; left: 0; right: 0; top: 150px; height: 40px; background: var(--river); border-radius: 20px; }
 .month { position: absolute; top: 150px; height: 40px; display: flex; align-items: center; font-size: 12px; font-weight: 600; color: var(--muted); transform: translateX(-50%); }
 .month::before { content: ""; position: absolute; left: 50%; top: -6px; bottom: -6px; border-left: 1px dashed var(--rule); }
@@ -153,3 +153,7 @@ section.country-sec { margin: 56px 0 0; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
 td:nth-child(2):last-child { white-space: nowrap; }
 @media (max-width: 760px) { td:nth-child(2):last-child { white-space: normal; min-width: 90px; } }
+
+.sub-h { font-size: 18px; margin: 26px 0 8px; }
+.status { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--us-soft); color: var(--us); }
+.early-table td.d { white-space: normal; }

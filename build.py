@@ -6,9 +6,9 @@ Every school gets its own page; the overview (index.html) and the U.S.
 comparison page (us.html) are generated from the same data.
 """
 from html import escape as e
-from schools import CANADA, US, TOOLS, TIMELINE, NEXT_UP, REUSE
+from schools import CANADA, EARLY, US, TOOLS, TIMELINE, NEXT_UP, REUSE
 
-ALL = CANADA + US
+ALL = CANADA + EARLY + US
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">')
@@ -81,7 +81,7 @@ def more(current):
             for group_item in [group] for s in group_item) + '</ul>'
     return ('<nav class="more" aria-label="All schools">'
             f'<div><h2>Canada</h2>{lst(CANADA, "ca")}</div>'
-            f'<div><h2>United States</h2>{lst(US, "us")}</div></nav>\n')
+            f'<div><h2>United States</h2>{lst(EARLY + US, "us")}</div></nav>\n')
 
 
 def pager(idx):
@@ -129,12 +129,21 @@ def tool_page(t):
     return out
 
 
+def early_table():
+    out = '<div class="tablewrap"><table class="us-table early-table"><thead><tr><th>Plan</th><th>School</th><th>Submitted</th><th>Decision</th><th>Status</th></tr></thead><tbody>\n'
+    for s in EARLY:
+        out += (f'<tr><td class="d">{e(s["plan"])}</td><td><a href="{s["slug"]}.html">{e(s["short"])}</a></td><td>{e(s["submitted"])}</td>'
+                f'<td>{e(s["decision"])}</td><td><span class="status">{e(s["status"])}</span></td></tr>\n')
+    return out + '</tbody></table></div>\n'
+
+
 def us_page():
     out = head('U.S. schools', 'Deadlines, testing and essays for every U.S. school, with links to each school page.')
     out += topbar('us.html') + '<main class="us-page">\n<p class="crumbs"><a href="index.html">Overview</a> / U.S. schools</p>\n'
     out += ('<div class="school-hero"><span class="country">United States</span><h1>U.S. schools</h1>'
-            f'<p class="summary">{len(US)} schools. UC Berkeley is due Nov 30; the rest are due Jan 1–5. Each school has its own page with prompts and a checklist.</p></div>\n')
-    out += '<section class="block"><h2>At a glance</h2><div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Supplements</th></tr></thead><tbody>\n'
+            f'<p class="summary">{len(EARLY)} early applications already in, plus {len(US)} Regular Decision schools: UC Berkeley is due Nov 30, the rest Jan 1–5. Each school has its own page.</p></div>\n')
+    out += '<section class="block"><h2>Submitted early</h2>' + early_table() + '</section>\n'
+    out += '<section class="block"><h2>Regular Decision</h2><div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Supplements</th></tr></thead><tbody>\n'
     for s in US:
         early = ' class="early"' if s.get('early') else ''
         out += f'<tr{early}><td class="d">{e(s["deadline"])}</td><td><a href="{s["slug"]}.html">{e(s["short"])}</a></td><td>{e(s["testing"])}</td><td>{e(s["supp"])}</td></tr>\n'
@@ -148,7 +157,7 @@ def us_page():
 def index_page():
     out = head('Fall 2027 Applications', 'Deadlines, programs and plans for Fall 2027 university applications in Canada and the United States.')
     out += topbar('index.html') + '<main>\n'
-    out += (f'<section class="hero"><h1>Fall 2027 applications</h1><p class="lede">{len(CANADA)} Canadian universities and {len(US)} in the U.S. '
+    out += (f'<section class="hero"><h1>Fall 2027 applications</h1><p class="lede">{len(CANADA)} Canadian universities and {len(EARLY) + len(US)} in the U.S., {len(EARLY)} of them already submitted early. '
             'Every deadline from now to June on one line.</p></section>\n')
     out += '<p class="legend"><span class="tag ca">Canada</span> above the line <span class="tag us">U.S.</span> below</p>\n'
     out += ('<div class="river-wrap" role="img" aria-label="Timeline of application deadlines from November 2026 to June 2027, Canada above and U.S. below">'
@@ -163,8 +172,9 @@ def index_page():
                 + f'</dl><a class="go" href="{s["slug"]}.html">{e(s["short"])} plan</a></article>\n')
     out += '</section>\n'
     out += ('<section class="country-sec us" id="us" aria-labelledby="us-h"><div class="country-head"><h2 id="us-h">United States</h2>'
-            f'<p>UC Berkeley comes first, on Nov 30. The other {len(US) - 1} are due Jan 1–5 and share most essay material.</p></div>\n'
-            '<div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Applying to</th></tr></thead><tbody>\n')
+            f'<p>Columbia (ED) and Northeastern (EA) are in. Of the Regular Decision schools, UC Berkeley comes first on Nov 30; the other {len(US) - 1} are due Jan 1–5.</p></div>\n'
+            '<h3 class="sub-h">Submitted early</h3>' + early_table() +
+            '<h3 class="sub-h">Regular Decision</h3><div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Applying to</th></tr></thead><tbody>\n')
     for s in US:
         early = ' class="early"' if s.get('early') else ''
         out += f'<tr{early}><td class="d">{e(s["deadline"])}</td><td><a href="{s["slug"]}.html">{e(s["short"])}</a></td><td>{e(s["testing"])}</td><td>{e(s["applying"])}</td></tr>\n'
@@ -193,7 +203,7 @@ RIVER_JS = """(function () {
   EVENTS.forEach(function (ev) {
     var el = document.createElement('div');
     el.className = 'pin ' + ev.c;
-    el.style.setProperty('--d', (ev.lvl === 1 ? 118 : 62) + 'px');
+    el.style.setProperty('--d', (ev.lvl === 3 ? 172 : ev.lvl === 1 ? 118 : 62) + 'px');
     el.style.left = pct(t(ev.d)) + '%';
     el.innerHTML = '<span class="dot"></span><div class="lbl"><b></b><span></span></div>';
     el.querySelector('b').textContent = fmt(ev.d) + ', ' + ev.t;
