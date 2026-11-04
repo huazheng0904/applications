@@ -39,7 +39,7 @@ def head(title, desc):
 
 
 def topbar(current):
-    links = [('index.html', 'Overview'), ('index.html#canada', 'Canada'), ('us.html', 'U.S. schools'), ('euclid.html', 'Euclid prep')]
+    links = [('index.html', 'Overview'), ('index.html#canada', 'Canada'), ('us.html', 'U.S. schools'), ('euclid.html', 'Euclid prep'), ('transcript.html', 'Transcript')]
     items = ''.join(f'<a href="{h}"' + (' aria-current="page"' if h == current else '') + f'>{t}</a>' for h, t in links)
     return (f'<header class="topbar"><a class="brand" href="index.html">Fall 2027 applications</a>'
             f'<nav class="topnav" aria-label="Site">{items}</nav></header>\n')
@@ -120,7 +120,7 @@ def school_page(s, idx):
 def tool_page(t):
     out = head(t['name'], t['summary']) + topbar(f'{t["slug"]}.html') + '<main class="tool-page">\n'
     out += f'<p class="crumbs"><a href="index.html">Overview</a> / {e(t["short"])}</p>\n'
-    out += f'<div class="school-hero"><span class="country">Tool</span><h1>{e(t["name"])}</h1><p class="summary">{e(t["summary"])}</p></div>\n'
+    out += f'<div class="school-hero"><span class="country">{e(t.get("label", "Tool"))}</span><h1>{e(t["name"])}</h1><p class="summary">{e(t["summary"])}</p></div>\n'
     out += '<dl class="facts">' + ''.join(
         f'<div><dt>{e(k)}</dt><dd{" class=\"big\"" if i == 0 else ""}>{e(v)}</dd></div>' for i, (k, v) in enumerate(t['facts'])) + '</dl>\n'
     for n, sec in enumerate(t['sections']):
@@ -180,7 +180,7 @@ def index_page():
         out += f'<tr{early}><td class="d">{e(s["deadline"])}</td><td><a href="{s["slug"]}.html">{e(s["short"])}</a></td><td>{e(s["testing"])}</td><td>{e(s["applying"])}</td></tr>\n'
     out += '</tbody></table></div></section>\n'
     for t in TOOLS:
-        out += f'<aside class="tools"><div><h2>{e(t["name"])}</h2><p>{e(t["tagline"])}</p></div><a href="{t["slug"]}.html">Prep plan</a></aside>\n'
+        out += f'<aside class="tools"><div><h2>{e(t["name"])}</h2><p>{e(t["tagline"])}</p></div><a href="{t["slug"]}.html">{e(t.get("cta", "Prep plan"))}</a></aside>\n'
     out += '</main>\n<footer class="site"><p>Dates checked Nov 1, 2026 against each university\'s admissions pages. Confirm in each applicant portal before submitting.</p></footer>\n</div>\n'
     import json
     out += '<script>\nvar EVENTS = ' + json.dumps(TIMELINE) + ';\nvar NEXT = ' + json.dumps(NEXT_UP) + ';\n' + RIVER_JS + '</script>\n</body>\n</html>\n'

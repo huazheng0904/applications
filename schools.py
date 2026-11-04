@@ -430,6 +430,31 @@ TOOLS = [
   },
 ]
 
+TRANSCRIPT = {
+    'slug': 'transcript', 'short': 'Transcript', 'label': 'Academic record', 'name': 'Transcript and top six courses', 'cta': 'View grades',
+    'tagline': 'Final grades for grades 9–11, senior courses in progress, and the six courses to enter on Canadian applications.',
+    'summary': 'Final grades from the school transcript (printed Oct 14, 2026). Every academic course is an A or A+.',
+    'facts': [('Weighted GPA', '4.684'), ('Class rank', '2 of 168'), ('Credits earned', '112.5'), ('Graduation', 'June 2027')],
+    'sections': [
+      {'h': 'Top six courses for U of T and Waterloo', 'p': ['The five prerequisites for his four programs, plus his strongest related course.'],
+       'table': {'head': ['#', 'Course', 'Year', 'Grade', 'Covers'], 'rows': [
+          ['1', 'AP English Literature', '12th', 'In progress', 'English, all four programs'],
+          ['2', 'AP Calculus', '12th', 'In progress', 'Calculus, all four programs'],
+          ['3', 'Honors Precalc', '11th', 'A+', 'Pre-calculus, all four programs'],
+          ['4', 'AP Physics', '12th', 'In progress', 'Physics, both engineering programs'],
+          ['5', 'AP Chemistry', '11th', 'A+', 'Chemistry, both engineering programs'],
+          ['6', 'AP Computer Science JAVA', '11th', 'A+', 'Fit for Computer Engineering and Machine Intelligence']]},
+       'note': 'Backups for slot 6: AP English Language (A+), AP US Government (in progress), Honors US History 2 (A+). The first-semester AP Physics grade matters most for engineering.'},
+      {'h': '12th grade (2026-27), in progress', 'list': ['AP Calculus', 'AP English Literature', 'AP Physics', 'AP United States Government & Politics', 'Honors Accounting', 'Also: Design and Innovation, Drawing 1, Health 12L, PE 12L']},
+      {'h': '11th grade (2025-26)', 'table': {'head': ['Course', 'Final', 'Credits'], 'rows': [['AP Chemistry', 'A+', '6.00'], ['AP Computer Science JAVA', 'A+', '5.00'], ['AP English Language and Composition', 'A+', '5.00'], ['Honors Precalc', 'A+', '5.00'], ['Honors US History 2', 'A+', '5.00']]}},
+      {'h': '10th grade (2024-25)', 'table': {'head': ['Course', 'Final', 'Credits'], 'rows': [['AP Human Geography', 'A+', '5.00'], ['Honors Algebra II', 'A+', '5.00'], ['Honors Chemistry 1', 'A+', '5.00'], ['Honors English 200', 'A+', '5.00'], ['Honors Spanish 3', 'A', '5.00'], ['Honors US History 1', 'A+', '5.00'], ['Computer Programming C++', 'A+', '2.50'], ['Intro to JAVA', 'A+', '2.50']]}},
+      {'h': '9th grade (2023-24)', 'table': {'head': ['Course', 'Final', 'Credits'], 'rows': [['Honors Biology 1', 'A+', '5.00'], ['Honors English 100', 'A+', '5.00'], ['Honors Geometry', 'A+', '5.00'], ['Honors World History', 'A', '5.00'], ['Spanish 2', 'A', '5.00'], ['Fundamentals of Contemporary Business', 'A+', '5.00'], ['Computer Programming 1', 'A+', '2.50']]}},
+      {'h': 'Non-academic courses', 'p': ['Foods (A+), Health 11L (A+), PE 11L (A+), Public Speaking (A), Health 10 (A+), PE 10 (A+), Health 09 (A+), PE 09 (A+)']},
+    ],
+    'sources': [('Rutherford High School transcript, printed Oct 14, 2026 (unofficial copy; official copies come from the school)', 'index.html')],
+}
+TOOLS.append(TRANSCRIPT)
+
 # ---------------------------------------------------------------- Overview data
 TIMELINE = [
   {'d': '2026-11-07', 'c': 'ca', 't': 'OUAC', 's': 'U of T and Waterloo choices', 'lvl': 1},
