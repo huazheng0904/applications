@@ -434,6 +434,7 @@ TRANSCRIPT = {
     'slug': 'transcript', 'short': 'Transcript', 'label': 'Academic record', 'name': 'Transcript and top six courses', 'cta': 'View grades',
     'tagline': 'Final grades for grades 9–11, senior courses in progress, and the six courses to enter on Canadian applications.',
     'summary': 'Final grades from the school transcript (printed Oct 14, 2026). Every academic course is an A or A+.',
+    'pdf': 'transcript-redacted.pdf',
     'facts': [('Weighted GPA', '4.684'), ('Class rank', '2 of 168'), ('Credits earned', '112.5'), ('Graduation', 'June 2027')],
     'sections': [
       {'h': 'Top six courses for U of T and Waterloo', 'p': ['The five prerequisites for his four programs, plus his strongest related course.'],
@@ -451,7 +452,7 @@ TRANSCRIPT = {
       {'h': '9th grade (2023-24)', 'table': {'head': ['Course', 'Final', 'Credits'], 'rows': [['Honors Biology 1', 'A+', '5.00'], ['Honors English 100', 'A+', '5.00'], ['Honors Geometry', 'A+', '5.00'], ['Honors World History', 'A', '5.00'], ['Spanish 2', 'A', '5.00'], ['Fundamentals of Contemporary Business', 'A+', '5.00'], ['Computer Programming 1', 'A+', '2.50']]}},
       {'h': 'Non-academic courses', 'p': ['Foods (A+), Health 11L (A+), PE 11L (A+), Public Speaking (A), Health 10 (A+), PE 10 (A+), Health 09 (A+), PE 09 (A+)']},
     ],
-    'sources': [('Rutherford High School transcript, printed Oct 14, 2026 (unofficial copy; official copies come from the school)', 'index.html')],
+    'sources': [('Transcript PDF, printed Oct 14, 2026 (personal details redacted; unofficial copy, official copies come from the school)', 'transcript-redacted.pdf')],
 }
 TOOLS.append(TRANSCRIPT)
 

@@ -123,6 +123,8 @@ def tool_page(t):
     out += f'<div class="school-hero"><span class="country">{e(t.get("label", "Tool"))}</span><h1>{e(t["name"])}</h1><p class="summary">{e(t["summary"])}</p></div>\n'
     out += '<dl class="facts">' + ''.join(
         f'<div><dt>{e(k)}</dt><dd{" class=\"big\"" if i == 0 else ""}>{e(v)}</dd></div>' for i, (k, v) in enumerate(t['facts'])) + '</dl>\n'
+    if t.get('pdf'):
+        out += f'<p class="pdf-link"><a class="go" href="{t["pdf"]}">Download the transcript (PDF, personal details redacted)</a></p>\n'
     for n, sec in enumerate(t['sections']):
         out += section(sec, t['slug'], n)
     out += sources(t['sources']) + more('') + '</main>\n<footer class="site"><p>Built from build.py.</p></footer>\n</div>\n' + CHECK_JS + '\n</body>\n</html>\n'

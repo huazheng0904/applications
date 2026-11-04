@@ -157,3 +157,5 @@ td:nth-child(2):last-child { white-space: nowrap; }
 .sub-h { font-size: 18px; margin: 26px 0 8px; }
 .status { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--us-soft); color: var(--us); }
 .early-table td.d { white-space: normal; }
+.tool-page .go { background: var(--ink); }
+.pdf-link { margin: 22px 0 0; }
