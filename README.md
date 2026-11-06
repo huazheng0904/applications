@@ -61,11 +61,10 @@ Quebec-resident tuition (about $3,100 CAD/year) applies to applicants born in Qu
 
 ## Waterloo
 
-See `waterloo.html`. Same OUAC application as U of T; AIF due Feb 15 (Math/CS) or Feb 1 if engineering is listed.
+See `waterloo.html`. Same OUAC application as U of T; AIF and documents due Feb 15. No engineering program, so no Jan 15 deadline or video interview.
 
 1. Mathematics (co-op): Applied Math, Mathematical Physics, Statistics, Data Science
-2. Computer Science (co-op), reach
-3. Electrical or Computer Engineering (co-op; equally competitive reach), or Physical Sciences / Environmental Engineering
+2. Computer Science (co-op), reach (replaced Computer Engineering, Nov 6)
 
 ## Euclid contest prep
 
