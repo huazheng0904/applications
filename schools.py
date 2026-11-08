@@ -198,13 +198,13 @@ CANADA = [
 ]
 
 # ---------------------------------------------------------------- United States
-def us(slug, short, name, deadline, date_iso, testing, supp, applying, summary, programs, essay_rows, notes, sources, extra_check=(), early=False, essay_note=None):
+def us(slug, short, name, deadline, date_iso, testing, supp, applying, summary, programs, essay_rows, notes, sources, extra_check=(), early=False, essay_note=None, portal=None):
     secs = [{'h': 'What to apply to', 'p': [programs]}, essays(essay_rows, essay_note)]
     if notes:
         secs.append({'h': 'Also required or recommended', 'list': notes})
     secs.append({'h': 'Checklist', 'check': list(extra_check) + GENERIC_US_CHECK})
     return {'slug': slug, 'short': short, 'name': name, 'deadline': deadline, 'date': date_iso, 'testing': testing, 'supp': supp,
-            'applying': applying, 'summary': summary, 'early': early, 'sections': secs, 'sources': sources,
+            'applying': applying, 'summary': summary, 'early': early, 'portal': portal, 'sections': secs, 'sources': sources,
             'facts': [('Regular Decision deadline', deadline), ('Testing', testing), ('Application', 'UC application' if slug == 'berkeley' else ('MIT portal' if slug == 'mit' else 'Common App')), ('Applying to', applying)]}
 
 US = [
@@ -214,10 +214,12 @@ US = [
      'Primary major: Applied Mathematics in the College of Letters & Science, matching the academic-subject PIQ. Berkeley guarantees review of the primary major only; an alternate is considered if space allows. Applying Undeclared (Mathematical & Physical Sciences) would not affect admission chances, but naming the major keeps the application and essays consistent. Check the L&S high-demand list before submitting, since it changes often. Statistics was considered but sits in the College of Computing, Data Science, and Society, a more selective pool.',
      [['Personal Insight Questions: answer any 4 of 8 (leadership, creativity, talent, educational opportunity, challenge, academic subject, community, what makes you stand out)', '350 words each']],
      ['Activities and awards section: up to 20 entries', 'Self-reported grades from 9th–11th grade'],
-     [('UC application deadlines 2026–27', 'https://riseglobaleducation.com/blogs/uc-application-deadlines-2026-27'),
+     [('UC application portal', 'https://apply.universityofcalifornia.edu/my-application/login'),
+      ('UC application deadlines 2026–27', 'https://riseglobaleducation.com/blogs/uc-application-deadlines-2026-27'),
       ('Berkeley majors by college', 'https://admissions.berkeley.edu/academic-programs-majors'),
       ('L&S high-demand major policy', 'https://admissions.berkeley.edu/academics/ls-high-demand-major/')],
-     extra_check=['Create the UC application account', 'Select Applied Mathematics (Letters & Science) as the primary major', 'Enter self-reported grades and up to 20 activities'], early=True),
+     extra_check=['Create the UC application account (separate from the Common App)', 'Select Applied Mathematics (Letters & Science) as the primary major', 'Enter self-reported grades and up to 20 activities'], early=True,
+     portal=('Open the UC application portal (apply.universityofcalifornia.edu)', 'https://apply.universityofcalifornia.edu/my-application/login')),
   us('harvard', 'Harvard', 'Harvard University', 'Jan 1', '2027-01-01', 'SAT/ACT required', '5 × 150 words',
      'Harvard College; concentration listed, not binding',
      'Harvard College admits to the college, not a major. Five short essays of 150 words each; SAT or ACT required.',
