@@ -3,6 +3,12 @@
 Public site: keep personal details (names, scores, essay angles) out of this file.
 """
 
+UC_CHECK = [
+    'Draft all 4 PIQs, then cut each to 350 words',
+    'Submit before Nov 30 and pay the fee',
+    'If admitted and accepting: have the final transcript and AP scores sent',
+]
+
 GENERIC_US_CHECK = [
     'Choose the program or school within the university',
     'Draft every supplement, then cut to the word limits',
@@ -202,7 +208,7 @@ def us(slug, short, name, deadline, date_iso, testing, supp, applying, summary, 
     secs = [{'h': 'What to apply to', 'p': [programs]}, essays(essay_rows, essay_note)]
     if notes:
         secs.append({'h': 'Also required or recommended', 'list': notes})
-    secs.append({'h': 'Checklist', 'check': list(extra_check) + GENERIC_US_CHECK})
+    secs.append({'h': 'Checklist', 'check': list(extra_check) + (UC_CHECK if slug == 'berkeley' else GENERIC_US_CHECK)})
     return {'slug': slug, 'short': short, 'name': name, 'deadline': deadline, 'date': date_iso, 'testing': testing, 'supp': supp,
             'applying': applying, 'summary': summary, 'early': early, 'portal': portal, 'sections': secs, 'sources': sources,
             'facts': [('Regular Decision deadline', deadline), ('Testing', testing), ('Application', 'UC application' if slug == 'berkeley' else ('MIT portal' if slug == 'mit' else 'Common App')), ('Applying to', applying)]}
@@ -213,12 +219,18 @@ US = [
      'The earliest U.S. deadline, and firm. Berkeley uses the University of California application, not the Common App. Grades and activities are self-reported, there are no recommendations, and test scores are not considered.',
      'Primary major: Applied Mathematics in the College of Letters & Science, matching the academic-subject PIQ. Berkeley guarantees review of the primary major only; an alternate is considered if space allows. Applying Undeclared (Mathematical & Physical Sciences) would not affect admission chances, but naming the major keeps the application and essays consistent. Check the L&S high-demand list before submitting, since it changes often. Statistics was considered but sits in the College of Computing, Data Science, and Society, a more selective pool.',
      [['Personal Insight Questions: answer any 4 of 8 (leadership, creativity, talent, educational opportunity, challenge, academic subject, community, what makes you stand out)', '350 words each']],
-     ['Activities and awards section: up to 20 entries', 'Self-reported grades from 9th–11th grade'],
+     ['Transcript is self-reported: enter every 9th–11th grade course and grade in Academic History, plus senior-year courses in progress. Work from the transcript, not memory, and match it exactly.',
+      'No official transcript at application. A final transcript is sent only if admitted and the offer is accepted, and UC checks it against what was entered; a mismatch can cost the offer.',
+      'No counselor recommendation, school report or teacher letters. Nothing from the high school is needed before Nov 30.',
+      'SAT/ACT are not considered for admission or scholarships. They can only be added after submitting and are used for eligibility or course placement, so skip sending an official SAT report.',
+      'AP scores: self-report scores already received and list exams planned for May. No official College Board report unless enrolling (for credit).',
+      'Activities and awards section: up to 20 entries'],
      [('UC application portal', 'https://apply.universityofcalifornia.edu/my-application/login'),
+      ('UC: filling out the application', 'https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-freshman/filling-out-the-application.html'),
       ('UC application deadlines 2026–27', 'https://riseglobaleducation.com/blogs/uc-application-deadlines-2026-27'),
       ('Berkeley majors by college', 'https://admissions.berkeley.edu/academic-programs-majors'),
       ('L&S high-demand major policy', 'https://admissions.berkeley.edu/academics/ls-high-demand-major/')],
-     extra_check=['Create the UC application account (separate from the Common App)', 'Select Applied Mathematics (Letters & Science) as the primary major', 'Enter self-reported grades and up to 20 activities'], early=True,
+     extra_check=['Create the UC application account (separate from the Common App)', 'Select Applied Mathematics (Letters & Science) as the primary major', 'Enter self-reported grades from the transcript, including senior-year courses', 'Self-report AP scores and planned May exams', 'Enter up to 20 activities and awards'], early=True,
      portal=('Open the UC application portal (apply.universityofcalifornia.edu)', 'https://apply.universityofcalifornia.edu/my-application/login')),
   us('harvard', 'Harvard', 'Harvard University', 'Jan 1', '2027-01-01', 'SAT/ACT required', '5 × 150 words',
      'Harvard College; concentration listed, not binding',
