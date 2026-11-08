@@ -29,7 +29,7 @@ def essays(rows, note=None):
 CANADA = [
   {
     'slug': 'uoft', 'short': 'U of T', 'name': 'University of Toronto',
-    'portal': ('Open the U of T applicant portal', 'https://apply.adm.utoronto.ca/apply/'),
+    'portal': [('Open the U of T applicant portal', 'https://apply.adm.utoronto.ca/apply/'), ('OUAC portal (username: Haolin200)', 'https://www.ouac.on.ca/apply/dashboard/en_CA/user/login/stream')],
     'route': 'OUAC + Engineering Supplemental Application',
     'summary': 'Two U of T choices on OUAC by Nov 7: Engineering Science and Mathematical & Physical Sciences. Finish the Engineering Supplemental Application (ESA) and documents by Dec 1 for a guaranteed Engineering decision by April 30.',
     'facts': [('OUAC application', 'Nov 7'), ('ESA + documents, early', 'Dec 1'), ('Final Engineering deadline', 'Jan 15'), ('Engineering decision by', 'Apr 30')],
@@ -94,7 +94,7 @@ CANADA = [
   },
   {
     'slug': 'waterloo', 'short': 'Waterloo', 'name': 'University of Waterloo',
-    'portal': ('Open the Waterloo applicant portal: application checklist', 'https://undergrad.uwaterloo.ca/apply/status?tab=application_checklist'),
+    'portal': [('Open the Waterloo applicant portal: application checklist', 'https://undergrad.uwaterloo.ca/apply/status?tab=application_checklist'), ('OUAC portal (username: Haolin200)', 'https://www.ouac.on.ca/apply/dashboard/en_CA/user/login/stream')],
     'route': 'OUAC + Admission Information Form',
     'summary': 'Waterloo uses the same OUAC application as U of T: Mathematics and Computer Science go on that form by Nov 7. Both are in the Faculty of Math, so there is no engineering deadline or video interview; the Admission Information Form (AIF) and documents are due Feb 15.',
     'facts': [('Choices on OUAC', 'Nov 7'), ('Application deadline', 'Feb 1'), ('AIF + documents', 'Feb 15'), ('Accept an offer', 'Jun 1')],

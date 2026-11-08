@@ -109,8 +109,10 @@ def school_page(s, idx):
     out += f'<div class="school-hero"><span class="country">{country}</span><h1>{e(s["name"])}</h1><p class="summary">{e(s["summary"])}</p></div>\n'
     out += '<dl class="facts">' + ''.join(
         f'<div><dt>{e(k)}</dt><dd{" class=\"big\"" if i == 0 else ""}>{e(v)}</dd></div>' for i, (k, v) in enumerate(s['facts'])) + '</dl>\n'
-    if s.get('portal'):
-        label, url = s['portal']
+    portals = s.get('portal') or []
+    if isinstance(portals, tuple):
+        portals = [portals]
+    for label, url in portals:
         out += f'<p class="pdf-link"><a class="go" href="{e(url)}">{e(label)}</a></p>\n'
     for n, sec in enumerate(s['sections']):
         out += section(sec, s['slug'], n)
