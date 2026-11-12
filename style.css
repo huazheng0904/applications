@@ -160,3 +160,10 @@ table.essays td:last-child { white-space: nowrap; }
 .tool-page .go { background: var(--ink); }
 .pdf-link { margin: 22px 0 0; }
 @media (max-width: 760px) { .go { white-space: normal; } }
+.story { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 16px 18px; margin: 12px 0; }
+.story h3 { margin: 0; font-size: 17px; }
+.story .fits { margin: 2px 0 10px; font-size: 14px; opacity: .75; }
+.story dl { display: grid; grid-template-columns: 9em 1fr; gap: 6px 14px; margin: 0; }
+.story dt { font-weight: 600; font-size: 14px; }
+.story dd { margin: 0; }
+@media (max-width: 600px) { .story dl { grid-template-columns: 1fr; gap: 2px; } .story dd { margin-bottom: 8px; } }

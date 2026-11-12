@@ -62,6 +62,11 @@ def section(s, slug, n):
         out += f'<p>{e(p)}</p>\n'
     if 'table' in s:
         out += table(s['table'])
+    if 'stories' in s:
+        for st in s['stories']:
+            out += f'<div class="story"><h3>{e(st[0])}</h3><p class="fits">Fits: {e(st[1])}</p><dl>'
+            out += ''.join(f'<dt>{e(k)}</dt><dd>{e(v)}</dd>' for k, v in zip(['Situation', 'What he did', 'What happened', 'What he learned'], st[2:6]))
+            out += '</dl></div>\n'
     if 'list' in s:
         out += '<ul class="plain">' + ''.join(f'<li>{e(x)}</li>' for x in s['list']) + '</ul>\n'
     if 'check' in s:
