@@ -83,6 +83,17 @@ CANADA = [
                 'On the day: look at the camera, keep notes to keywords, link an unexpected question to the closest story in the first sentence; do not memorise scripts',
                 'If the internet or power fails, report it at kiratalent.com/support immediately and email the Engineering admissions office'],
        'warn': 'One attempt only: the real assessment starts at "Start Assessment". Finish the practice questions first.'},
+      {'h': 'Personal Profile to-do list', 'check': [
+          'Open the Personal Profile in the Engineering Applicant Portal and read the instructions',
+          'Check the device and browser against Kira\'s supported list; test webcam and microphone',
+          'Write 5–6 stories as keyword notes: a project led, a team commitment, helping others, a failure or change of mind, why engineering, why Engineering Science',
+          'Say each story aloud in four beats (situation, action, result, lesson) within 1–2 minutes',
+          'Do the Kira practice questions at least three times',
+          'Mock run: three unseen questions from someone else, timed and recorded; watch it back once',
+          'Book a quiet 45-minute slot (Nov 23–25) with no one else in the room',
+          'Day of: close other apps, silence phone, charger plugged in, pen and paper ready',
+          'Complete the real Personal Profile',
+          'Confirm the portal shows it as submitted']},
       {'h': 'Transcripts and scores',
        'p': ['OUAC does not forward documents. After OUAC is submitted, U of T emails a login for Join U of T and the Engineering Applicant Portal; their checklists list the documents to send and how.'],
        'table': {'head': ['Item', 'How', 'Who'], 'rows': [
