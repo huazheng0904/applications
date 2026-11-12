@@ -253,7 +253,7 @@ def us(slug, short, name, deadline, date_iso, testing, supp, applying, summary, 
             'facts': [('Regular Decision deadline', deadline), ('Testing', testing), ('Application', 'UC application' if slug == 'berkeley' else ('MIT portal' if slug == 'mit' else 'Common App')), ('Applying to', applying)]}
 
 US = [
-  us('berkeley', 'UC (4 campuses)', 'University of California: Berkeley, UCLA, Irvine, Davis', 'Nov 30', '2026-11-30', 'Test-free', 'UC app: 4 of 8 PIQs, 350 words; no recommendations',
+  us('berkeley', 'UC', 'University of California: Berkeley, UCLA, Irvine, Davis', 'Nov 30', '2026-11-30', 'Test-free', 'UC app: 4 of 8 PIQs, 350 words; no recommendations',
      'Applied Mathematics at all four campuses (one UC application, $320)',
      'The earliest U.S. deadline, and firm. One University of California application covers Berkeley, UCLA, Irvine and Davis; it is separate from the Common App, and every campus reads the same PIQs and Additional Comments. Grades and activities are self-reported, there are no recommendations, and test scores are not considered.',
      'Applied math at every campus, matching the academic-subject PIQ. Berkeley and UCLA review only the first-choice major, so the alternates matter only at Irvine and Davis. Because all four campuses read the same PIQs, no essay should name a single campus. At Berkeley, applying Undeclared would not affect chances, but naming the major keeps the application and essays consistent; check the L&S high-demand list before submitting, since it changes often. Statistics was considered but sits in the College of Computing, Data Science, and Society, a more selective pool. At UCLA, Mathematics of Computation was replaced with Applied Mathematics to match the essays.',
