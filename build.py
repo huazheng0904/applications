@@ -47,7 +47,8 @@ def topbar(current):
 
 def table(t):
     keys = set(t.get('key', []))
-    out = '<div class="tablewrap"><table>\n<thead><tr>' + ''.join(f'<th>{e(h)}</th>' for h in t['head']) + '</tr></thead>\n<tbody>\n'
+    cls = f' class="{t["cls"]}"' if t.get('cls') else ''
+    out = f'<div class="tablewrap"><table{cls}>\n<thead><tr>' + ''.join(f'<th>{e(h)}</th>' for h in t['head']) + '</tr></thead>\n<tbody>\n'
     for i, row in enumerate(t['rows']):
         cls = ' class="key"' if i in keys else ''
         cells = ''.join((f'<td class="when">{e(c)}</td>' if j == 0 and t.get('first_bold') else f'<td>{e(c)}</td>') for j, c in enumerate(row))

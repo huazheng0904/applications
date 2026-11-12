@@ -20,7 +20,7 @@ GENERIC_US_CHECK = [
 ]
 
 def essays(rows, note=None):
-    s = {'h': 'Supplemental essays', 'table': {'head': ['Prompt', 'Limit'], 'rows': rows}}
+    s = {'h': 'Supplemental essays', 'table': {'cls': 'essays', 'head': ['Prompt', 'Limit'], 'rows': rows}}
     if note:
         s['note'] = note
     return s
@@ -70,6 +70,19 @@ CANADA = [
           ['Apr 30', 'Engineering decision guaranteed by', 'U of T'],
           ['May', 'AP exams; scores become offer conditions', 'Student']]},
        'warn': 'The Personal Profile allows one attempt only. Practice questions are unlimited, so finish them before the real sitting.'},
+      {'h': 'Personal Profile: how to prepare',
+       'p': ['Three randomly selected, timed video questions on the Kira Talent platform, about 30 minutes in one sitting. There is one official attempt and no retake, even for technical problems; practice questions are unlimited. The committee assesses the content of the answers (reasoning and communication), not how the applicant looks on camera, and there is no single right answer.'],
+       'table': {'first_bold': True, 'head': ['When', 'Step'], 'rows': [
+          ['Nov 12–16', 'Build 5–6 short stories to adapt: a project led, a team commitment, helping others, a failure or change of mind, and why engineering (and why Engineering Science)'],
+          ['Nov 17–21', 'Practise each story in four beats: situation in one sentence, what he did, what happened, what he learned. Use specifics: numbers, names, decisions'],
+          ['Nov 17–22', 'Run the Kira practice questions repeatedly to learn the real timing; finish with a clear point rather than mid-sentence'],
+          ['Nov 22', 'Mock run: someone asks three unseen questions with a 1–2 minute timer; record and watch it back once'],
+          ['Nov 23–25', 'Real Personal Profile on a quiet weekday evening, after a final technology check']]},
+       'list': ['Setup: laptop or desktop with webcam and microphone, a Kira-supported browser, stable internet, a quiet room, pen and paper',
+                'Rules: no one else present in person or online; no other apps or devices; type any text directly into Kira, never paste',
+                'On the day: look at the camera, keep notes to keywords, link an unexpected question to the closest story in the first sentence; do not memorise scripts',
+                'If the internet or power fails, report it at kiratalent.com/support immediately and email the Engineering admissions office'],
+       'warn': 'One attempt only: the real assessment starts at "Start Assessment". Finish the practice questions first.'},
       {'h': 'Transcripts and scores',
        'p': ['OUAC does not forward documents. After OUAC is submitted, U of T emails a login for Join U of T and the Engineering Applicant Portal; their checklists list the documents to send and how.'],
        'table': {'head': ['Item', 'How', 'Who'], 'rows': [
@@ -79,11 +92,12 @@ CANADA = [
           ['Final transcript and AP results', 'After an offer, sent directly by the school and College Board', 'Counselor, student']]},
        'note': 'The OUAC note about World Education Services (WES) is generic; act on it only if a U of T portal asks for it.'},
       {'h': 'Checklist', 'check': ['Decide final ESA order', 'Submit OUAC', 'Send SAT and AP scores', 'Counselor sends transcript and school profile',
-          'Enable JOINid and pay ESA fee', 'Line up activity references', 'Complete ESA forms', 'Complete the Personal Profile', 'Upload documents and submit every page by Dec 1']},
+          'Enable JOINid and pay ESA fee', 'Line up activity references', 'Complete ESA forms', 'Kira practice questions done and mock run recorded', 'Complete the Personal Profile', 'Upload documents and submit every page by Dec 1']},
     ],
     'sources': [
       ('U of T Engineering deadlines', 'https://discover.engineering.utoronto.ca/how-to-apply/important-deadlines/'),
       ('Engineering Supplemental Application', 'https://discover.engineering.utoronto.ca/how-to-apply/supplemental-application/'),
+      ('Personal Profile FAQ', 'https://discover.engineering.utoronto.ca/faqs/'),
       ('Engineering FAQ and grade ranges', 'https://discover.engineering.utoronto.ca/faqs/'),
       ('TrackOne pause', 'https://discover.engineering.utoronto.ca/programs/engineering-programs/general-first-year/'),
       ('U of T dates and deadlines', 'https://future.utoronto.ca/deadlines'),
