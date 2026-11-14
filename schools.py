@@ -253,10 +253,10 @@ def us(slug, short, name, deadline, date_iso, testing, supp, applying, summary, 
             'facts': [('Regular Decision deadline', deadline), ('Testing', testing), ('Application', 'UC application' if slug == 'berkeley' else ('MIT portal' if slug == 'mit' else 'Common App')), ('Applying to', applying)]}
 
 US = [
-  us('berkeley', 'UC', 'University of California: Berkeley, UCLA, Irvine, Davis', 'Nov 30', '2026-11-30', 'Test-free', 'UC app: 4 of 8 PIQs, 350 words; no recommendations',
-     'Applied Mathematics at all four campuses (one UC application, $320)',
-     'The earliest U.S. deadline, and firm. One University of California application covers Berkeley, UCLA, Irvine and Davis; it is separate from the Common App, and every campus reads the same PIQs and Additional Comments. Grades and activities are self-reported, there are no recommendations, and test scores are not considered.',
-     'Applied math at every campus, matching the academic-subject PIQ. Berkeley and UCLA review only the first-choice major, so the alternates matter only at Irvine and Davis. Because all four campuses read the same PIQs, no essay should name a single campus. At Berkeley, applying Undeclared would not affect chances, but naming the major keeps the application and essays consistent; check the L&S high-demand list before submitting, since it changes often. Statistics was considered but sits in the College of Computing, Data Science, and Society, a more selective pool. At UCLA, Mathematics of Computation was replaced with Applied Mathematics to match the essays.',
+  us('berkeley', 'UC', 'University of California: Berkeley, UCLA, San Diego', 'Nov 30', '2026-11-30', 'Test-free', 'UC app: 4 of 8 PIQs, 350 words; no recommendations',
+     'Applied math at Berkeley and UCLA, Math–CS at San Diego (one UC application, $240)',
+     'The earliest U.S. deadline, and firm. One University of California application covers Berkeley, UCLA and San Diego; it is separate from the Common App, and every campus reads the same PIQs and Additional Comments. Grades and activities are self-reported, there are no recommendations, and test scores are not considered.',
+     'Applied math at Berkeley and UCLA, matching the academic-subject PIQ; Mathematics–Computer Science at San Diego, which is not on its fall 2027 selective-major list but is a high-interest major. Berkeley and UCLA review only the first-choice major, so the alternate matters only at San Diego, where Math–Applied Science is in the same department and competes for similar seats. Irvine and Davis were dropped on Nov 14: neither beats Waterloo at out-of-state cost. Because all three campuses read the same PIQs, no essay should name a single campus. At Berkeley, applying Undeclared would not affect chances, but naming the major keeps the application and essays consistent; check the L&S high-demand list before submitting, since it changes often. Statistics was considered but sits in the College of Computing, Data Science, and Society, a more selective pool. At UCLA, Mathematics of Computation was replaced with Applied Mathematics to match the essays.',
      [['Personal Insight Questions: answer any 4 of 8 (leadership, creativity, talent, educational opportunity, challenge, academic subject, community, what makes you stand out)', '350 words each']],
      ['Transcript is self-reported: enter every 9th–11th grade course and grade in Academic History, plus senior-year courses in progress. Work from the transcript, not memory, and match it exactly.',
       'No official transcript at application. A final transcript is sent only if admitted and the offer is accepted, and UC checks it against what was entered; a mismatch can cost the offer.',
@@ -269,7 +269,7 @@ US = [
       ('UC application deadlines 2026–27', 'https://riseglobaleducation.com/blogs/uc-application-deadlines-2026-27'),
       ('Berkeley majors by college', 'https://admissions.berkeley.edu/academic-programs-majors'),
       ('L&S high-demand major policy', 'https://admissions.berkeley.edu/academics/ls-high-demand-major/')],
-     extra_check=['Create the UC application account (separate from the Common App)', 'Select applied math majors at all four campuses (done Nov 12)', 'Enter self-reported grades from the transcript, including senior-year courses', 'Self-report AP scores and planned May exams', 'Enter up to 20 activities and awards'], early=True,
+     extra_check=['Create the UC application account (separate from the Common App)', 'Select majors at all three campuses (done Nov 14)', 'Rank the top four UC San Diego undergraduate colleges (separate section; does not affect admission)', 'Enter self-reported grades from the transcript, including senior-year courses', 'Self-report AP scores and planned May exams', 'Enter up to 20 activities and awards'], early=True,
      portal=('Open the UC application portal (apply.universityofcalifornia.edu)', 'https://apply.universityofcalifornia.edu/my-application/login')),
   us('harvard', 'Harvard', 'Harvard University', 'Jan 1', '2027-01-01', 'SAT/ACT required', '5 × 150 words',
      'Harvard College; concentration listed, not binding',
@@ -512,7 +512,7 @@ TOOLS.append(TRANSCRIPT)
 # ---------------------------------------------------------------- Overview data
 TIMELINE = [
   {'d': '2026-11-07', 'c': 'ca', 't': 'OUAC', 's': 'U of T and Waterloo choices', 'lvl': 1},
-  {'d': '2026-11-30', 'c': 'us', 't': 'UC application', 's': 'Berkeley, UCLA, Irvine, Davis', 'lvl': 3},
+  {'d': '2026-11-30', 'c': 'us', 't': 'UC application', 's': 'Berkeley, UCLA, San Diego', 'lvl': 3},
   {'d': '2026-12-15', 'c': 'us', 't': 'Columbia', 's': 'ED decision', 'lvl': 1},
   {'d': '2026-12-01', 'c': 'ca', 't': 'U of T ESA', 's': 'and documents, early', 'lvl': 2},
   {'d': '2027-01-01', 'c': 'us', 't': '13 schools', 's': 'due Jan 1–5', 'lvl': 2},
@@ -562,10 +562,11 @@ for _s in US:
             'rows': [
                 ['UC Berkeley', 'Mathematics, Applied, B.A. (Letters & Science)', 'Physics, B.A. (not considered at Berkeley)', 'Reach'],
                 ['UCLA', 'Mathematics, Applied (Pre), B.S. (Letters & Science)', 'None: UCLA offers no alternates', 'Reach'],
-                ['UC Irvine', 'Applied and Computational Mathematics, B.S. (Physical Sciences)', 'Applied Physics, B.S.', 'Likely'],
-                ['UC Davis', 'Applied Mathematics, B.S.', 'Mathematical and Scientific Computation, B.S.', 'Very likely']]}
-        _s['sections'][0]['p'].append('Estimates (Nov 12): as a Canadian citizen without a green card, Haolin is most likely reviewed as an international applicant. Approximate fall 2026 international admit rates: Berkeley about 5%, UCLA about 8%, Irvine about 45%, Davis about 67%. His estimated UC GPA (about 4.29) is at the top of Berkeley\'s admitted middle 50% (4.16–4.28) and his 4.00 unweighted matches UCLA\'s median, so grades put him in range; the river project, PIQs and Additional Comments have to set him apart.')
+                ['UC San Diego', 'Mathematics–Computer Science, B.S.', 'Mathematics–Applied Science, B.S.', 'Target']]}
+        _s['sections'][0]['p'].append('Estimates (Nov 12): as a Canadian citizen without a green card, Haolin is most likely reviewed as an international applicant. Approximate fall 2026 international admit rates: Berkeley about 5%, UCLA about 8%; San Diego\'s was not estimated. His estimated UC GPA (about 4.29) is at the top of Berkeley\'s admitted middle 50% (4.16–4.28) and his 4.00 unweighted matches UCLA\'s median, so grades put him in range; the river project, PIQs and Additional Comments have to set him apart.')
         _s['sources'] += [('UCLA majors and pre-majors', 'https://admission.ucla.edu/apply/majors'),
                           ('UC campus alternate-major policies (2026)', 'https://admission.universityofcalifornia.edu/counselors/_files/documents/2026-counselor-conference-ada-pdfs/cc_-uc-majors-marketplace_ada.pdf'),
                           ('UC international and out-of-state admit rates (derived)', 'https://orieladmissions.com/uc-out-of-state-admissions/'),
-                          ('Berkeley first-year admit data', 'https://admission.universityofcalifornia.edu/campuses-majors/berkeley/first-year-admit-data.html')]
+                          ('Berkeley first-year admit data', 'https://admission.universityofcalifornia.edu/campuses-majors/berkeley/first-year-admit-data.html'),
+                          ('UC selective majors and alternates by campus (fall 2027)', 'https://gradpilot.com/news/uc-selective-majors-alternate-major-by-campus'),
+                          ('UC San Diego admissions FAQ (college ranking)', 'https://admissions.ucsd.edu/faq/')]

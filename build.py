@@ -154,7 +154,7 @@ def us_page():
     out = head('U.S. schools', 'Deadlines, testing and essays for every U.S. school, with links to each school page.')
     out += topbar('us.html') + '<main class="us-page">\n<p class="crumbs"><a href="index.html">Overview</a> / U.S. schools</p>\n'
     out += ('<div class="school-hero"><span class="country">United States</span><h1>U.S. schools</h1>'
-            f'<p class="summary">{len(EARLY)} early applications already in, plus {len(US)} Regular Decision schools: the UC application (Berkeley, UCLA, Irvine, Davis) is due Nov 30, the rest Jan 1–5. Each school has its own page.</p></div>\n')
+            f'<p class="summary">{len(EARLY)} early applications already in, plus {len(US)} Regular Decision schools: the UC application (Berkeley, UCLA, San Diego) is due Nov 30, the rest Jan 1–5. Each school has its own page.</p></div>\n')
     out += '<section class="block"><h2>Submitted early</h2>' + early_table() + '</section>\n'
     out += '<section class="block"><h2>Regular Decision</h2><div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Supplements</th></tr></thead><tbody>\n'
     for s in US:
@@ -185,7 +185,7 @@ def index_page():
                 + f'</dl><a class="go" href="{s["slug"]}.html">{e(s["short"])} plan</a></article>\n')
     out += '</section>\n'
     out += ('<section class="country-sec us" id="us" aria-labelledby="us-h"><div class="country-head"><h2 id="us-h">United States</h2>'
-            f'<p>Columbia (ED) and Northeastern (EA) are in. Of the Regular Decision schools, the UC application (Berkeley, UCLA, Irvine, Davis) comes first on Nov 30; the other {len(US) - 1} are due Jan 1–5.</p></div>\n'
+            f'<p>Columbia (ED) and Northeastern (EA) are in. Of the Regular Decision schools, the UC application (Berkeley, UCLA, San Diego) comes first on Nov 30; the other {len(US) - 1} are due Jan 1–5.</p></div>\n'
             '<h3 class="sub-h">Submitted early</h3>' + early_table() +
             '<h3 class="sub-h">Regular Decision</h3><div class="tablewrap"><table class="us-table"><thead><tr><th>Deadline</th><th>School</th><th>Testing</th><th>Applying to</th></tr></thead><tbody>\n')
     for s in US:
