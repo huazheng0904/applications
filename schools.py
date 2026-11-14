@@ -563,10 +563,12 @@ for _s in US:
                 ['UC Berkeley', 'Mathematics, Applied, B.A. (Letters & Science)', 'Physics, B.A. (not considered at Berkeley)', 'Reach'],
                 ['UCLA', 'Mathematics, Applied (Pre), B.S. (Letters & Science)', 'None: UCLA offers no alternates', 'Reach'],
                 ['UC San Diego', 'Mathematics–Computer Science, B.S.', 'Mathematics–Applied Science, B.S.', 'Target']]}
-        _s['sections'][0]['p'].append('Estimates (Nov 12): as a Canadian citizen without a green card, Haolin is most likely reviewed as an international applicant. Approximate fall 2026 international admit rates: Berkeley about 5%, UCLA about 8%; San Diego\'s was not estimated. His estimated UC GPA (about 4.29) is at the top of Berkeley\'s admitted middle 50% (4.16–4.28) and his 4.00 unweighted matches UCLA\'s median, so grades put him in range; the river project, PIQs and Additional Comments have to set him apart.')
+        _s['sections'][0]['p'].append('Estimates (Nov 12): as a Canadian citizen without a green card, Haolin is most likely reviewed as an international applicant. Approximate fall 2026 international admit rates: Berkeley about 5%, UCLA about 8%, San Diego about 27% (down from about 31% in 2025). His estimated UC GPA (about 4.29) is at the top of Berkeley\'s admitted middle 50% (4.16–4.28) and above San Diego\'s (4.12–4.28) and his 4.00 unweighted matches UCLA\'s median, so grades put him in range; the river project, PIQs and Additional Comments have to set him apart.')
         _s['sources'] += [('UCLA majors and pre-majors', 'https://admission.ucla.edu/apply/majors'),
                           ('UC campus alternate-major policies (2026)', 'https://admission.universityofcalifornia.edu/counselors/_files/documents/2026-counselor-conference-ada-pdfs/cc_-uc-majors-marketplace_ada.pdf'),
                           ('UC international and out-of-state admit rates (derived)', 'https://orieladmissions.com/uc-out-of-state-admissions/'),
                           ('Berkeley first-year admit data', 'https://admission.universityofcalifornia.edu/campuses-majors/berkeley/first-year-admit-data.html'),
                           ('UC selective majors and alternates by campus (fall 2027)', 'https://gradpilot.com/news/uc-selective-majors-alternate-major-by-campus'),
-                          ('UC San Diego admissions FAQ (college ranking)', 'https://admissions.ucsd.edu/faq/')]
+                          ('UC San Diego admissions FAQ (college ranking)', 'https://admissions.ucsd.edu/faq/'),
+                          ('UC San Diego fall 2026 admit rates by residency (UCOP preliminary)', 'https://collegewise.com/blog/uc-san-diego-acceptance-rates'),
+                          ('UC San Diego fall 2026 student profile', 'https://admissions.ucsd.edu/freshmen')]
