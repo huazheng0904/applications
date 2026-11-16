@@ -316,14 +316,11 @@ US = [
      [],
      [('Yale deadlines', 'https://admissions.yale.edu/application-deadlines'), ('Yale prompts', 'https://www.collegeessayguy.com/blog/yale-supplemental-essay')],
      essay_note='Each answer should add something new, not repeat the Common App personal statement.'),
-  us('cornell', 'Cornell', 'Cornell University', 'Jan 2', '2027-01-02', 'SAT/ACT required', 'Engineering: 2 × 200 + 4 × 100 words',
-     'College of Engineering: Environmental first, ORIE second',
+  us('cornell', 'Cornell', 'Cornell University', 'Jan 2', '2027-01-02', 'SAT/ACT required', 'Arts & Sciences: 1 × 650 words',
+     'College of Arts & Sciences: Mathematics (applied concentration), Statistics second',
      'At Cornell you apply to one undergraduate college, and the essays depend on which. The application is due Jan 2; recommendations and mid-year grades by Jan 19.',
-     'College of Engineering, with Environmental Engineering as the intended major and Operations Research & Information Engineering (ORIE) as the second interest. Environmental matches the subject of Water Watch directly: the project is river water quality, so it needs no explaining. ORIE matches its method (the regression and rain-risk models that turn samples into a weekly advisory) and the applied-math choices at the other schools, so the modeling side still belongs in the essays. Cornell admits to the college and the major is chosen after the first year, so the listed major shapes the two engineering essays rather than the odds. Engineering Physics and ECE were considered and set aside. Alternative: College of Arts & Sciences for Statistics, Mathematics or Physics (one 650-word essay on an intellectual passion).',
-     [['Engineering: why engineering', '200 words'], ['Engineering: why Cornell Engineering', '200 words'],
-      ['Engineering: what brings you joy', '100 words'], ['Engineering: your contribution to the community', '100 words'],
-      ['Engineering: a meaningful activity', '100 words'], ['Engineering: your proudest achievement', '100 words'],
-      ['Arts & Sciences instead: an intellectual passion and the A&S courses you would use to explore it', '650 words']],
+     'College of Arts & Sciences, with Mathematics (Applied Mathematics concentration) as the intended major and Statistical Science as the second interest. Cornell has no undergraduate applied mathematics major; the applied concentration inside the A&S math major is the closest match, and it lines up with the applied-math choices at Berkeley, UCLA and Waterloo. A&S reads for intellectual curiosity across subjects, so the immigration atlas, the State of the River memo and Water Watch all count toward one story: using data carefully to answer real questions. Switched from the College of Engineering (Environmental, ORIE) on Nov 16, 2026; Cornell admits by college, so only one can be chosen.',
+     [['Arts & Sciences: an intellectual passion and the A&S courses you would use to explore it', '650 words']],
      ['Two teacher recommendations, counselor recommendation and mid-year grades by Jan 19'],
      [('Cornell first-year', 'https://admissions.cornell.edu/node/1066'), ('Cornell prompts', 'https://www.collegetransitions.com/blog/cornell-supplemental-essay-prompts/')]),
   us('mit', 'MIT', 'Massachusetts Institute of Technology', 'Jan 4', '2027-01-04', 'SAT/ACT required', 'Own app: 4 × 100–200 + 4 × 40–50 words',
@@ -545,12 +542,12 @@ NEXT_UP = [
 ]
 
 REUSE = [
-  ['An idea or subject that excites you', 'Yale topic essay, Stanford intellectual vitality, Brown Open Curriculum, Cornell why engineering, MIT field of study, CMU passion, Rice academic areas, Penn school essay, Berkeley academic PIQ'],
-  ['A community you belong to or built', 'Yale community essay, Stanford and Cornell contribution, Duke community, Penn community, Rice residential college, Berkeley leadership and community PIQs'],
+  ['An idea or subject that excites you', 'Yale topic essay, Stanford intellectual vitality, Brown Open Curriculum, Cornell A&S intellectual passion, MIT field of study, CMU passion, Rice academic areas, Penn school essay, Berkeley academic PIQ'],
+  ['A community you belong to or built', 'Yale community essay, Stanford contribution, Duke community, Penn community, Rice residential college, Berkeley leadership and community PIQs'],
   ['Background and growing up', 'Brown growing up, Harvard life experiences, Princeton Your Voice 1, Rice change agents, Dartmouth environment, Yale option 3, Berkeley stand-out PIQ'],
   ['A challenge or disagreement', 'MIT unexpected challenge, Harvard disagreement, Berkeley challenge PIQ'],
-  ['Joy and small moments', 'Brown joy, Cornell joy, Princeton More About You, Stanford short answers, MIT fun, Yale short answers, Penn thank-you note'],
-  ['Why this school (always written fresh)', 'Dartmouth, Duke, Cornell Engineering, Rice, UChicago, Penn'],
+  ['Joy and small moments', 'Brown joy, Princeton More About You, Stanford short answers, MIT fun, Yale short answers, Penn thank-you note'],
+  ['Why this school (always written fresh)', 'Dartmouth, Duke, Rice, UChicago, Penn'],
 ]
 
 
