@@ -111,14 +111,15 @@ textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;bo
       </div>
     </div>
   </section>
-  <p class="note" id="micNote">Each answer is recorded on this computer only and is never uploaded. Recordings disappear when you close or reload the page unless you save them with the Save link under each video.</p>
+  <p class="note" id="micNote">Each answer is recorded on this computer only and is never uploaded. Recordings disappear when you close or reload the page, so save the ones you want: there is a Save link under each video and a Save all button.</p>
 </div>
 
 <div class="band review" id="review" hidden>
   <h2>Your answers</h2>
   <p class="note">Watch each answer once. Check: does the first sentence answer the question, do you look at the camera, do you fill the time, and does the ending say what you learned?</p>
   <div id="answers"></div>
-  <div class="ctrls"><button class="primary" id="again">Practise again</button></div>
+  <div class="ctrls"><button class="rec" id="saveAll">Save all three videos</button><button class="primary" id="again">Practise again</button></div>
+  <p class="note">Videos save to the Downloads folder. If Chrome asks whether this site may download multiple files, choose Allow. Save before starting a new practice or closing the page: unsaved videos are lost.</p>
 </div>
 
 <div class="band">
@@ -219,14 +220,18 @@ $("go").addEventListener("click",()=>{
  setPhase("gap","Starting");run(3,"get ready",prep)});
 $("skip").addEventListener("click",()=>{if(phase==="prep"){clearInterval(tick);answer()}});
 $("end").addEventListener("click",()=>{if(phase==="answer")finish()});
+$("saveAll").addEventListener("click",saveAll);
 $("again").addEventListener("click",()=>{$("go").click();window.scrollTo({top:0,behavior:"smooth"})});
 
+function fname(r){const d=new Date(),p=n=>String(n).padStart(2,"0");const ext=(mime||"").includes("mp4")?"mp4":"webm";
+ return "personal-profile-"+d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes())+"-Q"+r.slot.n+"."+ext}
+function saveAll(){records.filter(r=>r.video).forEach((r,k)=>setTimeout(()=>{const a=document.createElement("a");a.href=r.video;a.download=fname(r);document.body.append(a);a.click();a.remove()},k*600))}
 function showReview(){const box=$("answers");box.textContent="";
  records.forEach((r,k)=>{const a=document.createElement("article");
   const h=document.createElement("h3");h.textContent="Question "+r.slot.n+": "+r.q;
   const m=document.createElement("div");m.className="meta";const words=r.text.trim()?r.text.trim().split(/\s+/).length:0;
   m.textContent="Spoke for "+fmt(r.used)+" of "+fmt(r.slot.ans)+(words?" · about "+words+" words ("+Math.round(words/Math.max(r.used,1)*60)+" per minute)":"");
-  if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download="profile-practice-Q"+r.slot.n+".webm";dl.textContent="Save this video";a.append(h,m,v,dl)}else a.append(h,m);
+  if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download=fname(r);dl.textContent="Save this video";a.append(h,m,v,dl)}else a.append(h,m);
   if(r.text){const t=document.createElement("p");t.className="note";t.textContent="Transcript: "+r.text;a.append(t)}
   box.append(a)});
  $("review").hidden=false;
