@@ -70,6 +70,7 @@ textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;bo
 @media(max-width:760px){.booth{grid-template-columns:1fr}.dial{max-width:240px}.format{grid-template-columns:repeat(2,minmax(0,1fr))}.tips{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#arc{transition:none!important}}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
 <div class="band">
@@ -118,8 +119,8 @@ textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;bo
   <h2>Your answers</h2>
   <p class="note">Watch each answer once. Check: does the first sentence answer the question, do you look at the camera, do you fill the time, and does the ending say what you learned?</p>
   <div id="answers"></div>
-  <div class="ctrls"><button class="rec" id="saveAll">Save all three videos</button><button class="primary" id="again">Practise again</button></div>
-  <p class="note">Videos save to the Downloads folder. If Chrome asks whether this site may download multiple files, choose Allow. Save before starting a new practice or closing the page: unsaved videos are lost.</p>
+  <div class="ctrls"><button class="rec" id="saveAll">Save all three (one .zip)</button><button class="primary" id="again">Practise again</button></div>
+  <p class="note">All three videos save together as one .zip file in the Downloads folder; double-click it to unzip. Save before starting a new practice or closing the page: unsaved videos are lost.</p>
 </div>
 
 <div class="band">
@@ -204,7 +205,7 @@ function prep(){const s=SLOTS[i];$("step").textContent="Question "+s.n+" of 4";$
 function answer(){const s=SLOTS[i];setPhase("answer","Recording: answer now");$("skip").disabled=true;$("end").disabled=false;beep(880);
  startAns=Date.now();recStart();run(s.ans,"to answer",finish)}
 async function finish(){clearInterval(tick);const cur=i;if(records[cur])records[cur].used=Math.min(SLOTS[cur].ans,Math.round((Date.now()-startAns)/1000));phase="saving";$("end").disabled=true;beep(440);
- const blob=await recStop();if(records[cur]&&blob)records[cur].video=URL.createObjectURL(blob);
+ const blob=await recStop();if(records[cur]&&blob&&blob.size){records[cur].blob=blob;records[cur].video=URL.createObjectURL(blob)}
  if(i<2){i++;$("step").textContent="Next question";setPhase("gap","Next question starts in 3 seconds");$("end").disabled=true;
   if($("hideQ").checked){$("q").classList.add("hidden");$("q").textContent=qs[i]}else $("q").textContent=qs[i];
   run(3,"get ready",prep)}else done()}
@@ -225,13 +226,21 @@ $("again").addEventListener("click",()=>{$("go").click();window.scrollTo({top:0,
 
 function fname(r){const d=new Date(),p=n=>String(n).padStart(2,"0");const ext=(mime||"").includes("mp4")?"mp4":"webm";
  return "personal-profile-"+d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes())+"-Q"+r.slot.n+"."+ext}
-function saveAll(){records.filter(r=>r.video).forEach((r,k)=>setTimeout(()=>{const a=document.createElement("a");a.href=r.video;a.download=fname(r);document.body.append(a);a.click();a.remove()},k*600))}
+function dl(href,name){const a=document.createElement("a");a.href=href;a.download=name;document.body.append(a);a.click();a.remove()}
+async function saveAll(){const have=records.filter(r=>r.blob&&r.blob.size);const btn=$("saveAll");
+ if(!have.length){btn.textContent="No videos to save";return}
+ if(window.JSZip){btn.disabled=true;btn.textContent="Packing videos…";
+  try{const z=new JSZip();have.forEach(r=>z.file(fname(r),r.blob));const out=await z.generateAsync({type:"blob",compression:"STORE"});
+   const u=URL.createObjectURL(out);dl(u,fname(have[0]).replace(/-Q\d+\.\w+$/,"-all.zip"));setTimeout(()=>URL.revokeObjectURL(u),60000);btn.textContent="Saved as one .zip file"}
+  catch(e){have.forEach((r,k)=>setTimeout(()=>dl(r.video,fname(r)),k*700));btn.textContent="Saved (separate files)"}
+  finally{btn.disabled=false}}
+ else{have.forEach((r,k)=>setTimeout(()=>dl(r.video,fname(r)),k*700))}}
 function showReview(){const box=$("answers");box.textContent="";
  records.forEach((r,k)=>{const a=document.createElement("article");
   const h=document.createElement("h3");h.textContent="Question "+r.slot.n+": "+r.q;
   const m=document.createElement("div");m.className="meta";const words=r.text.trim()?r.text.trim().split(/\s+/).length:0;
   m.textContent="Spoke for "+fmt(r.used)+" of "+fmt(r.slot.ans)+(words?" · about "+words+" words ("+Math.round(words/Math.max(r.used,1)*60)+" per minute)":"");
-  if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download=fname(r);dl.textContent="Save this video";a.append(h,m,v,dl)}else a.append(h,m);
+  if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download=fname(r);dl.textContent="Save this video";a.append(h,m,v,dl)}else{const w=document.createElement("p");w.className="warn";w.textContent="This answer was not recorded. Check that no other app is using the camera, then practise again.";a.append(h,m,w)}
   if(r.text){const t=document.createElement("p");t.className="note";t.textContent="Transcript: "+r.text;a.append(t)}
   box.append(a)});
  $("review").hidden=false;
