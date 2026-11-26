@@ -82,6 +82,7 @@ CANADA = [
                 'Rules: no one else present in person or online; no other apps or devices; type any text directly into Kira, never paste',
                 'On the day: look at the camera, keep notes to keywords, link an unexpected question to the closest story in the first sentence; do not memorise scripts',
                 'If the internet or power fails, report it at kiratalent.com/support immediately and email the Engineering admissions office'],
+       'link': ('Open the video practice simulator (webcam, real timings)', 'profile-practice.html'),
        'warn': 'One attempt only: the real assessment starts at "Start Assessment". Finish the practice questions first.'},
       {'h': 'Personal Profile: story bank',
        'p': ['Six stories drawn from his essays and the Water Watch project, each in the four beats. Bracketed parts are details only Haolin knows: fill them in or drop them, never invent them. Each story should fill 2 minutes and stretch to 3 (Questions 3 and 4 are 3-minute answers). Practise from the beats, not a script, so it sounds natural on camera.'],

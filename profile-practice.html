@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile Video Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, exam-room focus; nothing decorative competes with the clock
+   IDEA: a recording booth: the question card and an on-air countdown dial
+   PICTURE: the large ring timer with a red recording lamp
+   COLOUR and TYPE: white, ink, concrete planes, one signal red; Hanken Grotesk
+   LAYOUT: question left, dial right; stacks on phones; review below */
+:root{color-scheme:light dark;
+ --bg:light-dark(#ffffff,#161615);--ink:light-dark(#141414,#efeee9);--muted:light-dark(#5d5d58,#a9a8a1);
+ --plane:light-dark(#ecebe6,#232321);--line:light-dark(#d6d5cf,#3a3a37);--red:light-dark(#d92b24,#ff5a4f);--ok:light-dark(#2f6b3e,#7fcf93)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Hanken Grotesk",system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px);max-width:1240px;margin:0 auto}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.05;margin:0 0 8px;font-weight:800;text-wrap:balance}
+h2{font-size:22px;margin:0 0 10px}
+.sub{color:var(--muted);margin:0;max-width:66ch}
+.booth{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;background:var(--plane);border-radius:18px;padding:clamp(20px,3vw,40px);margin-top:24px}
+.step{font-weight:600;color:var(--muted);font-size:14px;margin-bottom:6px}
+.q{font-size:clamp(22px,2.6vw,30px);line-height:1.2;font-weight:600;margin:0 0 18px;text-wrap:balance}
+.q.hidden{color:transparent;text-shadow:0 0 14px var(--muted)}
+.phase{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:6px 12px;border-radius:999px;background:var(--bg)}
+.lamp{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.on .lamp{background:var(--red);box-shadow:0 0 0 4px color-mix(in srgb,var(--red) 25%,transparent)}
+.on{color:var(--red)}
+.dial{position:relative;aspect-ratio:1;max-width:340px;width:100%;margin:0 auto}
+.dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.dial .t{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.dial .big{font-size:clamp(44px,7vw,72px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.dial .lbl{font-size:14px;color:var(--muted);margin-top:4px}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:inherit;font-weight:600;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+button.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button.rec{background:var(--red);border-color:var(--red);color:#fff}
+button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+button:disabled{opacity:.45;cursor:default}
+.live{margin-top:14px;font-size:15px;color:var(--muted);min-height:1.5em;white-space:pre-wrap}
+.format{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px}
+.format div{border-top:3px solid var(--line);padding-top:8px;font-size:14px}
+.format div.cur{border-color:var(--red)}
+.format b{display:block;font-size:15px}
+.opts{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:16px;font-size:15px}
+label{display:inline-flex;gap:8px;align-items:center}
+select{font:inherit;font-size:16px;min-height:44px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.review article{border-top:1px solid var(--line);padding:18px 0}
+.review h3{margin:0 0 4px;font-size:18px}
+.meta{font-size:14px;color:var(--muted);margin-bottom:8px}
+textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.fb{white-space:pre-wrap;background:var(--plane);border-radius:12px;padding:16px;margin-top:12px;font-size:15px}
+.note{font-size:14px;color:var(--muted);max-width:72ch}
+.tips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tips p{margin:4px 0 0;font-size:15px}
+.cam{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:4/3}
+.cam video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);display:block}
+.cam .badge{position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.6);color:#fff;font-weight:700;padding:6px 12px;border-radius:999px;font-variant-numeric:tabular-nums}
+.cam .badge .lamp{background:#888}.cam.rec .badge .lamp{background:#ff3b30;box-shadow:0 0 0 4px rgba(255,59,48,.35)}
+.cam .off{position:absolute;inset:0;display:grid;place-items:center;color:#ddd;text-align:center;padding:20px;font-size:15px}
+.cam .off[hidden]{display:none}
+.dial.small{max-width:150px;margin-top:14px}.dial.small .big{font-size:34px}
+.review video{width:100%;max-width:560px;border-radius:12px;background:#000;display:block;margin:8px 0}
+.dl{font-weight:600;color:var(--ink)}
+@media(max-width:760px){.booth{grid-template-columns:1fr}.dial{max-width:240px}.format{grid-template-columns:repeat(2,minmax(0,1fr))}.tips{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#arc{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="band">
+  <p style="margin:0 0 14px;font-size:14px"><a href="uoft.html" style="color:var(--muted)">Back to the U of T plan</a></p>
+  <h1>Personal Profile video practice</h1>
+  <p class="sub">Runs the same format as the U of T Engineering Personal Profile: three random questions, 1&nbsp;minute to prepare then 2&nbsp;minutes to answer, 1&nbsp;then&nbsp;3, and 30&nbsp;seconds then&nbsp;3. Your webcam records each answer so you can watch it back. The practice questions are typical of this kind of assessment, not U of T's real ones. Works best in Chrome on a laptop.</p>
+
+  <section class="booth" aria-live="polite">
+    <div>
+      <div class="step" id="step">Ready when you are</div>
+      <p class="q" id="q">Press Start. You will get three random questions, one at a time, with no pause between preparing and answering.</p>
+      <span class="phase" id="phase"><span class="lamp"></span><span id="phaseTxt">Not started</span></span>
+      <div class="ctrls">
+        <button class="rec" id="camBtn">Turn on camera</button>
+        <button class="primary" id="go" disabled>Start practice</button>
+        <button id="skip" disabled>Start answering now</button>
+        <button id="end" disabled>Finish this answer</button>
+      </div>
+      <div class="live" id="live"></div>
+      <div class="opts">
+        <label><input type="checkbox" id="hideQ"> Hide the question until preparation starts</label>
+        <label>Questions from <select id="pool"><option value="all">mixed, like the real one</option><option value="solve">problem-solving and estimation</option><option value="story">experience stories</option><option value="why">motivation and engineering</option><option value="think">thinking on your feet</option></select></label>
+      </div>
+    </div>
+    <div>
+      <div class="cam" id="cam"><video id="preview" autoplay muted playsinline></video><div class="badge"><span class="lamp"></span><span id="badge">Camera off</span></div><div class="off" id="camOff">Press "Turn on camera". Chrome will ask to use the camera and microphone.</div></div>
+      <div class="dial small">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="8"/>
+          <circle id="arc" cx="60" cy="60" r="52" fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="0" style="transition:stroke-dashoffset .9s linear"/>
+        </svg>
+        <div class="t"><div><div class="big" id="clock">0:00</div><div class="lbl" id="clockLbl">waiting</div></div></div>
+      </div>
+      <div class="format" id="format">
+        <div><b>Q1</b>Agree to terms</div>
+        <div><b>Q2</b>1:00 prep · 2:00</div>
+        <div><b>Q3</b>1:00 prep · 3:00</div>
+        <div><b>Q4</b>0:30 prep · 3:00</div>
+      </div>
+    </div>
+  </section>
+  <p class="note" id="micNote">Each answer is recorded on this computer only and is never uploaded. Recordings disappear when you close or reload the page unless you save them with the Save link under each video.</p>
+</div>
+
+<div class="band review" id="review" hidden>
+  <h2>Your answers</h2>
+  <p class="note">Watch each answer once. Check: does the first sentence answer the question, do you look at the camera, do you fill the time, and does the ending say what you learned?</p>
+  <div id="answers"></div>
+  <div class="ctrls"><button class="primary" id="again">Practise again</button></div>
+</div>
+
+<div class="band">
+  <h2>Before the real one</h2>
+  <div class="tips">
+    <div><b>Use the prep minute</b><p>Pick a story, jot three keywords: situation, what you did, what you learned. On Q4 you only get 30 seconds, so know your stories cold.</p></div>
+    <div><b>Problem-solving questions</b><p>There is no single right number. Say your assumptions out loud, break the problem into three steps, name the trade-offs, then give a rough answer and how you would check it.</p></div>
+    <div><b>Fill the time</b><p>Three minutes is long. End with what changed in you and how it connects to engineering, not a trailing "so yeah".</p></div>
+    <div><b>One attempt</b><p>The real assessment starts at "Start Assessment" and can't be paused or retaken. Practise here and on Kira's practice questions first. Use the same laptop, room and lighting you will use for the real one.</p></div>
+  </div>
+</div>
+
+<script>
+{
+const POOL={
+ story:["Tell us about a time you failed at something. What did you do next, and what did you learn?",
+  "Describe a time you worked on a team that wasn't working well. What did you do?",
+  "Tell us about a time you changed your mind because of new information.",
+  "Describe a time you took the lead on something nobody asked you to do.",
+  "Tell us about a time you received criticism. How did you respond?",
+  "Describe a time you helped someone learn something difficult.",
+  "Tell us about a time you had to balance several commitments at once. What gave way?",
+  "Describe a mistake you made that other people could see. How did you handle it?"],
+ why:["Why do you want to study engineering, and why at U of T?",
+  "Which engineering program did you rank first, and what do you hope to do with it?",
+  "Describe a problem in your community you would like to solve with engineering.",
+  "What does a good engineer do that a good scientist might not?",
+  "Tell us about something you built or made. What would you change if you did it again?",
+  "Where do you see yourself after your degree, and how does PEY Co-op fit in?"],
+ solve:["Two hundred people are on the first floor of a high-rise, and one elevator with a 1,000 kg capacity must move everyone to the 50th floor as fast as possible. What are the three most important pieces of information you need, and how would you use them?",
+  "Describe a three-step process to estimate the number of elementary schools in a city of 5 million people.",
+  "Describe a three-step process to estimate the number of gas stations in a city of 5 million people.",
+  "What are the three most important factors when testing a new material for solar panels, and how would you build them into an experiment?",
+  "How would you work out how much fuel a truck full of cargo needs to cross a long route? Which variables matter most, and how would you estimate them?",
+  "Should there be a cap on the rent charged in large cities? Explain your reasoning and the trade-offs.",
+  "Estimate how much water your town uses in a day. Walk through your assumptions.",
+  "A city wants to cut traffic downtown by 20 percent. What three pieces of information would you collect first, and what options would you compare?"],
+ think:["You discover a teammate copied part of a group assignment. What do you do?",
+  "If you could change one thing about how your high school teaches math or science, what would it be?",
+  "A decision has to be made today, but you only have half the information. How do you decide?",
+  "What is a technology that has made life worse for some people? What would you do about it?",
+  "Describe something you believe that most of your friends don't.",
+  "How do you decide when a piece of work is good enough to hand in?"]};
+const SLOTS=[{n:2,prep:60,ans:120},{n:3,prep:60,ans:180},{n:4,prep:30,ans:180}];
+const $=id=>document.getElementById(id);
+const C=2*Math.PI*52;
+let qs=[],i=-1,phase="idle",left=0,total=1,tick=null,dict=null,listening=false,sampler=null,actx=null,startAns=0;
+let records=[];
+
+let stream=null,recorder=null,chunks=[],mime="";
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let sr=null;
+$("camBtn").addEventListener("click",async()=>{
+ try{stream=await navigator.mediaDevices.getUserMedia({video:{width:1280,height:720},audio:true});
+  $("preview").srcObject=stream;$("camOff").hidden=true;$("badge").textContent="Camera on";$("camBtn").hidden=true;$("go").disabled=false;
+  mime=["video/webm;codecs=vp9,opus","video/webm","video/mp4"].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||"";
+ }catch(e){$("camOff").textContent="The camera couldn't start ("+(e.name||"error")+"). Allow camera and microphone for this file in Chrome's address bar, close other apps using the camera (Zoom, Teams), and try again."}});
+function recStart(){chunks=[];try{recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.start(1000)}catch(e){recorder=null}
+ $("cam").classList.add("rec");$("badge").textContent="REC";
+ if(SR){try{sr=new SR();sr.continuous=true;sr.interimResults=true;sr.lang="en-US";const r=records[i];let fin="";
+  sr.onresult=ev=>{let interim="";for(let k=ev.resultIndex;k<ev.results.length;k++){const t=ev.results[k][0].transcript;if(ev.results[k].isFinal)fin+=t+" ";else interim+=t}r.text=fin.trim();$("live").textContent=(fin+interim).trim()};
+  sr.onend=()=>{if(phase==="answer"){try{sr.start()}catch(e){}}};sr.start()}catch(e){sr=null}}}
+function recStop(){return new Promise(res=>{$("cam").classList.remove("rec");$("badge").textContent="Camera on";if(sr){const x=sr;sr=null;x.onend=null;try{x.stop()}catch(e){}}
+ if(!recorder||recorder.state==="inactive")return res(null);const r=recorder;r.onstop=()=>res(new Blob(chunks,{type:r.mimeType||"video/webm"}));r.stop()})}
+function shuf(x){const a=[...x];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function pick(){const key=$("pool").value;
+ if(key!=="all")return shuf(POOL[key]).slice(0,3);
+ const one=shuf(POOL.solve)[0],two=shuf([...POOL.story,...POOL.why])[0],three=shuf([...POOL.story,...POOL.why,...POOL.think,...POOL.solve].filter(q=>q!==one&&q!==two))[0];
+ return shuf([one,two,three])}
+const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+function beep(f){try{if(!actx)return;const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=f;g.gain.value=.08;o.connect(g).connect(actx.destination);o.start();o.stop(actx.currentTime+.18)}catch(e){}}
+function draw(){$("clock").textContent=fmt(Math.max(0,left));$("arc").style.strokeDashoffset=String(C*(1-left/total));
+ $("arc").style.stroke=phase==="answer"?"var(--red)":"var(--ink)";$("arc").style.opacity=left>0?"1":"0"}
+function setPhase(p,txt){phase=p;$("phaseTxt").textContent=txt;$("phase").classList.toggle("on",p==="answer");
+ [...$("format").children].forEach((el,k)=>el.classList.toggle("cur",i>=0&&k===i+1))}
+function run(sec,label,done){clearInterval(tick);left=sec;total=sec;$("clockLbl").textContent=label;draw();
+ tick=setInterval(()=>{left--;draw();if(left<=0){clearInterval(tick);done()}},1000)}
+
+function prep(){const s=SLOTS[i];$("step").textContent="Question "+s.n+" of 4";$("q").textContent=qs[i];$("q").classList.remove("hidden");
+ records[i]={q:qs[i],slot:s,text:"",used:0};$("live").textContent="";
+ setPhase("prep","Preparing: "+fmt(s.prep));$("skip").disabled=false;$("end").disabled=true;beep(660);
+ run(s.prep,"to prepare",answer)}
+function answer(){const s=SLOTS[i];setPhase("answer","Recording: answer now");$("skip").disabled=true;$("end").disabled=false;beep(880);
+ startAns=Date.now();recStart();run(s.ans,"to answer",finish)}
+async function finish(){clearInterval(tick);const cur=i;if(records[cur])records[cur].used=Math.min(SLOTS[cur].ans,Math.round((Date.now()-startAns)/1000));phase="saving";$("end").disabled=true;beep(440);
+ const blob=await recStop();if(records[cur]&&blob)records[cur].video=URL.createObjectURL(blob);
+ if(i<2){i++;$("step").textContent="Next question";setPhase("gap","Next question starts in 3 seconds");$("end").disabled=true;
+  if($("hideQ").checked){$("q").classList.add("hidden");$("q").textContent=qs[i]}else $("q").textContent=qs[i];
+  run(3,"get ready",prep)}else done()}
+async function done(){setPhase("idle","Finished");$("step").textContent="All three answered";$("q").textContent="Review your answers below.";
+ $("skip").disabled=true;$("end").disabled=true;$("go").disabled=false;$("go").textContent="Start a new practice";left=0;total=1;draw();$("clockLbl").textContent="done";
+ showReview()}
+
+$("go").addEventListener("click",()=>{
+ try{actx=actx||new (window.AudioContext||window.webkitAudioContext)()}catch(e){}
+ if(!stream)return;
+ qs=pick();i=0;records=[];records.forEach(r=>r.video&&URL.revokeObjectURL(r.video));$("review").hidden=true;$("go").disabled=true;
+ $("step").textContent="Question 1 of 4: agree to the terms";$("q").textContent="In the real assessment you first confirm the terms. Your first question appears in 3 seconds.";
+ setPhase("gap","Starting");run(3,"get ready",prep)});
+$("skip").addEventListener("click",()=>{if(phase==="prep"){clearInterval(tick);answer()}});
+$("end").addEventListener("click",()=>{if(phase==="answer")finish()});
+$("again").addEventListener("click",()=>{$("go").click();window.scrollTo({top:0,behavior:"smooth"})});
+
+function showReview(){const box=$("answers");box.textContent="";
+ records.forEach((r,k)=>{const a=document.createElement("article");
+  const h=document.createElement("h3");h.textContent="Question "+r.slot.n+": "+r.q;
+  const m=document.createElement("div");m.className="meta";const words=r.text.trim()?r.text.trim().split(/\s+/).length:0;
+  m.textContent="Spoke for "+fmt(r.used)+" of "+fmt(r.slot.ans)+(words?" · about "+words+" words ("+Math.round(words/Math.max(r.used,1)*60)+" per minute)":"");
+  if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download="profile-practice-Q"+r.slot.n+".webm";dl.textContent="Save this video";a.append(h,m,v,dl)}else a.append(h,m);
+  if(r.text){const t=document.createElement("p");t.className="note";t.textContent="Transcript: "+r.text;a.append(t)}
+  box.append(a)});
+ $("review").hidden=false;
+}
+
+draw();
+}
+</script>
+</body>
+</html>

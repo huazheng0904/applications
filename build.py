@@ -73,6 +73,8 @@ def section(s, slug, n):
         out += '<ul class="todo">' + ''.join(
             f'<li><input type="checkbox" id="{slug}-{n}-{i}"><label for="{slug}-{n}-{i}">{e(x)}</label></li>'
             for i, x in enumerate(s['check'])) + '</ul>\n<p class="note">Ticks are saved in this browser only.</p>\n'
+    if 'link' in s:
+        out += f'<p class="pdf-link"><a class="go" href="{e(s["link"][1])}">{e(s["link"][0])}</a></p>\n'
     if 'warn' in s:
         out += f'<p class="warn">{e(s["warn"])}</p>\n'
     if 'note' in s:
