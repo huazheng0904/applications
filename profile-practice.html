@@ -173,10 +173,15 @@ let records=[];
 let stream=null,recorder=null,chunks=[],mime="";
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let sr=null;
 $("camBtn").addEventListener("click",async()=>{
- try{stream=await navigator.mediaDevices.getUserMedia({video:{width:1280,height:720},audio:true});
-  $("preview").srcObject=stream;$("camOff").hidden=true;$("badge").textContent="Camera on";$("camBtn").hidden=true;$("go").disabled=false;
+ const off=$("camOff");off.hidden=false;
+ if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){off.textContent="This browser can't use the camera here. Open the page in Chrome at https://huazheng0904.github.io/applications/profile-practice.html";return}
+ if(!window.MediaRecorder){off.textContent="This browser can show the camera but can't record. Please use Chrome.";}
+ off.textContent="Starting camera… If Chrome shows a prompt near the address bar, click Allow.";
+ const slow=setTimeout(()=>{if(!stream)off.textContent="Still waiting for the camera. Look for a camera icon or prompt in Chrome's address bar and choose Allow. On a Mac, also check System Settings → Privacy & Security → Camera and Microphone → Google Chrome on."},8000);
+ try{stream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:1280},height:{ideal:720}},audio:true});clearTimeout(slow);
+  $("preview").srcObject=stream;$("preview").play().catch(()=>{});$("camOff").hidden=true;$("badge").textContent="Camera on";$("camBtn").hidden=true;$("go").disabled=false;
   mime=["video/webm;codecs=vp9,opus","video/webm","video/mp4"].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||"";
- }catch(e){$("camOff").textContent="The camera couldn't start ("+(e.name||"error")+"). Allow camera and microphone for this file in Chrome's address bar, close other apps using the camera (Zoom, Teams), and try again."}});
+ }catch(e){clearTimeout(slow);const why={NotAllowedError:"Permission was blocked. Click the camera icon left of the address, set Camera and Microphone to Allow, then reload.",NotFoundError:"No camera or microphone was found.",NotReadableError:"Another app is using the camera. Close Zoom, Teams, FaceTime or Photo Booth and try again.",OverconstrainedError:"The camera doesn't support this setting."}[e.name]||"";$("camOff").textContent="The camera couldn't start ("+(e.name||"error")+"). "+why}});
 function recStart(){chunks=[];try{recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.start(1000)}catch(e){recorder=null}
  $("cam").classList.add("rec");$("badge").textContent="REC";
  if(SR){try{sr=new SR();sr.continuous=true;sr.interimResults=true;sr.lang="en-US";const r=records[i];let fin="";
