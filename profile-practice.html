@@ -189,13 +189,21 @@ $("camBtn").addEventListener("click",async()=>{
   $("preview").srcObject=stream;$("preview").play().catch(()=>{});$("camOff").hidden=true;$("badge").textContent="Camera on";$("camBtn").hidden=true;$("go").disabled=false;
   mime=["video/webm;codecs=vp9,opus","video/webm","video/mp4"].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||"";
  }catch(e){clearTimeout(slow);const why={NotAllowedError:"Permission was blocked. Click the camera icon left of the address, set Camera and Microphone to Allow, then reload.",NotFoundError:"No camera or microphone was found.",NotReadableError:"Another app is using the camera. Close Zoom, Teams, FaceTime or Photo Booth and try again.",OverconstrainedError:"The camera doesn't support this setting."}[e.name]||"";$("camOff").textContent="The camera couldn't start ("+(e.name||"error")+"). "+why}});
+let srActive=false,srOn=false,graceIdx=-1,graceUntil=0,ansIdx=-1;
+function srTarget(){if(phase==="answer"&&records[i])return records[i];if(Date.now()<graceUntil&&records[graceIdx])return records[graceIdx];return null}
+function srStart(){if(!SR)return;srActive=true;if(!sr){sr=new SR();sr.continuous=true;sr.interimResults=true;sr.lang="en-US";
+ sr.onresult=ev=>{const r=srTarget();if(!r)return;let interim="";for(let k=ev.resultIndex;k<ev.results.length;k++){const t=ev.results[k][0].transcript;
+   if(ev.results[k].isFinal){r.text=((r.text||"")+" "+t).trim();saveLog()}else interim+=t}
+  if(phase==="answer"&&r===records[i])$("live").textContent=((r.text||"")+" "+interim).trim()};
+ sr.onstart=()=>{srOn=true};
+ sr.onerror=ev=>{if(ev.error==="not-allowed"||ev.error==="service-not-allowed"){srActive=false;srOn=false;$("live").textContent="Transcription is blocked: allow the microphone for this site in Chrome."}};
+ sr.onend=()=>{srOn=false;if(srActive)setTimeout(()=>{if(srActive){try{sr.start()}catch(e){}}},300)}}
+ try{sr.start()}catch(e){}}
+function srStop(){srActive=false;if(sr){try{sr.stop()}catch(e){}}}
 function recStart(){chunks=[];try{recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.start(1000)}catch(e){recorder=null}
  $("cam").classList.add("rec");$("badge").textContent="REC";
- if(SR){try{sr=new SR();sr.continuous=true;sr.interimResults=true;sr.lang="en-US";const r=records[i];let fin="";
-  sr.onresult=ev=>{let interim="";for(let k=ev.resultIndex;k<ev.results.length;k++){const t=ev.results[k][0].transcript;if(ev.results[k].isFinal)fin+=t+" ";else interim+=t}r.text=fin.trim();$("live").textContent=(fin+interim).trim();if(interim==="")saveLog()};
-  sr.onerror=ev=>{if(ev.error==="not-allowed"||ev.error==="service-not-allowed"){$("live").textContent="Transcription is blocked: allow the microphone for this site in Chrome.";sr.onend=null}};
-  sr.onend=()=>{if(phase==="answer"){try{sr.start()}catch(e){}}};sr.start();$("live").textContent="Listening… your words will appear here."}catch(e){sr=null}}}
-function recStop(){return new Promise(res=>{$("cam").classList.remove("rec");$("badge").textContent="Camera on";if(sr){const x=sr;sr=null;x.onend=null;try{x.stop()}catch(e){}}
+ $("live").textContent=SR?(srOn?"Listening… your words will appear here.":"Transcription isn't running. Allow the microphone for this site in Chrome."):"";}
+function recStop(){return new Promise(res=>{$("cam").classList.remove("rec");$("badge").textContent="Camera on";graceIdx=i;graceUntil=Date.now()+2500;
  if(!recorder||recorder.state==="inactive")return res(null);const r=recorder;r.onstop=()=>res(new Blob(chunks,{type:r.mimeType||"video/webm"}));r.stop()})}
 function shuf(x){const a=[...x];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
 function pick(){const key=$("pool").value;
@@ -222,14 +230,14 @@ async function finish(){clearInterval(tick);const cur=i;if(records[cur])records[
  if(i<2){i++;$("step").textContent="Next question";setPhase("gap","Next question starts in 3 seconds");$("end").disabled=true;
   if($("hideQ").checked){$("q").classList.add("hidden");$("q").textContent=qs[i]}else $("q").textContent=qs[i];
   run(3,"get ready",prep)}else done()}
-async function done(){setPhase("idle","Finished");$("step").textContent="All three answered";$("q").textContent="Review your answers below.";
+async function done(){setTimeout(srStop,2600);setPhase("idle","Finished");$("step").textContent="All three answered";$("q").textContent="Review your answers below.";
  $("skip").disabled=true;$("end").disabled=true;$("go").disabled=false;$("go").textContent="Start a new practice";left=0;total=1;draw();$("clockLbl").textContent="done";
- showReview()}
+ $("clockLbl").textContent="saving";await new Promise(r=>setTimeout(r,1800));$("clockLbl").textContent="done";showReview()}
 
 $("go").addEventListener("click",()=>{
  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)()}catch(e){}
  if(!stream)return;
- records.forEach(r=>r.video&&URL.revokeObjectURL(r.video));qs=pick();i=0;records=[];sessionId=String(Date.now());sessionAt=new Date().toISOString();$("review").hidden=true;$("go").disabled=true;
+ records.forEach(r=>r.video&&URL.revokeObjectURL(r.video));qs=pick();i=0;records=[];sessionId=String(Date.now());sessionAt=new Date().toISOString();srStart();$("review").hidden=true;$("go").disabled=true;
  $("step").textContent="Question 1 of 4: agree to the terms";$("q").textContent="In the real assessment you first confirm the terms. Your first question appears in 3 seconds.";
  setPhase("gap","Starting");run(3,"get ready",prep)});
 $("skip").addEventListener("click",()=>{if(phase==="prep"){clearInterval(tick);answer()}});
