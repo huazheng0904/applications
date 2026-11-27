@@ -202,7 +202,7 @@ function srStart(){if(!SR)return;srActive=true;if(!sr){sr=new SR();sr.continuous
 function srStop(){srActive=false;if(sr){try{sr.stop()}catch(e){}}}
 function recStart(){chunks=[];try{recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.start(1000)}catch(e){recorder=null}
  $("cam").classList.add("rec");$("badge").textContent="REC";
- $("live").textContent=SR?(srOn?"Listening… your words will appear here.":"Transcription isn't running. Allow the microphone for this site in Chrome."):"";}
+ $("live").textContent=SR?(srActive?"Listening… your words will appear here.":"Transcription isn't running. Allow the microphone for this site in Chrome."):"";}
 function recStop(){return new Promise(res=>{$("cam").classList.remove("rec");$("badge").textContent="Camera on";graceIdx=i;graceUntil=Date.now()+2500;
  if(!recorder||recorder.state==="inactive")return res(null);const r=recorder;r.onstop=()=>res(new Blob(chunks,{type:r.mimeType||"video/webm"}));r.stop()})}
 function shuf(x){const a=[...x];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
