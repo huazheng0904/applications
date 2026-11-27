@@ -89,7 +89,7 @@ textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;bo
         <button id="skip" disabled>Start answering now</button>
         <button id="end" disabled>Finish this answer</button>
       </div>
-      <div class="live" id="live"></div>
+      <div class="live" id="live" aria-label="Live transcript"></div>
       <div class="opts">
         <label><input type="checkbox" id="hideQ"> Hide the question until preparation starts</label>
         <label>Questions from <select id="pool"><option value="all">mixed, like the real one</option><option value="solve">problem-solving and estimation</option><option value="story">experience stories</option><option value="why">motivation and engineering</option><option value="think">thinking on your feet</option></select></label>
@@ -112,14 +112,14 @@ textarea{width:100%;min-height:120px;font:inherit;font-size:16px;padding:10px;bo
       </div>
     </div>
   </section>
-  <p class="note" id="micNote">Each answer is recorded on this computer only and is never uploaded. Recordings disappear when you close or reload the page, so save the ones you want: there is a Save link under each video and a Save all button.</p>
+  <p class="note" id="micNote">Each answer is recorded on this computer, and in Chrome your words are transcribed automatically as you speak. Videos are never uploaded; Chrome's speech service processes the audio for the transcript. Recordings disappear when you close or reload the page, so save the ones you want: there is a Save link under each video and a Save all button.</p>
 </div>
 
 <div class="band review" id="review" hidden>
   <h2>Your answers</h2>
   <p class="note">Watch each answer once. Check: does the first sentence answer the question, do you look at the camera, do you fill the time, and does the ending say what you learned?</p>
   <div id="answers"></div>
-  <div class="ctrls"><button class="rec" id="saveAll">Save all three (one .zip)</button><button class="primary" id="again">Practise again</button></div>
+  <div class="ctrls"><button class="rec" id="saveAll">Save all three (one .zip)</button><button id="copyT">Copy all transcripts</button><button class="primary" id="again">Practise again</button></div>
   <p class="note">All three videos save together as one .zip file in the Downloads folder; double-click it to unzip. Save before starting a new practice or closing the page: unsaved videos are lost.</p>
 </div>
 
@@ -186,7 +186,8 @@ function recStart(){chunks=[];try{recorder=new MediaRecorder(stream,mime?{mimeTy
  $("cam").classList.add("rec");$("badge").textContent="REC";
  if(SR){try{sr=new SR();sr.continuous=true;sr.interimResults=true;sr.lang="en-US";const r=records[i];let fin="";
   sr.onresult=ev=>{let interim="";for(let k=ev.resultIndex;k<ev.results.length;k++){const t=ev.results[k][0].transcript;if(ev.results[k].isFinal)fin+=t+" ";else interim+=t}r.text=fin.trim();$("live").textContent=(fin+interim).trim()};
-  sr.onend=()=>{if(phase==="answer"){try{sr.start()}catch(e){}}};sr.start()}catch(e){sr=null}}}
+  sr.onerror=ev=>{if(ev.error==="not-allowed"||ev.error==="service-not-allowed"){$("live").textContent="Transcription is blocked: allow the microphone for this site in Chrome.";sr.onend=null}};
+  sr.onend=()=>{if(phase==="answer"){try{sr.start()}catch(e){}}};sr.start();$("live").textContent="Listening… your words will appear here."}catch(e){sr=null}}}
 function recStop(){return new Promise(res=>{$("cam").classList.remove("rec");$("badge").textContent="Camera on";if(sr){const x=sr;sr=null;x.onend=null;try{x.stop()}catch(e){}}
  if(!recorder||recorder.state==="inactive")return res(null);const r=recorder;r.onstop=()=>res(new Blob(chunks,{type:r.mimeType||"video/webm"}));r.stop()})}
 function shuf(x){const a=[...x];for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
@@ -227,15 +228,18 @@ $("go").addEventListener("click",()=>{
 $("skip").addEventListener("click",()=>{if(phase==="prep"){clearInterval(tick);answer()}});
 $("end").addEventListener("click",()=>{if(phase==="answer")finish()});
 $("saveAll").addEventListener("click",saveAll);
+$("copyT").addEventListener("click",copyT);
 $("again").addEventListener("click",()=>{$("go").click();window.scrollTo({top:0,behavior:"smooth"})});
 
 function fname(r){const d=new Date(),p=n=>String(n).padStart(2,"0");const ext=(mime||"").includes("mp4")?"mp4":"webm";
  return "personal-profile-"+d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes())+"-Q"+r.slot.n+"."+ext}
 function dl(href,name){const a=document.createElement("a");a.href=href;a.download=name;document.body.append(a);a.click();a.remove()}
+function allText(){return records.map(r=>"Question "+r.slot.n+" ("+fmt(r.used)+" of "+fmt(r.slot.ans)+"): "+r.q+"\n"+(r.text&&r.text.trim()?r.text.trim():"[no transcript]")).join("\n\n")}
+async function copyT(){const b=$("copyT");try{await navigator.clipboard.writeText(allText());b.textContent="Copied: paste into Claude for feedback"}catch(e){const ta=document.createElement("textarea");ta.value=allText();document.body.append(ta);ta.select();try{document.execCommand("copy");b.textContent="Copied"}catch(x){b.textContent="Copy failed: select the text and copy"}ta.remove()}}
 async function saveAll(){const have=records.filter(r=>r.blob&&r.blob.size);const btn=$("saveAll");
  if(!have.length){btn.textContent="No videos to save";return}
  if(window.JSZip){btn.disabled=true;btn.textContent="Packing videos…";
-  try{const z=new JSZip();have.forEach(r=>z.file(fname(r),r.blob));const out=await z.generateAsync({type:"blob",compression:"STORE"});
+  try{const z=new JSZip();have.forEach(r=>z.file(fname(r),r.blob));z.file(fname(have[0]).replace(/-Q\d+\.\w+$/,"-transcripts.txt"),allText());const out=await z.generateAsync({type:"blob",compression:"STORE"});
    const u=URL.createObjectURL(out);dl(u,fname(have[0]).replace(/-Q\d+\.\w+$/,"-all.zip"));setTimeout(()=>URL.revokeObjectURL(u),60000);btn.textContent="Saved as one .zip file"}
   catch(e){have.forEach((r,k)=>setTimeout(()=>dl(r.video,fname(r)),k*700));btn.textContent="Saved (separate files)"}
   finally{btn.disabled=false}}
@@ -246,7 +250,8 @@ function showReview(){const box=$("answers");box.textContent="";
   const m=document.createElement("div");m.className="meta";const words=r.text.trim()?r.text.trim().split(/\s+/).length:0;
   m.textContent="Spoke for "+fmt(r.used)+" of "+fmt(r.slot.ans)+(words?" · about "+words+" words ("+Math.round(words/Math.max(r.used,1)*60)+" per minute)":"");
   if(r.video){const v=document.createElement("video");v.controls=true;v.src=r.video;v.playsInline=true;const dl=document.createElement("a");dl.className="dl";dl.href=r.video;dl.download=fname(r);dl.textContent="Save this video";a.append(h,m,v,dl)}else{const w=document.createElement("p");w.className="warn";w.textContent="This answer was not recorded. Check that no other app is using the camera, then practise again.";a.append(h,m,w)}
-  if(r.text){const t=document.createElement("p");t.className="note";t.textContent="Transcript: "+r.text;a.append(t)}
+  const tl=document.createElement("div");tl.className="meta";tl.textContent=SR?"Transcript (automatic, may mis-hear words: fix them here)":"Transcript (automatic transcription needs Chrome; type a summary here)";
+  const t=document.createElement("textarea");t.value=r.text||"";t.setAttribute("aria-label","Transcript for question "+r.slot.n);t.addEventListener("input",()=>{r.text=t.value});a.append(tl,t);
   box.append(a)});
  $("review").hidden=false;
 }
